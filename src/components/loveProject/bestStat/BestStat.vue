@@ -1,0 +1,31 @@
+<template>
+    <div class ="bestStat">
+        <div class="bsBlueBand"><div class="bsBlueBand1"></div><div></div></div>
+            <div class="bsYellowBand"></div>
+        <div class="bsHeader">
+            <div class="bsWinner"><img src="./winner.svg"/></div><div>The Best</div>
+        </div>
+        <div class="bsBody">
+            <div class="bsUseless">
+                <div class="bsLogo">SlogoLove</div>
+                <div class="bsThreeButton">
+                    <div class="bsTFirst">i made it</div>
+                    <div>just for you</div>
+                    <div>my dear love</div>
+                </div>
+            </div>
+            <div class="bsStats">
+                   <div><LProfileCard/></div>
+                   <div><LProfileCard/></div>
+                   <div><LProfileCard/></div>
+            </div>
+            <div class="bsBottom">
+                <Slider tsRotate="rotate(180deg)" vopacity="0.5" style="margin-right:1px" /><Slider/>
+            </div>
+        </div>
+    </div>
+</template>
+<style src="./bestStat.css">
+</style>
+<script src="./bestStat.js">
+</script>

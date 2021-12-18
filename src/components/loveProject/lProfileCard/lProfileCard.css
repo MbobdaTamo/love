@@ -1,0 +1,140 @@
+.lProfileCard {
+width: 280px;
+background-color: #254150;
+font-size: 12px;  
+color:white;
+font-family: "core_sans_regular", Arial, Helvetica, sans-serif; 
+display: flex;
+flex-direction: column;
+border-radius: 0.2em;
+}
+.lpcHeader {
+  position:relative;
+  background-color:#10202A;
+  border: solid 1px #10202A;
+}
+.lpcProfile {
+  position:absolute;
+  left: 50%;
+  top:50%;
+  margin-top: -46px;
+  margin-left: -46px;
+  border-radius: 5em;
+  width: 85px;
+  height:85px;
+  border:solid 7px white;
+  background-color:wheat;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+.lpcProfile img {
+  width: 64px;
+}
+.lpcProfileShadow {
+  position:absolute;
+  left: 50%;
+  top:50%;
+  margin-top: -46px;
+  margin-left: -46px;
+  border-radius: 5em;
+  width: 100px;
+  height:100px;
+  transition: background-color 0.2s;
+}
+
+.lpcType, .lpcFlag {
+  height: 50px;
+}
+.lpcType {
+  padding-left: 10px;
+  padding-top: 10px;
+  text-align: justify;
+}
+.lpcFlag {
+  display: flex;
+  justify-content: right;
+  align-items:center;
+  padding-right: 12px;
+  font-size: 38px;  
+}
+.lpcFlag + div {
+  height: 60px;
+  background-color: white;
+  background-image: url('rayureLaliga.png');  
+}
+
+.lpcTitle {
+  font-weight: bold;
+  display: flex;
+  padding: 10px;
+  font-size: 15px;
+}
+.lpcTitle > div {
+  width: 50%;
+}
+.lpcName{
+  text-align: justify;
+}
+.lpcName + div {
+  text-align: right;
+}
+.lpcTotal {
+  color: #92D1D3;
+  margin-right: 10px;
+}
+.lpcElements {
+  background-color: #254150
+}
+.lpcElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  padding: 5px;
+  color: #92D1D3; 
+}
+.lpcRanking {
+  padding-left:10px ;
+  margin-right:25px ;
+  font-size: 13px;
+}
+.lpcRanking + div{
+  margin-right: 25px;
+}
+.lpcRanking + div img {
+  width: 23px;
+}
+.lpcRanking + div +div   {
+  width: 100%;
+  color:white;
+  text-align: justify;
+} 
+.lpcRanking + div +div +div {
+  padding-right: 5px;
+  font-size: 13px;
+}
+
+.lpcMore {
+  color: #92D1D3; 
+  border:solid 1px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 11px;
+  margin-top: 15px;
+  border-radius: 0.3em;
+  transition: background-color 0.2s;
+}
+
+/* on hover */
+.lpcProfileShadow:hover {
+  background-color: rgba(50,50,50, 0.4);
+  cursor: pointer;
+}
+.lpcMore:hover {
+  background-color: #92D1D3; 
+  color:#182c38;
+  border-color: #92D1D3;
+  cursor: pointer;
+}

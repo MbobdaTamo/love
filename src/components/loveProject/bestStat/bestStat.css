@@ -1,0 +1,112 @@
+.bestStat {
+    width: 100%;
+    font-size: 15px
+}
+.bsHeader {
+    background-color:#E32D38;
+    font-size: 27px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+.bsBlueBand {
+    height: 55px;
+    background-color: #2057AA;
+    display: flex;
+    margin-bottom: 10px;
+}
+.bsBlueBand1{
+    background-color: #0077C8;
+    width: 70%;
+}
+.bsBlueBand1 +div {
+    width: 30%;
+}
+.bsYellowBand {
+    height: 55px;
+    width: 40%;
+    background-color: #F6BE0D;
+    margin-bottom: 10px;
+}
+.bsWinner {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.bsBody {
+    display: flex;
+    flex-direction: column;
+    background-color: #254150;
+    padding: 20px;
+    display: flex;
+}
+.bsUseless {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+}
+.bsLogo {
+    width: 60%;
+    font-weight: bold;
+    text-align: justify;
+    padding-left: 20px;
+    font-size: 17px;
+}
+.bsThreeButton {
+    display: flex;
+    width: 40%;
+}
+.bsThreeButton > div {
+    width: 33.333%;
+    height: 26px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.bsTFirst {
+    background-color: #E32D38;
+    border: solid 1px #E32D38;  
+}
+.bsTFirst + div {
+    border: solid 1px white;
+}
+.bsTFirst + div + div {
+    border: solid 1px white;
+}
+
+.bsStats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bsStats  > div {
+    margin: 15px;   
+}
+
+.bsBottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* hover fucking effects */
+.bsTFirst {
+    cursor: pointer;
+}
+.bsTFirst + div:hover {
+    background-color: #0077C8;
+    border-color: #0077C8;
+    cursor:pointer;
+}
+.bsTFirst + div + div:hover {
+    background-color: #00BF88;
+    border-color: #00BF88;
+    cursor: pointer;
+}
