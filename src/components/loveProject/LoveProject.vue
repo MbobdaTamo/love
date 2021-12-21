@@ -2,14 +2,20 @@
 <section class="main">
         <LNavBar style="z-index:3"/>
         <LPublication1 publication_type="Datascience"/>
+        <div class="publish">
+                <div class="lraMore">
+                        PUBLIER SON ARTICLE
+                </div>
+        </div>
+        <h2>News</h2>
         <div class="pubClass" style="z-index:1">
                 <div class="publications">
                         <div><LPublication publication_type="Football"/></div>
                         <div><LPublication publication_type="Tenis"/></div>
                         <div><LPublication publication_type="Basket"/></div>
-                        <div><LPublication publication_type="i love sex"/></div>
                 </div>
                 <div class="sliderClass">
+                        <div class="seeAll">SEE ALL NEWS</div>
                         <Slider tsRotate="rotate(180deg)" vopacity="0.5" style="margin-right:1px" /><Slider/>
                 </div>
                 <div class="secondZone">
@@ -17,7 +23,7 @@
                                 <div class="secondVoid"></div>
                                 <div><BestStat/></div>
                         </div>
-                        <div><LRanking/></div>
+                        <div><LRanking/><img src="./card.png"/></div>
                 </div>
         </div>
         <div class="prefooter1">

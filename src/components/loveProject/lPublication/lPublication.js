@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      vtext_height: '20px',
+      vtext_height: '60px',
       vplus_transform: 'rotate(0deg)',
       full_text_visible: false,
       star_colors: [{ color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }],
@@ -58,7 +58,7 @@ export default {
         this.vtext_height = '500px'
         this.vplus_transform = 'rotate(45deg)'
       } else {
-        this.vtext_height = '20px'
+        this.vtext_height = '60px'
         this.vplus_transform = 'rotate(90deg)'
       }
       this.full_text_visible = !this.full_text_visible

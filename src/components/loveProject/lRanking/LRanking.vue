@@ -19,7 +19,7 @@
             <div class="lraElement" :style="{backgroundColor:bgColor(index), borderColor:bdColor(index)}">
                 <div class="lraRanking">{{ index+1 }}</div>
                 <div><img src='./profile.svg'/></div>
-                <div>NAMEFIELD</div>
+                <div>Name Field</div>
                 <div>30</div>
                 <div>60</div>
             </div>

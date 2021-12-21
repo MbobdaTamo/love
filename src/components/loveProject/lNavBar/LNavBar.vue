@@ -1,23 +1,23 @@
 <template>
     <div class="lNavBar">
       <div class="lnavWhite">
-        <div class="lnavSign">Sign Up</div>
-        <select><option>English</option><option>Francais</option></select>
-        <div>Log in</div>
+        <div class="lnavSign"><div>Sign Up</div></div>
+        <div><LDropDown/></div>
+        <div><img src="./profile_black.svg"/>Log in</div>
       </div>
       <div class="navCollapse">
         <div class="navLeftElment">
           <div><ButtonA1 message="Videos"/></div>
           <div><ButtonA11 message="News"/></div>
           <div><ButtonA12 message="Statistics"/></div>
-          <div><ButtonA13 message="Photo"/></div>
+          <div><ButtonA13 message="Photos"/></div>
         </div>
-        <div class="navLogo"><img src="./serena.png"/></div>
+        <div class="navLogo"><img src=""/></div>
        <div class="navR">
           <div><ButtonA1 message="Videos"/></div>
           <div><ButtonA11 message="News"/></div>
           <div><ButtonA12 message="Statistics"/></div>
-          <div><ButtonA13 message="Photo Galleries"/></div>
+          <div><ButtonA13 message="Photos"/></div>
         </div>
       </div>
       <div class="navRemains">
@@ -28,7 +28,7 @@
             <div><img src="./logo.png"/></div>
         </div>
         <div class="navBar2right">
-          <div class="navLeng">
+          <div class="navLang">
             <LDropDown/>
           </div>
           <div class="navProfile">

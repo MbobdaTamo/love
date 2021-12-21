@@ -1,16 +1,15 @@
 .lPublication {
   width: 100%;
-  color: black;
-  background-color: rgba(255,255,255,0.7);
+  background-color: #F5F5F6;
   overflow: hidden;
+  color: rgb(40, 40, 40)
 }
 .lPType {
   font-size: 13px;
   font-family: "core_sans_regular", Arial, Helvetica, sans-serif;;
   background-color: #E32D38;
   color:white;
-  padding: 4px;
-  font-weight: bold;
+  padding: 3px;
 }
 .lPImg {
   overflow: hidden;
@@ -27,7 +26,6 @@
   margin-top: 10px;
 }
 .lPDate span {
-  font-size: 15px;
   color: #E32D38;
   font-weight: bold;
 }
@@ -40,6 +38,7 @@
   margin-left:4px;
 }
 .lPTitle {
+  width: 70%;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 16px;
@@ -47,29 +46,32 @@
   text-align: justify;
   margin-top: 8px;
   margin-bottom: 8px;
+  line-height: 19px;
 }
 .lPText {
   padding-left: 20px;
   padding-right: 20px;
   text-align: justify;
   font-size: 14px;
-  max-height: 40px;
+  width: 80%;
   transition: max-height 0.5s;
   overflow: hidden;
 }
 .lPMore {
   margin-top: 15px;
-  margin-bottom: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .lPMore div {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   background-image: url('./images/more.svg');
   background-repeat: no-repeat;
+  background-size: 60%;
   background-position: center;
+  border-radius: 3em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 
@@ -84,14 +86,26 @@
   display: flex;
   align-items: center;
   width: 33.333%;
-  opacity: 0.4;
-  border-top: solid 1px;
+  font-size: 13px;
+  margin: 2px;
+  padding-left: 5px;
+  overflow: hidden;
+}
+.lPOption > div img{
+  opacity:0.7
 }
 
 .lPPoint {
   justify-content: left;
 }
 .lPPoint +div {
+  justify-content: center;
+}
+.lPPointt {
+  border:solid 1px silver;
+  padding: 4px;
+}
+.lPPoint +div + div {
   justify-content: right;
 }
 .lPPoint div {
@@ -114,12 +128,12 @@
 
 
 /* hover effects ---------------------- */
-.lPOption > div:hover {
+.lPOption > div:hover img {
   opacity:1;
 }   
 .lPPoint img:hover {
   border-radius: 0.1em;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 5px silver;
 }.lPPoint span:hover {
   color:#E32D38;
 }

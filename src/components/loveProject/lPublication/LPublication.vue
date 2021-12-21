@@ -11,7 +11,7 @@
             <div class="lPPoint" >
                 <div>
                     <img @click="reactionMenu" v-bind:src="require('./lReaction/images/'+  react + '.svg')" />
-                    <span @click="lrMenu">{{ publication_point }}</span>
+                    <span class="lPPointt" @click="lrMenu">{{ publication_point }}</span>
                 </div>
             </div>
             <div class="lPPoint" >

@@ -1,6 +1,6 @@
 <template>
-    <div class ="publication">la route et le composanrtpublication fonctionnet
-
+    <div class ="publication">
+        <LPublication/>
     </div>
 </template>
 <style src="./publication.css">

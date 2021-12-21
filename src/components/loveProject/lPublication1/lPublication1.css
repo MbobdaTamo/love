@@ -5,14 +5,16 @@
   background-color: #E32D38;
   overflow: hidden;
   padding: 2%;
+  padding-bottom: 3.5%;
   box-sizing: border-box;
-  padding-top:130px
+  padding-top:150px;
+  border-bottom: solid 10px #25282A;
 }
 .lP1First {
-  width: 55%; 
+  width: 59%; 
 }
 .lP1Second {
-  width: 40%;
+  width: 26%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,29 +28,27 @@
   transition: transform 1s;
 }
 .lP1Date {
-  font-family: 'core_sans_regular';
-  font-size: 15px;
+  width: 70%;
+    font-size: 15px;
   text-align: justify;
 } 
 .lP1Date span {
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
+  font-size: 15px;
 }
 .lP1Stars {
   margin-top: 10px;
-  display: flex;
+  display:none  /*display: flex;*/
 }
 .lP1Title {
-  font-size: 27px;
+  font-size: 20px;
   line-height: 35px;
-  word-spacing: 3px;
   font-weight: bold;
   text-align: justify;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .lP1Text {
+  width: 70%;
   text-align: justify;
   font-size: 16px;
   max-height: 40px;
@@ -61,6 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .lP1More div {
   width: 16px;
@@ -77,6 +78,7 @@
   font-size: 14px;
   padding-bottom: 20px;
   margin-top: 10px;
+  display: none;
 }
 .lP1Option > div {
   display: flex;
@@ -147,8 +149,8 @@
     margin-top: 5px;
   }
   .lP1Title {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 19px;
+    line-height: 26px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
@@ -158,7 +160,7 @@
 }
 @media screen and (max-width: 1090px){ 
   .lP1Title {
-    font-size: 20px;  
+    font-size: 18px;  
   }
 }
 @media screen and (max-width: 900px){ 
@@ -175,8 +177,6 @@
     padding: 0%;
   }
   .lP1Title {
-    word-spacing: normal;
-    line-height: normal;
     margin-top: 5px;
     margin-bottom: 5px;
   }

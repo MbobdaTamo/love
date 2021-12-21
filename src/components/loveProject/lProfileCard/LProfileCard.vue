@@ -17,7 +17,7 @@
             <div class="lpcElement" :style="{backgroundColor:bgColor(index)}">
                 <div class="lpcRanking">{{ index+1 }}</div>
                 <div><img src='./profile.svg'/></div>
-                <div>NAMEFIELD</div>
+                <div>Eric Arnaud</div>
                 <div>30</div>
             </div>
         </div>
