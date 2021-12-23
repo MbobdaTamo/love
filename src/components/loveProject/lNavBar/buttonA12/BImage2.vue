@@ -16,8 +16,8 @@ viewBox="0 0 414.184 414.184" style="enable-background:new 0 0 414.184 414.184;"
 
 <style>
 .bImage2 {
-  width:18px;
-  height: 18px;
+  width:15px;
+  height: 15px;
   stroke:#25282A;
   transition: fill 0.5s;
 }

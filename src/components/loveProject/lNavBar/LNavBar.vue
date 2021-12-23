@@ -1,9 +1,15 @@
 <template>
     <div class="lNavBar">
       <div class="lnavWhite">
-        <div class="lnavSign"><div>Sign Up</div></div>
-        <div><LDropDown/></div>
-        <div><img src="./profile_black.svg"/>Log in</div>
+        <div class="lnavSign">
+          <div><span>taime</span> 7parsKeJe</div>
+          <div><span>fait</span> keglejuste</div>
+          <div><span>fait</span> toutceciest </div>
+        </div>
+        <div>
+          <div class="navlDropDown"><LDropDown/></div>
+          <div><img src="./profile_black.svg"/>Log in</div>
+        </div>
       </div>
       <div class="navCollapse">
         <div class="navLeftElment">

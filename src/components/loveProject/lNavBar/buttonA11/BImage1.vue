@@ -12,8 +12,8 @@ c0-0.6,0.4-1,1-1h30c0.6,0,1,0.4,1,1V19z"/>
 
 <style>
 .bImage1 {
-  width:18px;
-  height: 18px;
+  width:15px;
+  height: 15px;
   stroke:#25282A;
   transition: fill 0.5s;
 }

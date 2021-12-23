@@ -6,7 +6,7 @@ export default {
   props: {
     publication_img: {
       type: String,
-      default: './images/dembouz.jpg'
+      default: null /* './images/dembouz.jpg' */
     },
     publication_date: {
       type: String,
@@ -18,7 +18,7 @@ export default {
     },
     publication_text: {
       type: String,
-      default: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22, who got to enjoy one of the most spectacular games of the year'
+      default: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22'
     },
     publi_numb_com: {
       type: Number,
@@ -68,7 +68,6 @@ export default {
     }
   },
   mounted () {
-    alert(document.getElementById('lPText').innerText.length)
     if (document.getElementById('lPText').innerText.length > 350) {
       this.vdisplay_more = 'flex'
       this.vtext_height = '80px'

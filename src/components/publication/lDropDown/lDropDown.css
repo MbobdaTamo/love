@@ -1,8 +1,7 @@
 .lDropDown{
     position: relative;
-    min-width: 0px;
+    min-width: 200px;
     width: 100%;
-    width: 120px;
     display: flex;
     padding: 5px;
     border: solid 1px silver;
@@ -16,7 +15,7 @@
     text-align:justify
 }
 .lDFirstImg img {
-    width: 21px;
+    width: 35px;
 }
 .lDFirstImg + div img {
     width: 15px;
@@ -24,7 +23,7 @@
 
 .lDCollapse {
     position: absolute;
-    min-width: 120px;
+    min-width: 200px;
     padding-left: 5px;
     padding-right: 5px;
     border: solid 1px silver;
@@ -38,12 +37,12 @@
 
 .lDElement {
     display: flex;
-    font-size: 14px;
+    font-size: 15px;
     padding-top: 5px;
     margin: 5px;
 }
 
 .lDElement img {
-    width:15px;
+    width:25px;
     margin-right: 10px;
 }

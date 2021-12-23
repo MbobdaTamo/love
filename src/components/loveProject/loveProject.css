@@ -5,11 +5,12 @@
     width: 100%;
 }
 .publish {
-    height: 100px;
+    height: 150px;
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left:20px ;
+    background-color: #0C1B23;
 }
 .publish div {
     color: #92D1D3; 
@@ -23,12 +24,13 @@
     transition: background-color 0.2s;
 }
 h2 {
-    margin-top:100px;
+    background-color: #0C1B23;
     text-align: justify;
     padding-left: 20px;
+    margin: 0px;
 }
 .pubClass {
-    background-color:white;
+    background-color: #0C1B23;
 }
 .publications {
     display: flex;
@@ -36,12 +38,11 @@ h2 {
     align-items: center;
     padding-left:20px ;
     padding-right:20px ;
-    background-color: white;
+    background-color: gray;
 }
 .publications > div {
-    margin: 9px;
-    width: 33.33%;
-    width: 100%;
+    width: 50%;
+    margin: 100px;
 }
 .sliderClass {
     margin-right: 30px;
@@ -86,14 +87,14 @@ h2 {
 }
 
 .prefooter1 {
-    margin-top: 100px;
-    height: 200px;
+    height: 300px;
+    background-color: #0C1B23;
     background-color: #0C1B23;
 }
 .prefooter2{
-    margin-top: 100px;
-    height: 200px;
+    height: 300px;
     background-color: #D5D7D7;
+    background-color: #0C1B23;
 }
 footer {
     display: flex;

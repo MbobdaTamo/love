@@ -44,8 +44,8 @@ viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="pres
 
 <style>
 .bImage3 {
-  width:18px;
-  height: 18px;
+  width:15px;
+  height: 15px;
   stroke:#25282A;
   transition: fill 0.5s;
 }

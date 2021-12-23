@@ -1,6 +1,6 @@
 <template>
     <div class ="lPublication">
-        <div class="lPImg"><img v-bind:src= "require(publication_img + '')" /></div>
+        <div class="lPImg" v-if="react!=null"><img /></div>
         <div class="lPDate"><span> {{ publication_author }} |</span> {{ publication_date }}</div>
         <div id="lPText" class="lPText" :style="{maxHeight:vtext_height}"> {{ publication_text }} </div>
         <div class="lPMore"><div @click="slideText" :style="{ transform:vplus_transform,display:vdisplay_more}"></div></div>

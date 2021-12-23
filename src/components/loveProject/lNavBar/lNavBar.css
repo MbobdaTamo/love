@@ -17,8 +17,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   width: 46%;
 }
@@ -28,10 +28,10 @@
 }
 .navLogo {
   width: 8%;
+  box-sizing: border-box;
   background-color: white;
-  font-weight: bold;
-  color: black;
-  font-size: 20px;
+  border-left: solid 0.4em rgb(36, 39, 41);
+  border-right: solid 0.4em rgb(36, 39, 41);
 }
 .navLogo img{
   position: absolute;
@@ -66,35 +66,40 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  padding: 8px;
+  padding: 10px;
   font-size: 14px;
+  color:rgb(36, 39, 41);
 }
 .lnavSign {
-  width: 100%;
+  width: 50%;
+  display: flex;
 }
-.lnavSign div {
-  width: 150px;
-  font-size: 15px;
-  padding: 10px;
+.lnavSign > div {
+  width: 33.33%;
+}
+.lnavSign div > span {
   font-weight: bold;
-  border-radius: 0.4em;
-  padding-left: 10px;
-  padding-right: 10px;
-  border:solid 1px
 }
 .lnavSign + div {
-  width: 150px;
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
-.lnavSign + div + div {
-  width: 120px;
+
+.navlDropDown {
+  border:solid 1px red;
+}
+.navlDropDown + div {
+  width: 70px;
   padding-left: 10px;
   margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.lnavSign + div + div img {
-  width: 30px;
+.navlDropDown + div img {
+  width: 20px;
   margin-right:10px;
 }
 

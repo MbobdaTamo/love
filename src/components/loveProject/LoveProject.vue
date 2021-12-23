@@ -4,7 +4,7 @@
         <LPublication1 publication_type="Datascience"/>
         <div class="publish">
                 <div class="lraMore">
-                        PUBLIER SON ARTICLE
+                        PUBLIER UN ARTICLE
                 </div>
         </div>
         <h2>News</h2>
@@ -12,7 +12,6 @@
                 <div class="publications">
                         <div><LPublication publication_type="Football"/></div>
                         <div><LPublication publication_type="Tenis"/></div>
-                        <div><LPublication publication_type="Basket"/></div>
                 </div>
                 <div class="sliderClass">
                         <div class="seeAll">SEE ALL NEWS</div>
