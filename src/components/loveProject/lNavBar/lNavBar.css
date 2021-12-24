@@ -80,20 +80,24 @@
 .lnavSign div > span {
   font-weight: bold;
 }
+
+
 .lnavSign + div {
   width: 50%;
   display: flex;
   justify-content: right;
   align-items: center;
 }
-
+.lnavSign + div > div {
+  margin-right: 15px;
+}
+.navBellN {
+}
 .navlDropDown {
-  border:solid 1px red;
+  border: solid 1px rgb(36, 39, 41);
 }
 .navlDropDown + div {
   width: 70px;
-  padding-left: 10px;
-  margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;

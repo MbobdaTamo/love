@@ -5,6 +5,7 @@ import ButtonA11 from './buttonA11/ButtonA11.vue'
 import ButtonA12 from './buttonA12/ButtonA12.vue'
 import ButtonA13 from './buttonA13/ButtonA13.vue'
 import LDropDown from './lDropDown/LDropDown.vue'
+import BellNotification from './bellNotification/BellNotification.vue'
 export default {
   name: 'lNavBar',
   components: {
@@ -14,7 +15,8 @@ export default {
     ButtonA11,
     ButtonA12,
     ButtonA13,
-    LDropDown
+    LDropDown,
+    BellNotification
   },
   data () {
     return {

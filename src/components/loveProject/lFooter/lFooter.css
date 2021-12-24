@@ -1,0 +1,33 @@
+
+.lFooter {
+  background-color: #25282A;
+  display: flex;
+}
+.lFooter > div {
+  display: flex;
+  color:white;
+  align-items: center ;
+  font-size: 12px;
+  padding: 15px;
+}
+.footerLinks {
+  width: 100%;
+  justify-content: left;
+}
+.footerLinks + div {
+  width: 180px;
+  justify-content: right;
+}
+.footerLinks + div > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.footerLinks div {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right:solid 1px rgba(200, 200, 200,0.5);
+}
+.footerLastLink {
+  border: none!important;
+}
+/*--- on hover --------- */

@@ -3,7 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 500px;
+   /* max-width: 500px;µ*/
+   position: fixed;
+   background-color: white;
+   width: 800px;
+   bottom: 0px;
 }
 .pComment div {
     margin: 5px;

@@ -1,7 +1,5 @@
 .bellNotification {
   left: 300px;
-    border: solid 1px;
-    position: absolute
 }
 
 a{
@@ -33,7 +31,6 @@ a{
   }
   .BNbell {
     position: relative;
-    border: black 1px;
   }
   .number{
     display: flex;
@@ -49,7 +46,8 @@ a{
     text-align: center;
     position: absolute;
     box-sizing: border-box;
-    right: 0px;
+    right: -5px;
+    top:0px
   }
   
   .number:empty {

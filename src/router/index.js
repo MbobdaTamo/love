@@ -5,9 +5,11 @@ import todolist from '@/components/todo'
 import Inscription from '@/components/inscription/Inscription'
 import LoveProject from '@/components/loveProject/LoveProject'
 import Publication from '@/components/publication/Publication'
+import PubliList from '@/components/publiList/PubliList'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -28,6 +30,11 @@ export default new Router({
       path: '/publication',
       name: 'publication',
       component: Publication
+    },
+    {
+      path: '/publiList',
+      name: 'publiList',
+      component: PubliList
     }
   ]
 })

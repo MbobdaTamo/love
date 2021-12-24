@@ -7,6 +7,7 @@
           <div><span>fait</span> toutceciest </div>
         </div>
         <div>
+          <div class="navBellN"><BellNotification/></div>
           <div class="navlDropDown"><LDropDown/></div>
           <div><img src="./profile_black.svg"/>Log in</div>
         </div>

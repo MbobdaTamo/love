@@ -43,6 +43,9 @@
                     <LPublication/>
                 </div>
             </div>
+            <div>
+                <PComment/>
+            </div>
         </div>
     </div>
 </template>

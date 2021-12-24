@@ -5,7 +5,7 @@
         <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
         <div class="BNbell">
             <div class = "number"><span>2</span></div>
-            <img class="fas fa-bell" style="width:30px" src="./bell.svg"/>
+            <img class="fas fa-bell" style="width:25px" src="./bell.svg"/>
         </div>
         <div class = "box">
             <div class = "display">

@@ -6,6 +6,7 @@ import LProfileCard from '@/components/loveProject/lProfileCard/LProfileCard.vue
 import LRanking from '@/components/loveProject/lRanking/LRanking.vue'
 import BestStat from '@/components/loveProject/bestStat/BestStat.vue'
 import Slider from '@/components/loveProject/Slider.vue'
+import LFooter from '@/components/loveProject/lFooter/LFooter.vue'
 export default {
   name: 'loveProject',
   components: {
@@ -16,6 +17,7 @@ export default {
     LProfileCard,
     LRanking,
     BestStat,
-    Slider
+    Slider,
+    LFooter
   }
 }

@@ -39,6 +39,7 @@ h2 {
     padding-left:20px ;
     padding-right:20px ;
     background-color: gray;
+    background-color: #0C1B23;
 }
 .publications > div {
     width: 50%;
@@ -89,26 +90,8 @@ h2 {
 .prefooter1 {
     height: 300px;
     background-color: #0C1B23;
-    background-color: #0C1B23;
 }
 .prefooter2{
     height: 300px;
-    background-color: #D5D7D7;
     background-color: #0C1B23;
-}
-footer {
-    display: flex;
-    background-color: #25282A;
-    color:white;
-    font-size: 13px;
-    padding: 15px;
-    display: flex;
-    justify-content: left;
-    align-items: center ;
-}
-footer div {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-right: 7px;
-    border-right:solid 1px rgba(200, 200, 200,0.5);
 }

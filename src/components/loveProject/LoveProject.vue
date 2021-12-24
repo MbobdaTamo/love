@@ -29,14 +29,7 @@
         </div>
         <div class="prefooter2">
         </div>
-        <footer>
-                <div>Legal notice</div>
-                <div>Legal notice</div>
-                <div>Legal notice</div>
-                <div>Legal notice</div>
-                <div>Legal notice</div>
-                <div>Legal notice</div>
-        </footer>
+        <LFooter/>
 </section>
 </template>
 <style src="./loveProject.css">
