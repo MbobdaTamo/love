@@ -1,5 +1,5 @@
 <template>
-    <div class ="lDropDown" id="drop">
+    <div class ="plDropDown" id="drop">
         <div class="lDCurrent" @click="heightCollapse">
             <div class="lDFirstImg"><img v-bind:src="require(currentImage + '')"/></div>
             <div><img src="./images/down_arrow.svg"/></div>

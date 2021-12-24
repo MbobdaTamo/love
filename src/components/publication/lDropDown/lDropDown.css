@@ -1,4 +1,4 @@
-.lDropDown{
+.plDropDown{
     position: relative;
     min-width: 200px;
     width: 100%;
@@ -6,22 +6,22 @@
     padding: 5px;
     border: solid 1px silver;
 }
-.lDCurrent {
+.plDropDown .lDCurrent {
     display: flex;
     width: 100%;
 }
-.lDFirstImg {
+.plDropDown .lDFirstImg {
     width: 100%;
     text-align:justify
 }
-.lDFirstImg img {
+.plDropDown .lDFirstImg img {
     width: 35px;
 }
-.lDFirstImg + div img {
+.plDropDown .lDFirstImg + div img {
     width: 15px;
 }
 
-.lDCollapse {
+.plDropDown .lDCollapse {
     position: absolute;
     min-width: 200px;
     padding-left: 5px;
@@ -35,14 +35,14 @@
     transition: height 0.25s;
 }
 
-.lDElement {
+.plDropDown .lDElement {
     display: flex;
     font-size: 15px;
     padding-top: 5px;
     margin: 5px;
 }
 
-.lDElement img {
+.plDropDown .lDElement img {
     width:25px;
     margin-right: 10px;
 }

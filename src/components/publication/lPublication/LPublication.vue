@@ -1,5 +1,5 @@
 <template>
-    <div class ="lPublication">
+    <div class ="plPublication">
         <div class="lPImg" v-if="react!=null"><img /></div>
         <div class="lPDate"><span> {{ publication_author }} |</span> {{ publication_date }}</div>
         <div id="lPText" class="lPText" :style="{maxHeight:vtext_height}"> {{ publication_text }} </div>
@@ -31,7 +31,7 @@
          <ListReactor :Display='vreactor'/>
     </div>
 </template>
-<style src="./lPublication.css">
+<style scoped src="./lPublication.css">
 </style>
 <script src="./lPublication.js">
 </script>

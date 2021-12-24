@@ -2,37 +2,31 @@
   left: 300px;
 }
 
-a{
+.bellNotification a{
     text-decoration: none;
     color: black;
   }
   
-  a:visited{
+.bellNotification  a:visited{
     color: black;
   } 
-  header{
+.bellNotification  header{
     -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
     box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
     vertical-align: middle;
   }
   
-  body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-  }
-  
-  .icons{
+.bellNotification  .icons{
     display: inline;
     float: right
   }
-  .notification {
+  .bellNotification  .notification {
     position: relative;
   }
   .BNbell {
     position: relative;
   }
-  .number{
+  .bellNotification .number{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,19 +44,19 @@ a{
     top:0px
   }
   
-  .number:empty {
+  .bellNotification  .number:empty {
      display: none;
   }
   
-  .notBtn{
+  .bellNotification .notBtn{
     transition: 0.5s;
     cursor: pointer
   }
   
-  .fas{
+  .bellNotification  .fas{
   }
   
-  .box{
+  .bellNotification .box{
     width: 400px;
     height: 0px;
     border-radius: 10px;
@@ -79,35 +73,35 @@ a{
     cursor: context-menu;
   }
   
-  .fas:hover {
-    color: #d63031;
-  }
+.bellNotification  .fas:hover {
+  color: #d63031;
+}
   
-  .notBtn:hover > .box{
+.bellNotification  .notBtn:hover > .box{
     height: 60vh
   }
   
-  .content{
+.bellNotification  .content{
     padding: 20px;
     color: black;
     vertical-align: middle;
     text-align: left;
   }
   
-  .gry{
+.bellNotification  .gry{
     background-color: #F4F4F4;
   }
   
-  .top{
+.bellNotification  .top{
     color: black;
     padding: 10px
   }
   
-  .display{
+.bellNotification  .display{
     position: relative;
-  }
+}
   
-  .cont{
+.bellNotification  .cont{
     position: absolute;
     top: 0;
     width: 100%;
@@ -115,59 +109,59 @@ a{
     background-color: #F4F4F4;
   }
   
-  .cont:empty{
+  .bellNotification  .cont:empty{
     display: none;
   }
   
-  .stick{
+  .bellNotification  .stick{
     text-align: center;  
     display: block;
     font-size: 50pt;
   }
   
-  .stick:hover{
+  .bellNotification  .stick:hover{
     color: black;
   }
   
-  .cent{
+  .bellNotification  .cent{
     text-align: center;
     display: block;
   }
   
-  .sec{
+  .bellNotification  .sec{
     padding: 25px 10px;
     background-color: #F4F4F4;
     transition: 0.5s;
   }
   
-  .profCont{
+  .bellNotification .profCont{
     padding-left: 15px;
   }
   
-  .profile{
+  .bellNotification  .profile{
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     width: 75px;
     float: left;
   }
   
-  .txt{
+  .bellNotification .txt{
     vertical-align: top;
     font-size: 1.25rem;
     padding: 5px 10px 0px 115px;
   }
   
-  .sub{
+  .bellNotification .sub{
     font-size: 1rem;
     color: grey;
   }
   
-  .new{
+  .bellNotification .new{
     border-style: none none solid none;
     border-color: red;
   }
   
-  .sec:hover{
+  .bellNotification .sec:hover{
     background-color: #BFBFBF;
   }
   

@@ -3,7 +3,7 @@
         <LNavBar style="z-index:3"/>
         <LPublication1 publication_type="Datascience"/>
         <div class="publish">
-                <div class="lraMore">
+                <div @click="testAjax" class="lraMore">
                         PUBLIER UN ARTICLE
                 </div>
         </div>

@@ -1,17 +1,17 @@
-.lPublication {
+.plPublication {
   width: 100%;
   background-color: #F5F5F6;
   overflow: hidden;
   color: rgb(40, 40, 40)
 }
-.lPImg {
+.plPublication .lPImg {
   overflow: hidden;
 }
-.lPImg img {
+.plPublication .lPImg img {
   width: 100%;
   transition: transform 1s;
 }
-.lPDate {
+.plPublication .lPDate {
   padding-left: 20px;
   font-family: 'core_sans_regular';
   font-size: 13.5px;
@@ -19,11 +19,11 @@
   margin-top: 10px;
   margin-bottom: 5px;
 }
-.lPDate span {
+.plPublication .lPDate span {
   color: #E32D38;
   font-weight: bold;
 }
-.lPText {
+.plPublication .lPText {
   padding-left: 20px;
   padding-right: 20px;
   text-align: justify;
@@ -32,13 +32,13 @@
   transition: max-height 0.5s;
   overflow: hidden;
 }
-.lPMore {
+.plPublication .lPMore {
   margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.lPMore div {
+.plPublication .lPMore div {
   width: 20px;
   height: 20px;
   background-image: url('./images/more.svg');
@@ -50,13 +50,13 @@
 }
 
 
-.lPOption  {
+.plPublication .lPOption  {
   display: flex;
   font-size: 14px;
   padding: 10px;
   padding-bottom: 20px;
 }
-.lPOption > div {
+.plPublication .lPOption > div {
   display: flex;
   align-items: center;
   width: 33.333%;
@@ -65,36 +65,36 @@
   padding-left: 5px;
   overflow: hidden;
 }
-.lPOption > div img{
+.plPublication .lPOption > div img{
   opacity:0.7
 }
 
-.lPPoint {
+.plPublication .lPPoint {
   justify-content: left;
 }
-.lPPoint +div {
+.plPublication .lPPoint +div {
   justify-content: center;
 }
-.lPPointt {
+.plPublication .lPPointt {
   border:solid 1px silver;
   padding: 4px;
 }
-.lPPoint +div + div {
+.plPublication .lPPoint +div + div {
   justify-content: right;
 }
-.lPPoint div {
+.plPublication .lPPoint div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.lPPoint img {
+.plPublication .lPPoint img {
   width: 20px;
   margin-right: 6px;
 }
-.lPPlus {
+.plPublication .lPPlus {
   justify-content: right;
 }
-.lPProfile img {
+.plPublication .lPProfile img {
   width: 40px;
 }
 

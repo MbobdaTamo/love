@@ -19,5 +19,17 @@ export default {
     BestStat,
     Slider,
     LFooter
+  },
+  methods: {
+    testAjax () {
+      var xhttp = new XMLHttpRequest()
+      xhttp.open('GET', 'http://localhost/projet/onlineSite/p_register.php')
+      xhttp.onreadystatechange = function () {
+        alert(this.responseText)
+        alert(this.getResponseHeader('content-length'))
+        alert(this.status)
+      }
+      xhttp.send(null)
+    }
   }
 }
