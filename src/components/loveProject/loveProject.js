@@ -1,6 +1,6 @@
 import LNavBar from '@/components/global/lNavBar/LNavBar.vue'
 import LComment from '@/components/loveProject/lComment/LComment.vue'
-import LPublication from '@/components/loveProject/lPublication/LPublication.vue'
+import LPublication from '@/components/global/lPublication/LPublication.vue'
 import LPublication1 from '@/components/loveProject/lPublication1/LPublication1.vue'
 import LProfileCard from '@/components/loveProject/lProfileCard/LProfileCard.vue'
 import LRanking from '@/components/loveProject/lRanking/LRanking.vue'

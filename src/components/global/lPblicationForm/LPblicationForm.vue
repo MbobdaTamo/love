@@ -7,7 +7,9 @@
             <div class="lPBFCType">Type Publication <div><LDropDown/></div></div>
             <div><textarea placeholder="Titre"></textarea> </div>
             <div><textarea placeholder="Contenu publication"></textarea></div>
-            <div>Add image <input type="file"/> <img src=""></div>
+            <div>
+            <label class="custom-file-upload">Add image<input type="file"/><img src="./photo.svg"></label>
+            </div>
             <div>Publier</div>
     </div>
 </section>

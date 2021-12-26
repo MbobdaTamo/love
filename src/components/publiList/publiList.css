@@ -1,4 +1,63 @@
 .publiList {
-    padding: 100px;
-    padding-left: 400px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pBLTitle {
+    padding-top: 140px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: justify;
+    padding-left: 40px;
+    background-color: #10202A;
+    font-size: 35px;
+    color: white;
+}
+.pBLSelection1 {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    background-color: #10202A;
+}
+.pBLSelection1 > div {
+    margin-right: 20px;
+}
+
+.pBLSelection2 {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 30px;
+    padding-left: 40px;
+    background-color: #92DAEC;
+}
+.pBLSelection2 > div {
+    background-color: white;
+    border: 2px black;
+    width: 150px;
+    padding-top:10px ;
+    padding-bottom:10px ;
+    margin-right: 20px;
+}
+
+.pBLPublication {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    padding-top: 40px;
+    margin-bottom: 100px;
+}
+.pBLPublication > div {
+    padding-top: 20px;
 }
