@@ -1,0 +1,72 @@
+.lPblicationForm {
+    width: 500px;
+    border: solid 1px silver;
+}
+.lPBFCTitle {
+    font-weight: bold;
+    font-size: 19px;
+    padding: 20px;
+    position: relative;
+    border-bottom: solid 1px silver;
+}
+.lPBFCCross {
+    position:absolute;
+    width: 32px;
+    height: 32px;
+    right: 0%;  
+    top: 50%;
+    margin-right: 10px;
+    margin-top: -15px;
+    border-radius: 5em;
+    background-color: silver;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lPBFCCross img {
+    width: 55%;
+}
+
+
+.lPBFCBody {
+    padding: 15px;
+}
+.lPBFCBody > div {
+    margin-top: 20px;
+}
+.lPBFCType {
+    display: flex;
+}
+.lPBFCType > div {
+    margin-left: 10px;
+}
+.lPBFCType + div {
+    box-sizing: border-box;
+}
+.lPBFCType + div textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    background-color: #ebebf3;
+}
+.lPBFCType + div + div textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    border: none;
+    padding: 10px;
+    background-color: #ebebf3;
+}
+.lPBFCType + div + div + div {
+    text-align: justify;
+}
+.lPBFCType + div + div + div input {
+    border: none;
+}
+.lPBFCType + div + div + div + div {
+    background-color: lightgrey;
+    border-radius:0.4em;
+    padding: 10px;
+}

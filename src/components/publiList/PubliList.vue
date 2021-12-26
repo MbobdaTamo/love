@@ -1,5 +1,6 @@
 <template>
-<section class="inscription">
+<section class="publiList">
+    <LPblicationForm/>
 </section>
 </template>
 <style src="./publiList.css">

@@ -1,6 +1,7 @@
 <template>
     <div class ="publication">
-        <div class ="pBody">
+        <LNavBar style="z-index:1" />
+        <div class ="pBody" style="z-index:0" >
             <div class="pInfo">
                 <div class="pImage"><img src="./images/Ez Abde dribbling.jpg"></div>
                 <div class="pTitle">EZAZOULI, le nouveau phénomène du Barca ! Desolé, il faut que le titre soit assez long, mais ca ne l'est pas encore assez</div>
@@ -47,6 +48,7 @@
                 <PComment/>
             </div>
         </div>
+        <LFooter/>
     </div>
 </template>
 <style src="./publication.css">

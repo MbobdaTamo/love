@@ -15,7 +15,7 @@ export default {
     },
     publication_author: {
       type: String,
-      default: 'TAMO MBOBDA Eric'
+      default: 'TAMO MBOBDA ERIC'
     },
     publication_title: {
       type: String,
@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      vtext_height: '20px',
+      vtext_height: '70px',
       vplus_transform: 'rotate(0deg)',
       full_text_visible: false,
       star_colors: [{ color: 'white' }, { color: 'white' }, { color: 'white' }],
@@ -58,7 +58,7 @@ export default {
         this.vtext_height = '500px'
         this.vplus_transform = 'rotate(45deg)'
       } else {
-        this.vtext_height = '20px'
+        this.vtext_height = '70px'
         this.vplus_transform = 'rotate(90deg)'
       }
       this.full_text_visible = !this.full_text_visible

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'designGraffitiCMS';
+  src: url('~@/assets/fonts/design.graffiti.comicsansms.ttf');
+}
 .lPublication1 {
   display: flex;
   width: 100%;
@@ -9,6 +13,7 @@
   box-sizing: border-box;
   padding-top:150px;
   border-bottom: solid 10px #25282A;
+  font-family: Helvetica
 }
 .lP1First {
   width: 59%; 
@@ -29,26 +34,28 @@
 }
 .lP1Date {
   width: 70%;
-    font-size: 15px;
+    font-size: 13px;
   text-align: justify;
+  padding: 0px;
+  margin: 0px;
 } 
-.lP1Date span {
-  font-size: 15px;
+.lP1Date div {
+  font-weight: bold;
 }
 .lP1Stars {
   margin-top: 10px;
   display:none  /*display: flex;*/
 }
 .lP1Title {
-  font-size: 20px;
-  line-height: 35px;
+  width: 95%;
+  font-size: 23px;
+  line-height: 30px;
   font-weight: bold;
   text-align: justify;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .lP1Text {
-  width: 70%;
   text-align: justify;
   font-size: 16px;
   max-height: 40px;

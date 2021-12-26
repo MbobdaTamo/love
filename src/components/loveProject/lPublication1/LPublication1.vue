@@ -5,7 +5,7 @@
     </div>
     <div class="lP1Second">
         <div>
-            <div class="lP1Date"><span> {{ publication_author }} |</span> {{ publication_date }} | {{ publication_type }}</div>
+            <div class="lP1Date"><div> {{ publication_author }} </div> {{ publication_date }} | {{ publication_type }}</div>
             <div class="lP1Stars"> <div v-for="color in star_colors"> <lPStar :Color="color.color"/> </div> </div>
             <div class="lP1Title"> {{ publication_title }} </div>
             <div class="lP1Text" :style="{maxHeight:vtext_height}"> {{ publication_text }} </div>

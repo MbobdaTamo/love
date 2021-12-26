@@ -1,16 +1,18 @@
 <template>
 <section class="main">
         <LNavBar style="z-index:3"/>
-        <LPublication1 publication_type="Datascience"/>
+        <LPublication1 publication_type="FOOTBALL"/>
         <div class="publish">
                 <div @click="testAjax" class="lraMore">
-                        PUBLIER UN ARTICLE
+                        PUBLIER UN ARTICLE {{ resp }}
                 </div>
         </div>
         <h2>News</h2>
         <div class="pubClass" style="z-index:1">
                 <div class="publications">
                         <div><LPublication publication_type="Football"/></div>
+                        <div><LPublication publication_type="Tenis"/></div>
+                        <div><LPublication publication_type="Tenis"/></div>
                         <div><LPublication publication_type="Tenis"/></div>
                 </div>
                 <div class="sliderClass">
@@ -22,7 +24,7 @@
                                 <div class="secondVoid"></div>
                                 <div><BestStat/></div>
                         </div>
-                        <div><LRanking/><img src="./card.png"/></div>
+                        <div><LRanking/></div>
                 </div>
         </div>
         <div class="prefooter1">

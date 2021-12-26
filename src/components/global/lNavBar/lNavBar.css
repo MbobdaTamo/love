@@ -1,6 +1,8 @@
 .lNavBar {
   display: flex;
   position: fixed;
+  left: 0px;
+  top:0px;
   width: 100%;
   flex-direction: column;
 }

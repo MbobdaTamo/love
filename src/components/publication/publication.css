@@ -1,14 +1,20 @@
 .publication {
+    position: absolute;
+    width: 100%;
+    top:0px;
+    left:0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #F0F2F5;
+    color: rgb(40, 40, 40);
+    padding-top: 120px;
 }
 .pBody {
-    margin-top: 40px;
     max-width: 800px;
     background-color: #F0F2F5;
+    box-sizing: border-box;
 }
 .pBody > div{
     background-color: white;
@@ -133,7 +139,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
+    width: 20px;
     margin-right: 10px;
 }
 .pStatsFirst + div > div img {

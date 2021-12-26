@@ -1,12 +1,17 @@
+@font-face {
+  font-family: 'designGraffitiCMS';
+  src: url('~@/assets/fonts/design.graffiti.comicsansms.ttf');
+}
 .lPublication {
   width: 100%;
   background-color: #F5F5F6;
   overflow: hidden;
   color: rgb(40, 40, 40);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  font-family: designGraffitiCMS;
 }
 .lPType {
   font-size: 13px;
-  font-family: "core_sans_regular", Arial, Helvetica, sans-serif;;
   background-color: #E32D38;
   color:white;
   padding: 3px;
@@ -21,7 +26,7 @@
 .lPDate {
   padding-left: 20px;
   font-family: 'core_sans_regular';
-  font-size: 13.5px;
+  font-size: 14px;
   text-align: justify;
   margin-top: 10px;
 }
@@ -41,7 +46,7 @@
   width: 70%;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
   text-align: justify;
   margin-top: 8px;
@@ -52,7 +57,7 @@
   padding-left: 20px;
   padding-right: 20px;
   text-align: justify;
-  font-size: 14px;
+  font-size: 15px;
   width: 80%;
   transition: max-height 0.5s;
   overflow: hidden;
