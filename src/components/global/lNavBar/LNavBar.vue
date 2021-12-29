@@ -19,7 +19,7 @@
           <div><ButtonA12 message="Statistics"/></div>
           <div><ButtonA13 message="Photos"/></div>
         </div>
-        <div class="navLogo"><img src=""/></div>
+        <div class="navLogo"><img/></div>
        <div class="navR">
           <div><ButtonA1 message="Videos"/></div>
           <div><ButtonA11 message="News"/></div>

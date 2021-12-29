@@ -7,6 +7,7 @@ import LRanking from '@/components/loveProject/lRanking/LRanking.vue'
 import BestStat from '@/components/loveProject/bestStat/BestStat.vue'
 import Slider from '@/components/loveProject/Slider.vue'
 import LFooter from '@/components/global/lFooter/LFooter.vue'
+import LPblicationForm from '@/components/global/lPblicationForm/LPblicationForm.vue'
 export default {
   name: 'loveProject',
   props: {
@@ -21,7 +22,8 @@ export default {
     LRanking,
     BestStat,
     Slider,
-    LFooter
+    LFooter,
+    LPblicationForm
   },
   methods: {
     testAjax () {
