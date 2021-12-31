@@ -1,6 +1,4 @@
 import LPStar from './LPStar.vue'
-import LReaction from './lReaction/LReaction.vue'
-import ListReactor from './listReactor/ListReactor.vue'
 export default {
   name: 'lPublication1',
   props: {
@@ -23,7 +21,7 @@ export default {
     },
     publication_text: {
       type: String,
-      default: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22, who got to enjoy one of the most spectacular games of the year'
+      default: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion, particularly for the...'
     },
     publi_numb_com: {
       type: Number,
@@ -35,9 +33,7 @@ export default {
     }
   },
   components: {
-    LPStar,
-    LReaction,
-    ListReactor
+    LPStar
   },
   data () {
     return {
@@ -45,11 +41,6 @@ export default {
       vplus_transform: 'rotate(0deg)',
       full_text_visible: false,
       star_colors: [{ color: 'white' }, { color: 'white' }, { color: 'white' }],
-      react: 'react',
-      vreaction: 'none',
-      reaction_visible: false,
-      vreactor: 'none', // list reactor visible or not when comment button clicked
-      lr_visible: false // list reactor visible booleen
     }
   },
   methods: {
@@ -62,14 +53,6 @@ export default {
         this.vplus_transform = 'rotate(90deg)'
       }
       this.full_text_visible = !this.full_text_visible
-    },
-    reactionMenu () {
-      this.vreaction = this.reaction_visible ? 'flex' : 'none'
-      this.reaction_visible = !this.reaction_visible
-    },
-    lrMenu () {
-      this.vreactor = this.lr_visible ? 'block' : 'none'
-      this.lr_visible = !this.lr_visible
     }
   }
 }

@@ -7,11 +7,11 @@
         </div>
         <div class="bsBody">
             <div class="bsUseless">
-                <div class="bsLogo">SlogoLove</div>
+                <div class="bsLogo">@Mylogo</div>
                 <div class="bsThreeButton">
-                    <div class="bsTFirst">i made it</div>
-                    <div>just for you</div>
-                    <div>my dear love</div>
+                    <div class="bsTFirst"><span>i made it</span></div>
+                    <div><span>just for you</span></div>
+                    <div><span>my dear love</span></div>
                 </div>
             </div>
             <div class="bsStats">

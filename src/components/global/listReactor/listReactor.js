@@ -1,8 +1,5 @@
 export default {
   name: 'listReactor',
-  props: {
-    Display: String
-  },
   data () {
     return {
       datas: [
@@ -15,7 +12,15 @@ export default {
         {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'},
         {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'},
         {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'}
-      ]
+      ],
+      Display: 'none',
+      isDisplayed: false
     }
+  },
+  mounted () {
+    this.$root.$on('lsReactClick', data => {
+      this.Display = this.isDisplayed ? 'block' : 'none'
+      this.isDisplayed = !this.isDisplayed
+    })
   }
 }

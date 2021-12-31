@@ -8,6 +8,8 @@ import BestStat from '@/components/loveProject/bestStat/BestStat.vue'
 import Slider from '@/components/loveProject/Slider.vue'
 import LFooter from '@/components/global/lFooter/LFooter.vue'
 import LPblicationForm from '@/components/global/lPblicationForm/LPblicationForm.vue'
+import ListReactor from '@/components/global/listReactor/ListReactor.vue'
+import LReaction from '@/components/global/lReaction/LReaction.vue'
 export default {
   name: 'loveProject',
   props: {
@@ -23,7 +25,14 @@ export default {
     BestStat,
     Slider,
     LFooter,
-    LPblicationForm
+    LPblicationForm,
+    ListReactor,
+    LReaction
+  },
+  data () {
+    return {
+      test: 'monTest'
+    }
   },
   methods: {
     testAjax () {
@@ -36,8 +45,8 @@ export default {
         alert(this.status)
       }
       xhttp.send(null) */
+      alert("ca aussi marché"+this.$refs[this.test])
       axios.post('http://localhost/projet/datas/datas.php').then(response => {
-        alert(response)
         this.resp = response.data.Tamo.Eric
       })
     }

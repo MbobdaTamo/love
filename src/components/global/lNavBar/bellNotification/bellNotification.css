@@ -26,6 +26,9 @@
   .BNbell {
     position: relative;
   }
+  .BNbell img {
+    width: 25px;
+  }
   .bellNotification .number{
     display: flex;
     justify-content: center;
@@ -82,7 +85,7 @@
   }
   
 .bellNotification  .content{
-    padding: 20px;
+    padding: 2%;
     color: black;
     vertical-align: middle;
     text-align: left;
@@ -94,7 +97,7 @@
   
 .bellNotification  .top{
     color: black;
-    padding: 10px
+    padding: 1%
   }
   
 .bellNotification  .display{
@@ -139,8 +142,7 @@
   }
   
   .bellNotification  .profile{
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+    border-radius: 5em;
     width: 75px;
     float: left;
   }
@@ -166,4 +168,22 @@
   }
   
   
-  
+  @media screen and (max-width: 501px){ 
+    .BNbell img {
+      width: 21px;
+    }
+    .bellNotification .number{
+      height: 15px;
+      width:  15px; 
+    }
+    .bellNotification .box {
+      width: 240px;
+    }
+    .bellNotification .txt{
+      font-size: 1.0rem;
+      padding: 5px 10px 0px 70px;
+    }
+    .bellNotification .sub{
+      font-size: 0.75rem;
+    }
+  }

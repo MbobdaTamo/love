@@ -10,8 +10,8 @@
         <div class="lPOption">
             <div class="lPPoint" >
                 <div>
-                    <img @click="reactionMenu" v-bind:src="require('./lReaction/images/'+  react + '.svg')" />
-                    <span class="lPPointt" @click="lrMenu">{{ publication_point }}</span>
+                    <img @click="reactEmit" v-bind:src="require('./emoticones/'+  react + '.svg')" />
+                    <span class="lPPointt" @click="lsReactEmit" >{{ publication_point }}</span>
                 </div>
             </div>
             <div class="lPPoint" >
@@ -21,17 +21,6 @@
                 <img src="./images/pp.jpeg">
             </div>
         </div>
-        <LReaction  :Display='vreaction'
-                    @heartClick='(react=$event)'
-                    @laughingClick='(react=$event)'
-                    @impressedClick='(react=$event)'
-                    @likeClick='(react=$event)'
-                    @handshakeClick='(react=$event)'
-                    @sadClick='(react=$event)'
-                    @sickClick='(react=$event)'
-                    @angryClick='(react=$event)'
-         />
-         <ListReactor :Display='vreactor'/>
     </div>
 </template>
 <style src="./lPublication.css">

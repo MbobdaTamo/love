@@ -1,7 +1,18 @@
 export default {
   name: 'lDropDown',
   props: {
-    message: String
+    bdColor: {
+      type: String,
+      default: 'solid 1px silver'
+    },
+    maxHeight: {
+      type: String,
+      default: '300%'
+    },
+    maxWidth: {
+      type: String,
+      default: '120px'
+    }
   },
   data () {
     return {
@@ -19,7 +30,7 @@ export default {
   },
   methods: {
     heightCollapse () {
-      this.vheight = this.isCollapsed ? '0%' : '300%'
+      this.vheight = this.isCollapsed ? '0%' : this.maxHeight
       this.vpaddingTop = this.isCollapsed ? '0px' : '5px'
       this.vpaddingBottom = this.vpaddingTop
       this.isCollapsed = !this.isCollapsed

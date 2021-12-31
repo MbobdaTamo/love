@@ -1,16 +1,16 @@
 <template>
     <div class ="lFooter">
       <div class="footerLinks">
-              <div>Legal notice</div>
-              <div>Privacy policy</div>
-              <div>Cookies policy</div>
-              <div>Complains</div>
-              <div>Site map</div>
-              <div>Accreditation</div>
-              <div class="footerLastLink">Work with us</div>
+              <a href="#">Legal notice</a>
+              <a>Privacy policy</a>
+              <a>Cookies policy</a>
+              <a>Complains</a>
+              <a>Site map</a>
+              <a>Accreditation</a>
+              <a class="footerLastLink">Work with us</a>
       </div>
       <div>
-              <div>@ 2021 myloveName</div>
+              <a>@ 2021 appname</a>
       </div>
     </div>
 </template>

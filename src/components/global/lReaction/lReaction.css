@@ -2,19 +2,17 @@
   position: fixed;
   top:40%;
   left: 40%;
-  width: 300px;
-  height: 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 .lREmoji {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin: 10px;
 }
 .lREmoji .lREPoint {

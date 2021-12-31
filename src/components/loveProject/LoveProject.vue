@@ -1,6 +1,9 @@
 <template>
 <section class="main">
         <LNavBar style="z-index:3"/>
+        <ListReactor style="z-index:3" />
+        <LReaction style="z-index:3" />
+        <LPblicationForm style="z-index:3" />
         <LPublication1 publication_type="FOOTBALL"/>
         <div class="publish">
                 <div @click="testAjax" class="lraMore">
@@ -10,10 +13,10 @@
         <h2>News</h2>
         <div class="pubClass" style="z-index:1">
                 <div class="publications">
-                        <div><LPublication publication_type="Football"/></div>
-                        <div><LPublication publication_type="Tenis"/></div>
-                        <div><LPublication publication_type="Tenis"/></div>
-                        <div><LPublication publication_type="Tenis"/></div>
+                        <div><LPublication ref='lp1' reference='lp1' publication_type="Football"/></div>
+                        <div><LPublication ref='lp2' reference='lp2' publication_type="Tenis" /></div>
+                        <div><LPublication ref='lp3' reference='lp3' publication_type="Tenis"/></div>
+                        <div><LPublication ref='lp4' reference='lp4' publication_type="Tenis"/></div>
                 </div>
                 <div class="sliderClass">
                         <div class="seeAll">SEE ALL NEWS</div>

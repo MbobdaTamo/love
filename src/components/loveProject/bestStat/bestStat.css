@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: column;
     background-color: #254150;
-    padding: 20px;
+    padding: 1%;
     display: flex;
 }
 .bsUseless {
@@ -59,11 +59,13 @@
 }
 .bsThreeButton {
     display: flex;
-    width: 40%;
 }
 .bsThreeButton > div {
-    width: 33.333%;
-    height: 26px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
     margin-left: 10px;
     margin-right: 10px;
     transition: background-color 0.3s, border-color 0.3s;
@@ -80,19 +82,22 @@
 }
 
 .bsStats {
+    box-sizing: border-box;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .bsStats  > div {
-    margin: 15px;   
+    margin: 1.5%;
+    width: 33.33%;
 }
 
 .bsBottom {
+    width: 100%;
     margin-top: 20px;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -109,4 +114,25 @@
     background-color: #00BF88;
     border-color: #00BF88;
     cursor: pointer;
+}
+
+
+/*----- responsive managment zone... ------------------ */
+@media screen and (max-width: 800px) { 
+    .bsUseless {
+        flex-direction: column;
+        font-size: 12px;
+    }
+    .bsLogo {
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+    .bsStats {
+        flex-direction: column;
+        padding: 2%;
+    }
+    .bsStats > div {
+        width: 100%;
+        margin-top: 10px;
+    }
 }

@@ -8,7 +8,7 @@
         </div>
         <div>
           <div class="navBellN"><BellNotification/></div>
-          <div class="navlDropDown"><LDropDown/></div>
+          <div class="navlDropDown"><LDropDown bdColor="solid 1px rgb(36, 39, 41)" maxHeight="330%" style="font-size:12px" /></div>
           <div><img src="./profile_black.svg"/>Log in</div>
         </div>
       </div>
@@ -36,13 +36,15 @@
         </div>
         <div class="navBar2right">
           <div class="navLang">
-            <LDropDown/>
+            <div class="navLangDrop2"></div>
+            <BellNotification/>
           </div>
           <div class="navProfile">
           </div>
         </div>
       </div>
       <div class="navDropDown" :style="{height:vheight, paddingTop:ptop}">
+        <div><div class=navDt><LDropDown style="color:rgb(40,40,40); font-size:12px" maxHeight="330%"/></div><div><img src="./next.svg"/></div></div>
         <div><div class=navDt>Video</div><div><img src="./next.svg"/></div></div>
         <div><div class=navDt>News</div><div><img src="./next.svg"/></div></div>
         <div><div class=navDt>Statistics</div><div><img src="./next.svg"/></div></div>

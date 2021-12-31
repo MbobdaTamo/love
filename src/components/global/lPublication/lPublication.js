@@ -1,10 +1,9 @@
 import LPStar from './LPStar.vue'
-import LReaction from './lReaction/LReaction.vue'
-import ListReactor from './listReactor/ListReactor.vue'
 export default {
   name: 'lPublication',
   props: {
     publication_type: String,
+    reference: String,
     publication_img: {
       type: String,
       default: './images/dembouz.jpg'
@@ -35,9 +34,7 @@ export default {
     }
   },
   components: {
-    LPStar,
-    LReaction,
-    ListReactor
+    LPStar
   },
   data () {
     return {
@@ -45,11 +42,7 @@ export default {
       vplus_transform: 'rotate(0deg)',
       full_text_visible: false,
       star_colors: [{ color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }],
-      react: 'react',
-      vreaction: 'none',
-      reaction_visible: false,
-      vreactor: 'none', // list reactor visible or not when comment button clicked
-      lr_visible: false // list reactor visible booleen
+      react: 'angry'
     }
   },
   methods: {
@@ -63,13 +56,16 @@ export default {
       }
       this.full_text_visible = !this.full_text_visible
     },
-    reactionMenu () {
-      this.vreaction = this.reaction_visible ? 'flex' : 'none'
-      this.reaction_visible = !this.reaction_visible
+    reactEmit () { /* this signal is emitted for the component lReaction */
+      this.$root.$emit('reactClick', this.reference)
     },
-    lrMenu () {
-      this.vreactor = this.lr_visible ? 'block' : 'none'
-      this.lr_visible = !this.lr_visible
+    lsReactEmit () { /* this signal is emitted for the component listReactor */
+      this.$root.$emit('lsReactClick', 'bonjour')
     }
+  },
+  mounted () {
+    this.$on('reactSelected', data => {
+      this.react = data
+    })
   }
 }
