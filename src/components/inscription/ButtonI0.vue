@@ -1,7 +1,7 @@
 <template>
-    <button type="submit" class ="buttonI0">
+    <div class ="buttonI0" href="google.com">
         {{ message }}
-    </button>
+    </div>
 </template>
 <style>
     .buttonI0 {
@@ -14,6 +14,7 @@
         color: #888989;
         font-weight: bold;
         font-size: 15px;
+        cursor: pointer;
     }
 </style>
 <script>

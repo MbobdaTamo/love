@@ -31,24 +31,22 @@ export default {
   },
   data () {
     return {
-      test: 'monTest'
+      test: 'monTest',
+      DisplayPubliForm: 'none'
     }
   },
   methods: {
+    publiFormDisplaying () {
+      this.$refs.publiForm.displaying()
+    },
     testAjax () {
       const axios = require('axios')
-      /* var xhttp = new XMLHttpRequest()
-      xhttp.open('GET', 'http://localhost/projet/onlineSite/p_register.php')
-      xhttp.onreadystatechange = function () {
-        alert(this.responseText)
-        alert(this.getResponseHeader('content-length'))
-        alert(this.status)
-      }
-      xhttp.send(null) */
-      alert("ca aussi marché"+this.$refs[this.test])
-      axios.post('http://localhost/projet/datas/datas.php').then(response => {
+      /* alert("ca aussi marché"+this.$refs[this.test]) */
+      this.$store.commit('increment')
+      console.log(this.$store.state.count) // -> 1
+      /* axios.post('http://localhost/projet/datas/datas.php').then(response => {
         this.resp = response.data.Tamo.Eric
-      })
+      }) */
     }
   }
 }

@@ -9,7 +9,8 @@
   box-sizing: border-box;
   padding-top:150px;
   border-bottom: solid 10px #25282A;
-  font-family: Helvetica
+  font-family: Helvetica;
+  word-break: break-all;
 }
 .lP1First {
   width: 59%; 

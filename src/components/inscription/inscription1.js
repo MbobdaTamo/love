@@ -4,7 +4,7 @@ import ButtonI1 from '@/components/inscription/ButtonI1.vue'
 import DropDownList from '@/components/inscription/DropDownList.vue'
 import FooterI from '@/components/inscription/FooterI.vue'
 export default {
-  name: 'inscription',
+  name: 'inscription1',
   components: {
     InputI0,
     ButtonI0,
@@ -16,9 +16,6 @@ export default {
     submiting (e) {
       e.preventDefault()
       return false
-    },
-    toNext () {
-      this.$router.push('inscription1')
     }
   }
 }

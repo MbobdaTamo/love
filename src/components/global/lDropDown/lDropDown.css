@@ -6,7 +6,6 @@
     border: solid 1px silver;
     box-sizing: border-box;
     font-size: 14px;
-    word-break: normal;
 }
 .lDCurrent {
     display: flex;
@@ -47,4 +46,10 @@
 .lDElement img {
     width:15px;
     margin-right: 10px;
+}
+
+
+/* ---- hover managment -------- */
+.lDElement:hover {
+    cursor: pointer;
 }

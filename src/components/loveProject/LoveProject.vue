@@ -3,11 +3,11 @@
         <LNavBar style="z-index:3"/>
         <ListReactor style="z-index:3" />
         <LReaction style="z-index:3" />
-        <LPblicationForm style="z-index:3" />
+        <LPblicationForm style="z-index:3;" ref='publiForm'/>
         <LPublication1 publication_type="FOOTBALL"/>
         <div class="publish">
-                <div @click="testAjax" class="lraMore">
-                        PUBLIER UN ARTICLE {{ resp }}
+                <div @click="publiFormDisplaying">
+                        <span>PUBLIER UN ARTICLE</span>
                 </div>
         </div>
         <h2>News</h2>

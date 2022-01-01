@@ -12,16 +12,12 @@ export default {
     maxWidth: {
       type: String,
       default: '120px'
-    }
+    },
+    datas: Array
   },
   data () {
     return {
-      datas: [
-        {image: './images/Flag_of_UK.svg', name: 'English'},
-        {image: './images/Flag_of_Cameroon.svg', name: 'Cameroonian'},
-        {image: './images/Flag_of_France.svg', name: 'French'},
-      ],
-      currentImage: './images/Flag_of_UK.svg',
+      currentImage: this.datas[0].image,
       vheight: '0%',
       vpaddingTop: '0px',
       vpaddingBottom: '0px',
