@@ -10,7 +10,7 @@
                         <span>PUBLIER UN ARTICLE</span>
                 </div>
         </div>
-        <h2>News</h2>
+        <h2 @click="testAjax" >News</h2>
         <div class="pubClass" style="z-index:1">
                 <div class="publications">
                         <div><LPublication ref='lp1' reference='lp1' publication_type="Football"/></div>

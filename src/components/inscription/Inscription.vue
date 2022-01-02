@@ -9,16 +9,16 @@
                 <span>Sign up for your account</span>
             </div>
             <div class ="insInput">
-                <InputI0 placeholder="Enter your Surname" type = "text"/>
+                <InputI0 placeholder="Enter your Surname" ref="surname" type = "text" pattern="^[a-zA-Z ]{4,22}$"/>
             </div>
             <div class ="insInput">
-                <InputI0 placeholder="Enter name" type = "text"/>
+                <InputI0 placeholder="Enter name" ref="name" type = "text" pattern="^[a-zA-Z ]{4,22}$"/>
             </div>
             <div class ="insInput">
-                <InputI0 placeholder="Enter your password" type = "password"/>
+                <InputI0 placeholder="Enter your password" ref="password" type = "password" pattern="^.{4,22}$" />
             </div>
             <div class ="insInput">
-                <InputI0 placeholder="Confirm password" type = "password"/>
+                <InputI0 placeholder="Confirm password" ref="confirmpw" type = "password" pattern="^.{4,22}$" />
             </div>
             <div class="insLaw">
                 <span class ="insPolicy">By signing up, you confirm that you've read and accepted our <span>Terms of Service</span> and <span>Privacy Policy</span>. </span>

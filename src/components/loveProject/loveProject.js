@@ -38,15 +38,6 @@ export default {
   methods: {
     publiFormDisplaying () {
       this.$refs.publiForm.displaying()
-    },
-    testAjax () {
-      const axios = require('axios')
-      /* alert("ca aussi marché"+this.$refs[this.test]) */
-      this.$store.commit('increment')
-      console.log(this.$store.state.count) // -> 1
-      /* axios.post('http://localhost/projet/datas/datas.php').then(response => {
-        this.resp = response.data.Tamo.Eric
-      }) */
     }
   }
 }

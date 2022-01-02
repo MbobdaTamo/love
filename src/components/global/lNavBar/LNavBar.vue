@@ -32,7 +32,7 @@
           <MenuButton @click="cross" />
         </div>
         <div class="navLogo2">
-            <div><img src="./logo.png"/></div>
+            <div><img src="./serenalog.png"/></div>
         </div>
         <div class="navBar2right">
           <div class="navLang">

@@ -1,6 +1,13 @@
 <template>
 <div>
-    <input v-bind:placeholder = "placeholder" v-bind:type ="type" v-model="message" class ="inputI0"/>
+    <input
+      v-bind:placeholder = "placeholder"
+      v-bind:type ="type"
+      v-bind:max ="max"
+      v-bind:min ="min"
+      v-bind:pattern ="pattern"
+      v-model="message" class ="inputI0"
+      />
 </div>
 </template>
 <style>
@@ -23,9 +30,15 @@
 export default {
   name: 'InputI0',
   props: {
-    message: String,
+    message: {
+      type: String,
+      default: ''
+    },
     placeholder: String,
-    type: String
+    type: String,
+    max: Number,
+    min: Number,
+    pattern: String
   }
 }
 </script>
