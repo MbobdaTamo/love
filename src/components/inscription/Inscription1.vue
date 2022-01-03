@@ -36,7 +36,7 @@
                 <span class ="insPolicy">OR</span>
             </div>
             <div class="insLast">
-                <a>Already have an account? Log In</a>
+                <a href='/login'>Already have an account? Log In</a>
             </div>
         </form>
         <section class = "insSiteLang">

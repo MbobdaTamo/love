@@ -17,18 +17,20 @@ export default {
       e.preventDefault()
       return false
     },
-    toNext () {
+    login () {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post('http://localhost/projet/datas/inscription.php', {
-          surname: this.$refs.surname.message,
+        axios.post('http://localhost/projet/datas/login.php', {
           name: this.$refs.name.message,
-          password: this.$refs.password.message,
-          confirmpw: this.$refs.confirmpw.message
+          password: this.$refs.password.message
         })
           .then((response) => {
-            this.$router.push('inscription1')
+            if (response.data !== 'account does not exist') {
+              this.$store.commit('updateLogin', {connected: true, id: response.data})
+              this.$router.push('loveProject')
+              alert('connexion éffectué avec success')
+            } else { alert(response.data) }
           })
           .catch((error) => {
             // error.response.status Check status code
@@ -41,18 +43,9 @@ export default {
     validation () {
       let regex1 = /^[a-zA-Z ]{4,22}$/
       let regex2 = /^.{4,22}$/
-      if (!regex1.test(this.$refs.surname.message) ||
-          !regex1.test(this.$refs.name.message) ||
-          !regex2.test(this.$refs.password.message) ||
-          !regex2.test(this.$refs.confirmpw.message) ||
-        this.$refs.password.message !== this.$refs.confirmpw.message) return false
+      if (!regex1.test(this.$refs.name.message) ||
+          !regex2.test(this.$refs.password.message)) return false
       return true
-    }
-  },
-  created () {
-    if (this.$store.state.publicationMessage) {
-      this.$store.commit('mutPubliMessage', false)
-      alert('Compte existant\n veuillez réesayer')
     }
   }
 }

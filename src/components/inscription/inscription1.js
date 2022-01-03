@@ -40,7 +40,14 @@ export default {
           pseudo: this.$refs.pseudo.message
         })
           .then((response) => {
-            if (response.data === 'account existing') this.$router.push('inscription')
+            if (response.data === 'account existing') {
+              this.$store.commit('mutPubliMessage', true)
+              this.$router.push('inscription')
+            } else {
+              this.$store.commit('updateLogin', {connected: true, id: response.data})
+              this.$router.push('loveProject')
+              alert('compte créé avec success')
+            }
           })
           .catch((error) => {
             // error.response.status Check status code
@@ -52,7 +59,7 @@ export default {
     },
     validation () {
       let regex1 = /^[1-9]{1,3}$/
-      let regex2 = /^[a-zA-Z ]{4,22}$/
+      let regex2 = /^[a-zA-Z ]{0,22}$/
       if (!regex1.test(this.$refs.age.message)) return false
       if (this.$refs.age.message < 12 || this.$refs.age.message > 130) return false
       if (!regex2.test(this.$refs.pseudo.message)) return false
