@@ -10,6 +10,7 @@ import LFooter from '@/components/global/lFooter/LFooter.vue'
 import LPblicationForm from '@/components/global/lPblicationForm/LPblicationForm.vue'
 import ListReactor from '@/components/global/listReactor/ListReactor.vue'
 import LReaction from '@/components/global/lReaction/LReaction.vue'
+import LPagination from '@/components/global/lPagination/LPagination.vue'
 export default {
   name: 'loveProject',
   props: {
@@ -27,17 +28,25 @@ export default {
     LFooter,
     LPblicationForm,
     ListReactor,
-    LReaction
+    LReaction,
+    LPagination
   },
   data () {
     return {
       test: 'monTest',
-      DisplayPubliForm: 'none'
+      DisplayPubliForm: 'none',
+      publicationIndexes: []
     }
   },
   methods: {
     publiFormDisplaying () {
       this.$refs.publiForm.displaying()
     }
+  },
+  mounted () {
+    this.$root.$on('pageChanged', data => {
+      this.publicationIndexes = data
+      window.scroll({top: 500, behavior: 'smooth'})
+    })
   }
 }

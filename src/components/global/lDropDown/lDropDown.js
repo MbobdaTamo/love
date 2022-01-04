@@ -18,6 +18,7 @@ export default {
   data () {
     return {
       currentImage: this.datas[0].image,
+      currentType: this.datas[0].name,
       vheight: '0%',
       vpaddingTop: '0px',
       vpaddingBottom: '0px',
@@ -33,6 +34,7 @@ export default {
     },
     selecting (index) {
       this.currentImage = this.datas[index].image
+      this.currentType = this.datas[index].name
       this.heightCollapse()
     }
   }

@@ -5,8 +5,6 @@
             <div @click="changeIndex(1)" :style="{backgroundColor:colors[1].bg, color: colors[1].color, display:cSecond}">{{ index +2 }}</div>
             <div @click="changeIndex(2)" :style="{backgroundColor:colors[2].bg, color: colors[2].color, display:cThird}">{{ index +3 }}</div>
             <div @click="changeRange(1)" class="lPtSLider" :style="{display:cNext }"><Slider /></div>
-            <h1>testons la function principale </h1>
-            <div v-for="result in datas1[datasIndex]" > {{ result }} fin </div>
     </div>
 </template>
 <style src="./lPagination.css">

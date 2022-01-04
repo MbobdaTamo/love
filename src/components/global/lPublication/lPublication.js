@@ -4,6 +4,7 @@ export default {
   props: {
     publication_type: String,
     reference: String,
+    id: Number,
     publication_img: {
       type: String,
       default: './images/dembouz.jpg'

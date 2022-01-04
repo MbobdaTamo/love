@@ -1,6 +1,6 @@
 <template>
     <div class ="lPublication">
-        <div class="lPType"> {{ publication_type }}</div>
+        <div class="lPType"> {{ publication_type }} and id: {{ id }}</div>
         <div class="lPImg"><img v-bind:src= "require(publication_img + '')" /></div>
         <div class="lPDate"><span> {{ publication_author }} |</span> {{ publication_date }}</div>
         <div class="lPStars"> <div v-for="color in star_colors"> <LPStar :Color="color.color"/> </div> </div>

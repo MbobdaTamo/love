@@ -73,11 +73,13 @@ export default {
     },
     changeIndex (newIndex) {
       this.datasIndex = this.index + newIndex
+      this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
       this.initializeColor(newIndex)
     },
     changeRange (i) {
       this.index += i * 3
       this.changeIndex(0)
+      this.$root.$emit('pageChanged', this.datas1[this.index])
       this.datasIndex = this.index
     },
     initializeColor (current) {
@@ -123,6 +125,6 @@ export default {
     }
   },
   created () {
-    this.datas1 = this.splitTable(this.datas, 3)
+    this.datas1 = this.splitTable(this.datas, 4)
   }
 }

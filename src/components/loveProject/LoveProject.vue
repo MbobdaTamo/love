@@ -10,17 +10,17 @@
                         <span>PUBLIER UN ARTICLE</span>
                 </div>
         </div>
-        <h2 @click="testAjax" >News</h2>
+        <h2>News</h2>
         <div class="pubClass" style="z-index:1">
                 <div class="publications">
-                        <div><LPublication ref='lp1' reference='lp1' publication_type="Football"/></div>
-                        <div><LPublication ref='lp2' reference='lp2' publication_type="Tenis" /></div>
-                        <div><LPublication ref='lp3' reference='lp3' publication_type="Tenis"/></div>
-                        <div><LPublication ref='lp4' reference='lp4' publication_type="Tenis"/></div>
+                        <div><LPublication ref='lp1' reference='lp1' :id='publicationIndexes[0]'  publication_type="Football"/></div>
+                        <div><LPublication ref='lp2' reference='lp2' :id='publicationIndexes[1]' publication_type="Tenis" /></div>
+                        <div><LPublication ref='lp3' reference='lp3' :id='publicationIndexes[2]' publication_type="Tenis"/></div>
+                        <div><LPublication ref='lp4' reference='lp4' :id='publicationIndexes[3]' publication_type="Tenis"/></div>
                 </div>
                 <div class="sliderClass">
                         <div class="seeAll">SEE ALL NEWS</div>
-                        <Slider tsRotate="rotate(180deg)" vopacity="0.5" style="margin-right:1px" /><Slider/>
+                        <LPagination/>
                 </div>
                 <div class="secondZone">
                         <div class="secondFirst">

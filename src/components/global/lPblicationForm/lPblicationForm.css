@@ -4,6 +4,7 @@
     left: 50%;
     width: 500px;
     height: 520px;
+    overflow: scroll;
     margin-left: -250px;
     margin-top: -260px;
     border: solid 1px silver;
@@ -86,6 +87,9 @@
 .lPBFCType + div + div + div img {
     width: 20px;
     margin-left: 10px;
+}
+#lPbblah {
+    width: 100%;
 }
 .lPBFCType + div + div + div + div {
     background-color: #E2E4E6;
