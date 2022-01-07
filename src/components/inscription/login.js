@@ -21,7 +21,7 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post('http://localhost/projet/datas/login.php', {
+        axios.post(this.$store.state.baseUrl + 'login.php', {
           name: this.$refs.name.message,
           password: this.$refs.password.message
         })

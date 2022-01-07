@@ -19,7 +19,7 @@ export default {
   },
   mounted () {
     this.$root.$on('lsReactClick', data => {
-      this.Display = this.isDisplayed ? 'block' : 'none'
+      this.Display = this.isDisplayed ? 'none' : 'block'
       this.isDisplayed = !this.isDisplayed
     })
   }

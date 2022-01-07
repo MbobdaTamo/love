@@ -4,12 +4,10 @@
 }
 .lPublication {
   width: 100%;
-  background-color: #F5F5F6;
+  background-color: white;
   overflow: hidden;
   color: rgb(40, 40, 40);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  font-family:Arial;
-  word-break: break-all;
+  font-size: 15px;
 }
 .lPType {
   font-size: 13px;
@@ -26,9 +24,8 @@
 }
 .lPDate {
   padding-left: 20px;
-  font-family: 'core_sans_regular';
-  font-size: 14px;
-  text-align: justify;
+  font-size: 13px;
+  text-align: left;
   margin-top: 10px;
 }
 .lPDate span {
@@ -49,19 +46,19 @@
   padding-right: 20px;
   font-size: 17px;
   font-weight: bold;
-  text-align: justify;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  line-height: 19px;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 22px; 
 }
 .lPText {
   padding-left: 20px;
   padding-right: 20px;
-  text-align: justify;
-  font-size: 15px;
+  text-align: left;
+  font-size: 16px;
   width: 80%;
   transition: max-height 0.5s;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 .lPMore {
   margin-top: 15px;
@@ -96,9 +93,6 @@
   padding-left: 5px;
   overflow: hidden;
 }
-.lPOption > div img{
-  opacity:0.7
-}
 
 .lPPoint {
   justify-content: left;
@@ -107,7 +101,8 @@
   justify-content: center;
 }
 .lPPointt {
-  border:solid 1px silver;
+  background-color: gray;
+  color: white;
   padding: 4px;
 }
 .lPPoint +div + div {
@@ -158,19 +153,18 @@
 /*----- responsive managment zone... ------------------ */
 @media screen and (max-width: 700px) {
   .lPType {
-    font-size: 12px;
     padding: 2px;
   }
   .lPDate {
-    font-size: 13px;
+    font-size: 12px;
   }
   .lPTitle {
-    font-size: 16px;
-    width: 85%;
+    width: 90%;
+    font-size: 15px;
   }
   .lPText {
-    font-size: 14px;
-    width: 95%;
+    width: 100%;
+    font-size: 15px;
   }
   .lPOption  {
     font-size: 12px;

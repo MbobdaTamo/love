@@ -3,7 +3,6 @@
     left: 0px;
     top:0px;
     width: 100%;
-    overflow: scroll;
 }
 .main::-webkit-scrollbar {
     display: none;
@@ -42,14 +41,14 @@ h2 {
     background-color: white;
 }
 .pubClass {
-    background-color: white;
+    background-color: #F5F5F6;
     padding: 2%;
 }
 .publications {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #F5F5F6;
     flex-wrap: wrap;
     padding-left: 2%;
     padding-right: 2%;
@@ -127,6 +126,9 @@ h2 {
 @media screen and (max-width: 700px) {
     .publish {
         font-size: 12px;
+    }
+    .publications {
+        padding: 0px;
     }
     .publications > div {
         width: 100%;

@@ -1,3 +1,6 @@
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
 .lPblicationForm {
     position: fixed;
     top:50%;

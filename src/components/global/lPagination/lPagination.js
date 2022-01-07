@@ -3,33 +3,7 @@ export default {
   name: 'lPagination',
   data () {
     return {
-      datas: [
-        {id: 1},
-        {id: 2},
-        {id: 3},
-        {id: 4},
-        {id: 5},
-        {id: 6},
-        {id: 7},
-        {id: 8},
-        {id: 9},
-        {id: 10},
-        {id: 11},
-        {id: 12},
-        {id: 13},
-        {id: 14},
-        {id: 15},
-        {id: 16},
-        {id: 17},
-        {id: 18},
-        {id: 19},
-        {id: 20},
-        {id: 21},
-        {id: 22},
-        {id: 23},
-        {id: 24},
-        {id: 25}
-      ],
+      datas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17], // i should delete that
       datas1: [],
       index: 0, // -- the first index amongs index pages visible
       dataIndex: 0, // the current page
@@ -54,7 +28,7 @@ export default {
       let resultElement = []
       for (i = 0; i < max; i++) {
         j++
-        resultElement.push(table[i].id)
+        resultElement.push(table[i])
         if (j === slice) {
           k = i
           result.push(resultElement)
@@ -66,7 +40,7 @@ export default {
       resultElement = []
       if (k < slice) k = -1
       for (i = k + 1; i < max; i++) {
-        resultElement.push(table[i].id)
+        resultElement.push(table[i])
       }
       if (resultElement.length > 0) result.push(resultElement)
       return result
@@ -90,6 +64,18 @@ export default {
       }
       this.colors[current].bg = '#2057AA'
       this.colors[current].color = 'white'
+    },
+    updateDatas () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'selectPublication.php', {
+      })
+        .then((response) => {
+          this.datas1 = this.splitTable(response.data, 4)
+          this.$root.$emit('pageChanged', this.datas1[0])
+        })
+        .catch((error) => {
+          alert(error)
+        })
     }
   },
   computed: {
@@ -125,6 +111,7 @@ export default {
     }
   },
   created () {
+    // this.updateDatas()
     this.datas1 = this.splitTable(this.datas, 4)
   }
 }

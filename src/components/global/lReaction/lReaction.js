@@ -14,7 +14,7 @@ export default {
   },
   mounted () {
     this.$root.$on('reactClick', data => {
-      this.Display = this.isDisplayed ? 'flex' : 'none'
+      this.Display = this.isDisplayed ? 'none' : 'flex'
       this.isDisplayed = !this.isDisplayed
       this.parentRef = data
     })

@@ -21,7 +21,7 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post('http://localhost/projet/datas/inscription.php', {
+        axios.post(this.$store.state.baseUrl + 'inscription.php', {
           surname: this.$refs.surname.message,
           name: this.$refs.name.message,
           password: this.$refs.password.message,

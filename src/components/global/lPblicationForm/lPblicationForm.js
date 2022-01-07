@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     displaying () {
-      this.Display = this.isDisplayed ? 'block' : 'none'
+      this.Display = this.isDisplayed ? 'none' : 'block'
       this.isDisplayed = !this.isDisplayed
     },
     preview () {
@@ -29,7 +29,7 @@ export default {
       const [file] = this.$refs.image.files
       if (file) {
         formData.append('image', file)
-        axios.post('http://localhost/projet/datas/saveImage.php', formData, {
+        axios.post(this.$store.state.baseUrl + 'saveImage.php', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -50,7 +50,7 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post('http://localhost/projet/datas/savePublication.php', {
+        axios.post(this.$store.state.baseUrl + 'savePublication.php', {
           publiTitle: this.publiTitle,
           publiContent: this.publiContent,
           type: this.$refs.types.currentType,

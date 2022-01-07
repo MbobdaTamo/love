@@ -10,7 +10,6 @@
   padding-top:150px;
   border-bottom: solid 10px #25282A;
   font-family: Helvetica;
-  word-break: break-all;
 }
 .lP1First {
   width: 59%; 
@@ -31,7 +30,7 @@
 }
 .lP1Date {
   font-size: 13px;
-  text-align: justify;
+  text-align: left;
   padding: 0px;
   margin: 0px;
 } 
@@ -45,17 +44,19 @@
 .lP1Title {
   width: 95%;
   font-size: 23px;
+  white-space: pre-wrap;
   line-height: 30px;
   font-weight: bold;
-  text-align: justify;
+  text-align: left;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 .lP1Text {
-  text-align: justify;
+  text-align: left;
   font-size: 16px;
   max-height: 40px;
   transition: max-height 0.5s;
+  white-space: pre-wrap;
   overflow: hidden;
 }
 .lP1More {

@@ -33,7 +33,7 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post('http://localhost/projet/datas/inscription1.php', {
+        axios.post(this.$store.state.baseUrl + 'inscription1.php', {
           age: this.$refs.age.message,
           country: this.country,
           sex: this.sex,
@@ -46,7 +46,7 @@ export default {
             } else {
               this.$store.commit('updateLogin', {connected: true, id: response.data})
               this.$router.push('loveProject')
-              alert('compte créé avec success')
+              alert(response.data)
             }
           })
           .catch((error) => {
