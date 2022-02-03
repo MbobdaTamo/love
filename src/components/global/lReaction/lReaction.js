@@ -10,6 +10,11 @@ export default {
   methods: {
     select (reaction) {
       this.$parent.$refs[this.parentRef].$emit('reactSelected', reaction)
+      this.displaying()
+    },
+    displaying () {
+      this.Display = this.isDisplayed ? 'none' : 'block'
+      this.isDisplayed = !this.isDisplayed
     }
   },
   mounted () {

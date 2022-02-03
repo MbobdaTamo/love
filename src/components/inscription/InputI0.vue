@@ -25,6 +25,13 @@
         border-color:#4C9AFF;
         border-width: 2px;
     }
+
+    /*----- responsive managment zone... ------------------ */
+    @media screen and (max-width: 440px) {
+        .inputI0 {
+            width: 90%;
+        }
+    }
 </style>
 <script>
 export default {

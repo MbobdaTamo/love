@@ -4,13 +4,6 @@
     top:0px;
     width: 100%;
 }
-.main::-webkit-scrollbar {
-    display: none;
-    width: 199px;
-    width: 5px;
-    height: 8px;
-    background-color: #aaa;
-}
 .main div {
     box-sizing: border-box;
 }
@@ -20,11 +13,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0C1B23;
 }
 .publish > div {
-    color: #92D1D3; 
-    border:solid 1px;
+    color: #92D1D3;
     font-size: 13px;
     padding: 10px;
     border-radius: 0.3em;
@@ -81,13 +72,13 @@ h2 {
 /* --------- second zoe ----------------------------- */
 .secondZone {
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
 }
 .secondFirst {
     display: flex;
     flex-direction: column;
     margin-right: 2%;
-    width: 72%;
 }
 .secondFirst + div {
     width: 28%;
@@ -97,10 +88,6 @@ h2 {
 }
 
 .prefooter1 {
-    height: 300px;
-    background-color: #0C1B23;
-}
-.prefooter2{
     height: 300px;
     background-color: #0C1B23;
 }
@@ -126,6 +113,9 @@ h2 {
 @media screen and (max-width: 700px) {
     .publish {
         font-size: 12px;
+    }
+    .pubClass {
+        padding: 0px;
     }
     .publications {
         padding: 0px;

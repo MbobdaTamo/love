@@ -32,8 +32,6 @@
         </div>
         <div class="prefooter1">
         </div>
-        <div class="prefooter2">
-        </div>
         <LFooter/>
 </section>
 </template>

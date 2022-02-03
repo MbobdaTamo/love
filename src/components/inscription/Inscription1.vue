@@ -11,7 +11,7 @@
             <div class ="insInput">
                 <InputI0 ref="age" placeholder="Age" type = "number" :min=12 :max=130 />
             </div>
-            <div class ="insInput insCountry">
+            <div class ="insCountry">
                 <div>Choose your country</div>
                 <div>
                     <vue-country-code
@@ -30,8 +30,8 @@
             <div class="insLaw">
                 <span class ="insPolicy">By signing up, you confirm that you've read and accepted our <span>Terms of Service</span> and <span>Privacy Policy</span>. </span>
             </div>
-            <div @click="toNext"><ButtonI0 message = "next" /></div>
-            <div @click="previous"><ButtonI0 message = "previous" style="margin-top:10px"/></div>
+            <div @click="toNext" class="insButtonI0" ><ButtonI0 message = "next" /></div>
+            <div @click="previous" class="insButtonI0" ><ButtonI0 message = "previous" style="margin-top:10px"/></div>
             <div class = "insOR">
                 <span class ="insPolicy">OR</span>
             </div>
@@ -52,9 +52,11 @@
 </style>
 <style>
     .insCountry {
+        width:100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
     }
     .insCountry > div {
         margin:5px ;

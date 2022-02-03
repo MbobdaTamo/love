@@ -1,6 +1,6 @@
 .bestStat {
     width: 100%;
-    font-size: 15px
+    font-size: 15px;
 }
 .bsHeader {
     background-color:#E32D38;
@@ -40,7 +40,8 @@
 .bsBody {
     display: flex;
     flex-direction: column;
-    background-color: #254150;
+  /*  background-color: #254150; */
+    background-color: white;
     padding: 1%;
     display: flex;
 }
@@ -48,7 +49,7 @@
     display: flex;
     width: 100%;
     margin-top: 20px;
-    color: white;
+    color: black;
 }
 .bsLogo {
     width: 60%;

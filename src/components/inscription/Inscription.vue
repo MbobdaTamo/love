@@ -23,7 +23,7 @@
             <div class="insLaw">
                 <span class ="insPolicy">By signing up, you confirm that you've read and accepted our <span>Terms of Service</span> and <span>Privacy Policy</span>. </span>
             </div>
-            <div @click='toNext' ><ButtonI0 message = "continue" /></div>
+            <div @click='toNext' class="insButtonI0" ><ButtonI0 message = "continue" /></div>
             <div class = "insOR">
                 <span class ="insPolicy">OR</span>
             </div>

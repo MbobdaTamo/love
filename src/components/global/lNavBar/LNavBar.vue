@@ -8,7 +8,7 @@
         </div>
         <div>
           <div class="navBellN"><BellNotification/></div>
-          <div class="navlDropDown"><LDropDown :datas="this.$store.state.langDatas" bdColor="solid 1px rgb(36, 39, 41)" maxHeight="330%" style="font-size:12px" /></div>
+          <div class="navlDropDown"><LDropDown :datas="this.$store.state.langDatas" bdColor="solid 1px rgb(136, 139, 141)" maxHeight="330%" style="font-size:12px" /></div>
           <div><img src="./profile_black.svg"/>Log in</div>
         </div>
       </div>

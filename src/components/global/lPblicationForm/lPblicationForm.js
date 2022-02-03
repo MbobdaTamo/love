@@ -57,7 +57,7 @@ export default {
           userId: this.$store.state.login.id
         })
           .then((response) => {
-            alert('publication enregistré avec success')
+            alert('success' + response.data)
           })
           .catch((error) => {
             alert(error)

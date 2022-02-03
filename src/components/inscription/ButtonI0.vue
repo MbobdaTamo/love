@@ -16,6 +16,13 @@
         font-size: 15px;
         cursor: pointer;
     }
+
+  /*----- responsive managment zone... ------------------ */
+    @media screen and (max-width: 440px) {
+        .buttonI0 {
+            width: 90%;
+        }
+    }
 </style>
 <script>
 export default {

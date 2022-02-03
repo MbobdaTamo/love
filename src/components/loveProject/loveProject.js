@@ -46,7 +46,7 @@ export default {
   mounted () {
     this.$root.$on('pageChanged', data => {
       this.publicationIndexes = data
-      window.scroll({top: 720, behavior: 'smooth'})
+      window.scrollTo(0, 700)
     })
   }
 }

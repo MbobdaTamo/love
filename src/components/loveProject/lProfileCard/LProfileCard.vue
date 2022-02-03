@@ -14,7 +14,7 @@
             </div>
         </div>
         <div v-for="(data, index) in datas" class="lpcElements">
-            <div class="lpcElement" :style="{backgroundColor:bgColor(index)}">
+            <div class="lpcElement" :style="{backgroundColor:bgColor(index), color:textColor(index)}">
                 <div class="lpcRanking">{{ index+1 }}</div>
                 <div><img src='./profile.svg'/></div>
                 <div>Eric Arnaud</div>

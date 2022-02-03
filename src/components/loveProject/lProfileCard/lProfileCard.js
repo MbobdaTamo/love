@@ -12,7 +12,10 @@ export default {
   },
   methods: {
     bgColor (i) {
-      return i % 2 === 0 ? 'transparent' : '#10202A'
+      return i % 2 === 0 ? 'transparent' : 'transparent' /* '#10202A' */
+    },
+    textColor (i) {
+      return i % 2 === 0 ? 'rgb(36, 39, 41)' : 'rgb(36, 39, 41)' /* '#10202A' */
     }
   }
 }

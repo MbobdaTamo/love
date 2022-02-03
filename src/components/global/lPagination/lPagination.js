@@ -38,7 +38,7 @@ export default {
       }
       // --- ajoutons le reste des éléments
       resultElement = []
-      if (k < slice) k = -1
+      if (max < slice) k = -1
       for (i = k + 1; i < max; i++) {
         resultElement.push(table[i])
       }
@@ -111,7 +111,7 @@ export default {
     }
   },
   created () {
-    // this.updateDatas()
-    this.datas1 = this.splitTable(this.datas, 4)
+    this.updateDatas()
+    // this.datas1 = this.splitTable(this.datas, 4)
   }
 }

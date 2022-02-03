@@ -18,6 +18,7 @@
                    <div><LProfileCard/></div>
                    <div><LProfileCard/></div>
                    <div><LProfileCard/></div>
+                   <div><LProfileCard/></div>
             </div>
             <div class="bsBottom">
                 <Slider tsRotate="rotate(180deg)" vopacity="0.5" style="margin-right:1px" /><Slider/>

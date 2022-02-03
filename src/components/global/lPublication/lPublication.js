@@ -20,20 +20,18 @@ export default {
       publication_point: 1000,
       // ------ other --------
       vtext_height: '53px',
-      vplus_transform: 'rotate(0deg)',
+      vdisplay_more: 'flex',
       full_text_visible: false,
       star_colors: [{ color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }],
-      react: 'angry'
+      react: 'handshake'
     }
   },
   methods: {
     slideText () {
       if (!this.full_text_visible) {
         this.vtext_height = '500px'
-        this.vplus_transform = 'rotate(45deg)'
       } else {
         this.vtext_height = '53px'
-        this.vplus_transform = 'rotate(90deg)'
       }
       this.full_text_visible = !this.full_text_visible
     },
@@ -41,7 +39,16 @@ export default {
       this.$root.$emit('reactClick', this.reference)
     },
     lsReactEmit () { /* this signal is emitted for the component listReactor */
-      this.$root.$emit('lsReactClick', 'bonjour')
+      this.$root.$emit('lsReactClick', this.id)
+    },
+    moreVisible (text) {
+      if (text > 300) {
+        this.vdisplay_more = 'flex'
+        this.vtext_height = '53px'
+      } else {
+        this.vdisplay_more = 'none'
+        this.vtext_height = '500px'
+      }
     },
     updateDatas () {
       const axios = require('axios')
@@ -49,7 +56,11 @@ export default {
         id: this.id
       })
         .then((response) => {
+          this.getReaction()
+          this.getPublicationPoint()
+          this.getNumberPubCom()
           this.publication_text = response.data.texte
+          this.moreVisible(response.data.texte.length)
           this.publication_title = response.data.titre
           this.publication_type = response.data.type
           this.publication_date = response.data.dat_p
@@ -58,14 +69,72 @@ export default {
         .catch((error) => {
           alert(error)
         })
+    },
+    reactRequest (reaction) {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
+        publication: this.id,
+        personne: this.$store.state.login.id,
+        reactionType: reaction
+      })
+        .then((response) => {
+          this.getPublicationPoint()
+          this.react = reaction
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getReaction () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'getPubReaction.php', {
+        publication: this.id,
+        personne: this.$store.state.login.id
+      })
+        .then((response) => {
+          this.react = response.data
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getPublicationPoint () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'publicationPoint.php', {
+        publication: this.id
+      })
+        .then((response) => {
+          this.publication_point = response.data
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getNumberPubCom () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'numberPubCom.php', {
+        publication: this.id
+      })
+        .then((response) => {
+          this.publi_numb_com = response.data
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    toPublication () {
+      this.$store.commit('updatePublication', {id: this.id, type: this.publication_type})
+      this.$router.push('publication')
     }
   },
   mounted () {
     this.$on('reactSelected', data => {
-      this.react = data
+      this.reactRequest(data)
     })
   },
-  beforeUpdate () {
-   // this.updateDatas()
+  watch: {
+    id: function (newVal, oldVal) { // watch it
+      this.updateDatas()
+    }
   }
 }

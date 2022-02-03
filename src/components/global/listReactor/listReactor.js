@@ -5,22 +5,72 @@ export default {
       datas: [
         {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'like'},
         {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'angry'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'handshake'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'sick'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'laughing'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'sad'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'impressed'}
+        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'handshake'}
       ],
+      id: 0,
       Display: 'none',
-      isDisplayed: false
+      isDisplayed: false,
+      total: 0,
+      heart: 0,
+      laughing: 0,
+      impressed: 0,
+      like: 0,
+      handshake: 0,
+      sad: 0,
+      sick: 0,
+      angry: 0
+    }
+  },
+  methods: {
+    displaying () {
+      this.Display = this.isDisplayed ? 'none' : 'block'
+      this.isDisplayed = !this.isDisplayed
+    },
+    exist (a) {
+      if (typeof a === 'undefined') {
+        return 0
+      } else return a
+    },
+    getPointReactions () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'pointReactions.php', {
+        publication: this.id
+      })
+        .then((response) => {
+          this.total = this.exist(response.data.total)
+          this.heart = this.exist(response.data.heart)
+          this.laughing = this.exist(response.data.laughing)
+          this.impressed = this.exist(response.data.impressed)
+          this.like = this.exist(response.data.like)
+          this.handshake = this.exist(response.data.handshake)
+          this.sad = this.exist(response.data.sad)
+          this.sick = this.exist(response.data.sick)
+          this.angry = this.exist(response.data.angry)
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getReactor (reaction) {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'listPubReacteur.php', {
+        publication: this.id,
+        reactionType: reaction
+      })
+        .then((response) => {
+          this.datas = response.data
+        })
+        .catch((error) => {
+          alert(error)
+        })
     }
   },
   mounted () {
     this.$root.$on('lsReactClick', data => {
-      this.Display = this.isDisplayed ? 'none' : 'block'
-      this.isDisplayed = !this.isDisplayed
+      this.id = data
+      this.getPointReactions()
+      this.getReactor('[a-z]+')
+      this.displaying()
     })
   }
 }

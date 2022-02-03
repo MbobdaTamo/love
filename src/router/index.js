@@ -4,10 +4,12 @@ import Router from 'vue-router'
 import todolist from '@/components/todo'
 import Inscription from '@/components/inscription/Inscription'
 import Inscription1 from '@/components/inscription/Inscription1'
+import Login from '@/components/inscription/Login'
 import LoveProject from '@/components/loveProject/LoveProject'
 import Publication from '@/components/publication/Publication'
 import PubliList from '@/components/publiList/PubliList'
 import ProfilePage from '@/components/profilePage/ProfilePage'
+import LoveComment from '@/components/loveCommenttt/LoveComment'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +31,11 @@ export default new Router({
       component: Inscription1
     },
     {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
       path: '/loveProject',
       name: 'loveProject',
       component: LoveProject
@@ -47,6 +54,11 @@ export default new Router({
       path: '/profilePage',
       name: 'profilePage',
       component: ProfilePage
+    },
+    {
+      path: '/loveComment',
+      name: 'loveComment',
+      component: LoveComment
     }
   ]
 })

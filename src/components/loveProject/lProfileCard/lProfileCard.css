@@ -1,6 +1,6 @@
 .lProfileCard {
 width: 100%;
-background-color: #254150;
+/* background-color: #254150; */
 font-size: 12px;  
 color:rgb(254, 249, 206);
 display: flex;
@@ -9,8 +9,10 @@ border-radius: 0.2em;
 }
 .lpcHeader {
   position:relative;
-  background-color:#10202A;
-  border: solid 1px #10202A;
+  /* background-color:#10202A;
+  border: solid 1px #10202A; */
+  background-color: rgb(36, 39, 41);
+  border: solid 1px silver;
 }
 .lpcProfile {
   position:absolute;
@@ -29,7 +31,7 @@ border-radius: 0.2em;
 
 }
 .lpcProfile img {
-  width: 64px;
+  width: 55px;
 }
 .lpcProfileShadow {
   position:absolute;
@@ -38,8 +40,8 @@ border-radius: 0.2em;
   margin-top: -46px;
   margin-left: -46px;
   border-radius: 5em;
-  width: 100px;
-  height:100px;
+  width: 85px;
+  height:85px;
   transition: background-color 0.2s;
 }
 
@@ -49,7 +51,7 @@ border-radius: 0.2em;
 .lpcType {
   padding-left: 10px;
   padding-top: 10px;
-  text-align: justify;
+  text-align: left;
 }
 .lpcFlag {
   width: 100%;
@@ -62,30 +64,30 @@ border-radius: 0.2em;
 .lpcFlag + div {
   height: 60px;
   background-color: white;
-  background-image: url('rayureLaliga.png');  
+  /* background-image: url('rayureLaliga.png'); */
 }
 
 .lpcTitle {
   font-weight: bold;
   display: flex;
   padding: 10px;
-  font-size: 15px;
+  font-size: 13px;
 }
 .lpcTitle > div {
   width: 50%;
 }
 .lpcName{
-  text-align: justify;
+  text-align: left;
 }
 .lpcName + div {
   text-align: right;
 }
 .lpcTotal {
-  color: #92D1D3;
+  /* color: #92D1D3; */
   margin-right: 10px;
 }
 .lpcElements {
-  background-color: #254150
+ /* background-color: #254150 */
 }
 .lpcElement {
   display: flex;
@@ -93,7 +95,8 @@ border-radius: 0.2em;
   align-items: center;
   font-size: 13px;
   padding: 5px;
-  color: #92D1D3; 
+  color: #92D1D3;
+  color: black; 
 }
 .lpcRanking {
   padding-left:10px ;
@@ -108,7 +111,6 @@ border-radius: 0.2em;
 }
 .lpcRanking + div +div   {
   width: 100%;
-  color:rgb(254, 249, 206);
   text-align: justify;
 } 
 .lpcRanking + div +div +div {
@@ -117,7 +119,8 @@ border-radius: 0.2em;
 }
 
 .lpcMore {
-  color: #92D1D3; 
+  /* color: #92D1D3; */
+  color: #E32D38; 
   border:solid 1px;
   font-size: 10px;
   font-weight: bold;
@@ -133,8 +136,9 @@ border-radius: 0.2em;
   cursor: pointer;
 }
 .lpcMore:hover {
-  background-color: #92D1D3; 
-  color:#182c38;
-  border-color: #92D1D3;
+  /* background-color: #92D1D3; */
+  background-color: #E32D38;
+  color: white;
+  border-color: #E32D38;
   cursor: pointer;
 }

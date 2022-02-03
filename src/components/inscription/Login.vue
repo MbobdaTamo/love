@@ -17,7 +17,7 @@
             <div class="insLaw">
                 <span class ="insPolicy">By loging in, you confirm that you are aware of our <span>Terms of Service</span> and <span>Privacy Policy</span>. </span>
             </div>
-            <div @click="login"><ButtonI0 message = "Login" /></div>
+            <div @click="login" class="insButtonI0" ><ButtonI0 message = "Login" /></div>
             <div class = "insOR">
                 <span class ="insPolicy">OR</span>
             </div>

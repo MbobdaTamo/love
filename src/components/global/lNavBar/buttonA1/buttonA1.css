@@ -11,9 +11,6 @@
   cursor: pointer;
   transition: color 0.5s;
 }
-.ButtonA1:focus {
-  background-color: #DFC0EB
-}
 .ButtonA1:hover {
   color:#EB951E;
 }

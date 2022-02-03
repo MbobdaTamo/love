@@ -68,6 +68,7 @@ input:focus, textarea:focus, select:focus{
     color: rgb(40,40,40);
     border-radius: 0.1em;
     font-size: 15px;
+    resize: none;
 }
 .lPBFCType + div + div textarea {
     box-sizing: border-box;
@@ -78,6 +79,7 @@ input:focus, textarea:focus, select:focus{
     color: rgb(40,40,40);
     border-radius: 0.1em;
     font-size: 15px;
+    resize: none;
 }
 .lPBFCType + div + div + div label {
     display: flex;
@@ -90,6 +92,9 @@ input:focus, textarea:focus, select:focus{
 .lPBFCType + div + div + div img {
     width: 20px;
     margin-left: 10px;
+}
+.custom-file-upload {
+  margin-bottom: 5px;  
 }
 #lPbblah {
     width: 100%;

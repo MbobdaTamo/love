@@ -6,8 +6,7 @@ require("connexion_bd.php") ;
 $bdd = connexion_bd() ;
 
 //--------------------- vérifions si le compte existe déja -----------------------
-$req = $bdd->query('SELECT id_publication FROM `Publication` ORDER by dat_p desc');
-$result = $req->fetch();
+$req = $bdd->query('SELECT id_publication FROM `Publication` ORDER by id_publication desc');
 $data = Array() ;
 while ($donnees = $req->fetch())
 {
