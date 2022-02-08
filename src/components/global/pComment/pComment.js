@@ -3,10 +3,11 @@ export default {
   data () {
     return {
       Display: 'none',
-      isDisplayed: true,
+      isDisplayed: false,
       texte: '',
       type: 'Football',
-      callerId: 42
+      callerId: 42,
+      serverPage: ''
     }
   },
   methods: {
@@ -47,10 +48,10 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        axios.post(this.$store.state.baseUrl + 'saveComment.php', {
+        axios.post(this.$store.state.baseUrl + this.serverPage, {
           texte: this.texte,
-          type: this.type,
-          publication: this.$store.state.publication.id,
+          type: this.$store.state.publication.type,
+          publication: this.callerId,
           personne: this.$store.state.login.id
         })
           .then((response) => {
@@ -63,8 +64,14 @@ export default {
     }
   },
   mounted () {
-    this.$root.$on('commenterPubEmit', data => {
-      this.callerId = data
+    this.$root.$on('commenter', data => {
+      this.callerId = data.id
+      if (data.type === 'comment') {
+        this.serverPage = 'saveComment.php'
+      }
+      if (data.type === 'comOfcom') {
+        this.serverPage = 'saveComOfCom.php'
+      }
       this.displaying()
     })
   }

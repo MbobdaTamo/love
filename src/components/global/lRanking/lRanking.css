@@ -37,6 +37,15 @@ padding: 15px;
   justify-content: center;
   align-items: center;
 }
+.lraSelect {
+  width: 70%;
+  background-color: #E32D38;
+  border: none;
+  color:white
+}
+.lraSelect::-ms-expand {
+  display: none;
+}
 .lraTotal + div img {
   width: 18px;  
 }
@@ -45,6 +54,7 @@ padding: 15px;
 }
 
 #lraInfo {
+  width: 100%;
   font-weight: bold;
   margin-bottom: 10px;
   color:white;
@@ -82,9 +92,10 @@ padding: 15px;
 .lraRanking + div +div   {
   width: 100%;
   color: #92D1D3; 
-  text-align: justify;
+  text-align: left; 
   font-size: 13px;
   font-weight: bold;
+  padding-right: 15px;
 } 
 .lraRanking + div +div +div {
   padding-right: 20px;

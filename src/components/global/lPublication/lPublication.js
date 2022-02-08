@@ -19,6 +19,7 @@ export default {
       publi_numb_com: 100,
       publication_point: 1000,
       // ------ other --------
+      Display: 'none',
       vtext_height: '53px',
       vdisplay_more: 'flex',
       full_text_visible: false,
@@ -75,9 +76,11 @@ export default {
       axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
         publication: this.id,
         personne: this.$store.state.login.id,
-        reactionType: reaction
+        reactionType: reaction,
+        type: this.publication_type
       })
         .then((response) => {
+          console.log(response.data)
           this.getPublicationPoint()
           this.react = reaction
         })
@@ -125,6 +128,11 @@ export default {
     toPublication () {
       this.$store.commit('updatePublication', {id: this.id, type: this.publication_type})
       this.$router.push('publication')
+    },
+    exist (a) {
+      if (typeof a === 'undefined') {
+        return false
+      } else { return true }
     }
   },
   mounted () {
@@ -134,7 +142,10 @@ export default {
   },
   watch: {
     id: function (newVal, oldVal) { // watch it
-      this.updateDatas()
+      if (this.exist(newVal)) {
+        this.Display = 'block'
+        this.updateDatas()
+      } else this.Display = 'none'
     }
   }
 }

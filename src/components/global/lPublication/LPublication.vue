@@ -1,5 +1,5 @@
 <template>
-    <div class ="lPublication">
+    <div class ="lPublication" :style="{display: Display}">
         <div class="lPType">{{ publication_type }} and id: {{ id }}</div>
         <div class="lPImg"><img v-bind:src= "require(publication_img + '')" /></div>
         <div class="lPDate">

@@ -1,9 +1,11 @@
 import Slider from './Slider'
 export default {
-  name: 'lPagination',
+  name: 'ComPagination',
+  props: {
+    parentId: Number
+  },
   data () {
     return {
-      datas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17], // i should delete that
       datas1: [],
       index: 0, // -- the first index amongs index pages visible
       dataIndex: 0, // the current page
@@ -47,13 +49,13 @@ export default {
     },
     changeIndex (newIndex) {
       this.datasIndex = this.index + newIndex
-      this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+      this.$root.$emit('comPageChanged', this.datas1[this.index + newIndex])
       this.initializeColor(newIndex)
     },
     changeRange (i) {
       this.index += i * 3
       this.changeIndex(0)
-      this.$root.$emit('pageChanged', this.datas1[this.index])
+      this.$root.$emit('comPageChanged', this.datas1[this.index])
       this.datasIndex = this.index
     },
     initializeColor (current) {
@@ -67,14 +69,26 @@ export default {
     },
     updateDatas () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'selectPublication.php', {
+      axios.post(this.$store.state.baseUrl + 'selectComOfCom.php', {
+        parent_id: this.$parent.id
       })
         .then((response) => {
+          // reinitializing variables
+          this.index = 0
+          this.dataIndex = 0
+          this.currentElement = []
+          this.currentElement = []
+          this.colors = [
+            { bg: '#2057AA', color: 'white' },
+            { bg: 'transparent', color: 'inherit' },
+            { bg: 'transparent', color: 'inherit' }
+          ]
+          // updating
           this.datas1 = this.splitTable(response.data, 4)
-          this.$root.$emit('pageChanged', this.datas1[0])
+          // emit pout le composant publicationComment
+          this.$root.$emit('comPageChanged', this.datas1[0])
         })
         .catch((error) => {
-          console.log(error)
           alert(error)
         })
     }
@@ -111,8 +125,9 @@ export default {
       return 'block'
     }
   },
-  created () {
-    this.updateDatas()
-    // this.datas1 = this.splitTable(this.datas, 4)
+  mounted () {
+    this.$on('loadPagination', data => {
+      this.updateDatas()
+    })
   }
 }

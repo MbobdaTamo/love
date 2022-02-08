@@ -19,7 +19,7 @@
           <div><ButtonA12 message="Statistics"/></div>
           <div><ButtonA13 message="Photos"/></div>
         </div>
-        <div class="navLogo"><img/></div>
+        <div class="navLogo"><img src="@/assets/logo.png"/></div>
        <div class="navR">
           <div><ButtonA1 message="Videos"/></div>
           <div><ButtonA11 message="News"/></div>
@@ -32,7 +32,7 @@
           <MenuButton @click="cross" />
         </div>
         <div class="navLogo2">
-            <div><img src="./logo.png"/></div>
+            <div><img src="@/assets/textLogo.png"/></div>
         </div>
         <div class="navBar2right">
           <div class="navLang">

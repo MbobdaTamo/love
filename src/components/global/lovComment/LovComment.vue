@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="lovCommentPoint" >
-                <div @click="commentEmit" ><img src="./images/com.svg" />{{ publication_point }}</div>
+                <div @click="commentEmit" ><img src="./images/com.svg" />{{ publi_numb_com }}</div>
             </div>
             <div class="lovCommentProfile">
                 <img src="./images/pp.jpeg">

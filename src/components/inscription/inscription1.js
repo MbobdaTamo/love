@@ -33,24 +33,12 @@ export default {
       if (!this.validation()) alert('echec de validation')
       else {
         const axios = require('axios')
-        const TOKEN = 'Token';
-        const BASEURL = 'https://preview-deliver.kenticocloud.com/PROJECT_ID';
-        const ENDPOINT = '/items/ITEM_NAME';
-        
-        axios.create({
-                baseURL: BASEURL,
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': 'Bearer ' + TOKEN
-                }
-            })
-            .get(ENDPOINT)
-        /* axios.post(this.$store.state.baseUrl + 'inscription1.php', {
+        axios.post(this.$store.state.baseUrl + 'inscription1.php', {
           age: this.$refs.age.message,
           country: this.country,
           sex: this.sex,
           pseudo: this.$refs.pseudo.message
-        }) */
+        })
           .then((response) => {
             console.log(response.data)
             if (response.data === 'account existing') {

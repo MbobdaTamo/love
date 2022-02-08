@@ -7,7 +7,7 @@ export default {
   },
   data () {
     return {
-      Display: 'block',
+      Display: 'none',
       publication_img: './images/dembouz.jpg',
       publication_date: 'MER. 20.02.2000 ',
       publication_author: 'TAMO MBOBDA ERIC',
@@ -18,7 +18,6 @@ export default {
       vtext_height: '53px',
       vdisplay_more: 'flex',
       full_text_visible: false,
-      star_colors: [{ color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }],
       react: 'handshake'
     }
   },
@@ -31,18 +30,18 @@ export default {
       }
       this.full_text_visible = !this.full_text_visible
     },
-    reactEmit () { /* this signal is emitted for the component lReaction */
-      this.$root.$emit('reactClick', this.reference)
+    reactEmit () { /* this signal is emitted for the component ComLReaction */
+      this.$root.$emit('comReactClick', this.reference)
     },
     lsReactEmit () { /* this signal is emitted for the component listReactor */
-      this.$root.$emit('lsReactComClick', this.id)
+      this.$root.$emit('lsReactComOfClick', this.id)
     },
-    commentEmit () { /* this signal is emitted for the component listReactor */
-      this.$root.$emit('commentEmit', this.id)
+    comOfComEmit () { /* this signal is emitted for the component listReactor */
+      this.$root.$emit('commenter', {id: this.$parent.id, type: 'comOfcom'})
     },
     updateDatas () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'commentDatas.php', {
+      axios.post(this.$store.state.baseUrl + 'comOfComDatas.php', {
         id: this.id
       })
         .then((response) => {
@@ -60,12 +59,14 @@ export default {
     },
     reactRequest (reaction) {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
-        commentaire: this.id,
+      axios.post(this.$store.state.baseUrl + 'reactToComOfCom.php', {
+        comOfCom: this.id,
         personne: this.$store.state.login.id,
-        reactionType: reaction
+        reactionType: reaction,
+        type: this.$store.state.publication.type
       })
         .then((response) => {
+          console.log(response.data)
           this.getPublicationPoint()
           this.react = reaction
         })
@@ -75,8 +76,8 @@ export default {
     },
     getReaction () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'getComReaction.php', {
-        commentaire: this.id,
+      axios.post(this.$store.state.baseUrl + 'getComOfComReaction.php', {
+        comOfCom: this.id,
         personne: this.$store.state.login.id
       })
         .then((response) => {
@@ -88,8 +89,8 @@ export default {
     },
     getPublicationPoint () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'commentPoint.php', {
-        commentaire: this.id
+      axios.post(this.$store.state.baseUrl + 'comOfComPoint.php', {
+        comOfCom: this.id
       })
         .then((response) => {
           this.publication_point = response.data
@@ -114,7 +115,7 @@ export default {
     }
   },
   mounted () {
-    this.$on('reactSelected', data => {
+    this.$on('comReactSelected', data => {
       this.reactRequest(data)
     })
   },

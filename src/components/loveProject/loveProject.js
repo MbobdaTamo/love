@@ -2,9 +2,8 @@ import LNavBar from '@/components/global/lNavBar/LNavBar.vue'
 import LComment from '@/components/loveProject/lComment/LComment.vue'
 import LPublication from '@/components/global/lPublication/LPublication.vue'
 import LPublication1 from '@/components/loveProject/lPublication1/LPublication1.vue'
-import LProfileCard from '@/components/loveProject/lProfileCard/LProfileCard.vue'
-import LRanking from '@/components/loveProject/lRanking/LRanking.vue'
-import BestStat from '@/components/loveProject/bestStat/BestStat.vue'
+import LRanking from '@/components/global/lRanking/LRanking.vue'
+import BestStat from '@/components/global/bestStat/BestStat.vue'
 import Slider from '@/components/loveProject/Slider.vue'
 import LFooter from '@/components/global/lFooter/LFooter.vue'
 import LPblicationForm from '@/components/global/lPblicationForm/LPblicationForm.vue'
@@ -21,7 +20,6 @@ export default {
     LComment,
     LPublication,
     LPublication1,
-    LProfileCard,
     LRanking,
     BestStat,
     Slider,
@@ -46,7 +44,7 @@ export default {
   mounted () {
     this.$root.$on('pageChanged', data => {
       this.publicationIndexes = data
-      window.scrollTo(0, 700)
+      window.scrollTo(0, 0)
     })
   }
 }

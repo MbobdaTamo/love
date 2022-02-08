@@ -148,14 +148,14 @@
     margin-top: 5px;
   }
   .lP1Title {
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 4px;
     margin-bottom: 4px;
   }
 }
 @media screen and (max-width: 1090px){ 
   .lP1Title {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 901px){ 
@@ -184,13 +184,6 @@
     margin-top: 10px;
     font-size: 10px;
   }
-  .lP1Text {
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
 }
-@media screen and (max-width: 700px){ 
-  .lP1Title {
-    font-size: 19px;
-  }
+@media screen and (max-width: 700px){
 }

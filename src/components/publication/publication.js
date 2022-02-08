@@ -63,7 +63,8 @@ export default {
       axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
         publication: this.$store.state.publication.id,
         personne: this.$store.state.login.id,
-        reactionType: reaction
+        reactionType: reaction,
+        type: this.$store.state.publication.type
       })
         .then((response) => {
           this.getPublicationPoint()
@@ -117,7 +118,7 @@ export default {
       this.$root.$emit('lsReactClick', this.$store.state.publication.id)
     },
     commenterPubEmit () { /* this signal is emitted for the component pComment */
-      this.$root.$emit('commenterPubEmit', this.$store.state.publication.id)
+      this.$root.$emit('commenter', { id: this.$store.state.publication.id, type: 'comment' })
     },
     exist (a) {
       if (typeof a === 'undefined') {
@@ -131,8 +132,9 @@ export default {
       this.reactRequest(data)
     })
     this.$root.$on('pageChanged', data => {
+      // emitted from pubPagination
       this.publicationIndexes = this.exist(data)
-      window.scrollTo(0, 700)
+      window.scrollTo(0, 0)
     })
   }
 }

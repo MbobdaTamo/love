@@ -2,9 +2,9 @@
     <div class ="publication">
         <LNavBar style="z-index:1" />
         <ListReactor style="z-index:3" />
+        <PublicationComment ref="pubCom" reference='pubCom' style="z-index:3" />
         <ListReactorCom style="z-index:3" />
         <LReaction style="z-index:3" />
-        <PublicationComment style="z-index:3" />
         <div class ="pBody" style="z-index:0" >
             <div class="pInfo">
                 <div class="pImage"><img src="./images/Ez Abde dribbling.jpg"></div>

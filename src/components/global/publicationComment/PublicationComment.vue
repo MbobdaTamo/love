@@ -1,5 +1,7 @@
 <template>
     <div class ="publicationComment" :style="{display: Display}">
+        <ComLReaction style="z-index:3"/>
+        <ListReactorComOfCom style="z-index:3"/>
         <div class="pubComTitle">Comment of Comment haha
             <div class="pubComCross" @click="displaying()"><img src="./images/more.svg"/></div>
         </div>
@@ -16,7 +18,7 @@
                     </div>
                 </div>
                 <div class="pubComPoint" >
-                    <div @click="commentEmit" ><img src="./images/com.svg" />{{ publication_point }}</div>
+                    <div @click="comOfComEmit" ><img src="./images/com.svg" />{{ publi_numb_com }}</div>
                 </div>
                 <div class="pubComProfile">
                     <img src="./images/pp.jpeg">
@@ -24,10 +26,11 @@
             </div>
         </div>
         <div class="pubComComZone">
-            <div><LovComOfCom/></div>
-            <div><LovComOfCom/></div>
-            <div><LovComOfCom/></div>
-            <div><LovComOfCom/></div>
+            <div><LovComOfCom ref='lp1' reference='lp1' :id='publicationIndexes[0]' /></div>
+            <div><LovComOfCom ref='lp2' reference='lp2' :id='publicationIndexes[1]' /></div>
+            <div><LovComOfCom ref='lp3' reference='lp3' :id='publicationIndexes[2]' /></div>
+            <div><LovComOfCom ref='lp4' reference='lp4' :id='publicationIndexes[3]' /></div>
+            <div><ComPagination ref='pagination' /></div>
         </div>
     </div>
 </template>

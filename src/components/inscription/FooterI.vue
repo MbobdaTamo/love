@@ -1,7 +1,7 @@
 <template>
     <footer class = "FooterI" >
         <div class="FooterI_enterprise">
-            <span>Bixterprise</span>
+            <span>ObjectiveSN</span>
         </div>
         <div>
             <a>Templates</a>

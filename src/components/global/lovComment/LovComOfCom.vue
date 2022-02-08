@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="lovCommentPoint" >
-                <div>Reply</div>
+                <div @click="comOfComEmit" >Reply</div>
             </div>
             <div class="lovCommentProfile">
                 <img src="./images/pp.jpeg">

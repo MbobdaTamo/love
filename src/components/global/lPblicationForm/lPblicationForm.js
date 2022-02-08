@@ -57,7 +57,7 @@ export default {
           userId: this.$store.state.login.id
         })
           .then((response) => {
-            alert('success' + response.data)
+            console.log(response.data)
           })
           .catch((error) => {
             alert(error)

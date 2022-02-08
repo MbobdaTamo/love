@@ -36,17 +36,17 @@ const store = new Vuex.Store({
       {image: 'emoticones/angry.svg', name: 'Most angry', emit: 'angry'}
     ],
     publiTypeDatas: [
-      {image: 'publiType/football1.svg', name: 'Football'},
-      {image: 'publiType/philo.svg', name: 'Philosophy'},
-      {image: 'publiType/socialProblem.svg', name: 'Social problems'},
-      {image: 'publiType/politic.svg', name: 'Politic'},
-      {image: 'publiType/beauty.svg', name: 'Beauty'},
-      {image: 'publiType/physics.svg', name: 'Physics'},
-      {image: 'publiType/other.svg', name: 'Other'}
+      {image: 'publiType/Football.svg', name: 'Football'},
+      {image: 'publiType/Philosophy.svg', name: 'Philosophy'},
+      {image: 'publiType/Social problems.svg', name: 'Social problems'},
+      {image: 'publiType/Politic.svg', name: 'Politic'},
+      {image: 'publiType/Beauty.svg', name: 'Beauty'},
+      {image: 'publiType/Physics.svg', name: 'Physics'},
+      {image: 'publiType/Other.svg', name: 'Other'}
     ],
     login: {
       connected: false,
-      id: 12
+      id: 20
     },
     publication: {
       type: 'Football',

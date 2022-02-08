@@ -1,5 +1,4 @@
- 
--- Adminer 4.8.0 MySQL 5.5.5-10.3.27-MariaDB-0+deb10u1 dump
+-- Adminer 4.8.0 MySQL 5.5.5-10.3.27-MariaDB-0+deb10u1 dump nom bd:id16986823_love, password:DDngc]87Mpj2S<za
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -35,24 +34,44 @@ INSERT INTO `Commentaire` (`id_commentaire`, `image`, `texte`, `type`, `dat_comm
 (15,	'',	'ce commentaire apparaitra meme commme on a pas réagit à lyu',	'Football',	'2002-02-22 09:55:01',	42,	12),
 (16,	'',	'Juste un commentaire pour ajouter une 3 eme page',	'Football',	'2002-02-22 10:40:19',	42,	12),
 (17,	'',	'Seul et unique commentaire',	'Football',	'2002-02-22 02:18:36',	42,	12),
-(18,	'',	'Juste un commentaire comme ca pour tester. et on verra ce que ca donne les amis, hahahahahahaha',	'Football',	'2002-02-22 02:23:40',	41,	12);
+(18,	'',	'Juste un commentaire comme ca pour tester. et on verra ce que ca donne les amis, hahahahahahaha',	'Football',	'2002-02-22 02:23:40',	41,	12),
+(19,	'',	'---> <PublicationComment> at src/components/global/publicationComment/PublicationComment.vue\n       <Publication> at src/components/publication/Publication.vue\n         <App> at src/App.vue',	'Football',	'2003-02-22 08:44:03',	42,	12),
+(20,	'',	'Biensur que ca fonctionne gros jnull et toi que fait tu pour gagner de l\'argent ? hahahahaha',	'Football',	'2004-02-22 09:31:33',	42,	12),
+(21,	'',	'ezpfo,ergfergfrzzp',	'Football',	'2004-02-22 05:59:30',	42,	12);
 
 DROP TABLE IF EXISTS `CommentOfComment`;
 CREATE TABLE `CommentOfComment` (
   `id_commentaire` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(255) DEFAULT NULL,
-  `texte` varchar(255) NOT NULL,
+  `texte` varchar(10000) NOT NULL,
   `type` varchar(255) NOT NULL,
-  `dat_commentaire` date DEFAULT NULL,
-  `auther_comment` int(11) DEFAULT NULL,
+  `dat_commentaire` datetime DEFAULT NULL,
+  `parent_comment` int(11) DEFAULT NULL,
   `personne` int(11) NOT NULL,
   PRIMARY KEY (`id_commentaire`),
   KEY `personne` (`personne`),
-  KEY `auther_comment` (`auther_comment`),
-  CONSTRAINT `CommentOfComment_ibfk_1` FOREIGN KEY (`auther_comment`) REFERENCES `Commentaire` (`id_commentaire`),
+  KEY `auther_comment` (`parent_comment`),
+  CONSTRAINT `CommentOfComment_ibfk_1` FOREIGN KEY (`parent_comment`) REFERENCES `Commentaire` (`id_commentaire`),
   CONSTRAINT `CommentOfComment_ibfk_2` FOREIGN KEY (`personne`) REFERENCES `Personne` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `CommentOfComment` (`id_commentaire`, `image`, `texte`, `type`, `dat_commentaire`, `parent_comment`, `personne`) VALUES
+(1,	'',	'Le premier commentaire d\'un commentaire',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(2,	'',	'En réalité on peut etre satifait du résultat c\'est exactement ce qu\'on attendait.\nLe premier commentaire d\'un commentaire',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(3,	'',	'Et un 3 ème commentaire juste pour tester les comOfCom !',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(4,	'',	'Et un 3 ème commentaire juste pour tester les comOfCom ! Mais cette foi ci dans un autre commentaire',	'Football',	'2003-02-22 00:00:00',	19,	12),
+(5,	'',	'Et un autre cmmentaire pour la rout',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(6,	'',	'Jute un autre commentaire pour mieux tester la pagination. Pour voir comment gerer le retour en haut de la page',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(7,	'',	'Jute un autre commentaire pour mieux tester la pagination. Pour voir comment gerer le retour en haut de la page',	'Football',	'2003-02-22 00:00:00',	13,	12),
+(8,	'',	'aractère qui est en meme temps une identité comune et ce qui fait en sorte que l\'on, se démarque des autres peuples. Nous sommes le camerounet nous vaincrons. Et s\'il faut verser du sang, nous le verserons j\'usqu\'a la dernière goute\nread more...',	'Football',	'2003-02-22 00:00:00',	12,	12),
+(9,	'',	'pour chrisistophe Piatek un jour tu comprendra pourquo ca na pas marvché, j espere',	'Football',	'2003-02-22 00:00:00',	10,	12),
+(10,	'',	'another',	'Football',	'2003-02-22 00:00:00',	10,	12),
+(11,	'',	'third comment for test',	'Football',	'2003-02-22 00:00:00',	10,	12),
+(12,	'',	'pas mal pour un singe',	'Football',	'2004-02-22 00:00:00',	19,	12),
+(13,	'',	'your are right my dear',	'Football',	'2004-02-22 00:00:00',	18,	12),
+(14,	'',	'un nouveau commentaire',	'Football',	'2004-02-22 00:00:00',	10,	12),
+(15,	'',	'et un dernier pour la route et pzar ailleur on peut pas faire de testee parfait juste faore de notre mieux pour que ca donne quelque chose qui ssemble fonctionner à la fin nous ne somme pas des robje te juere tup eux mez croire ou pas mais je dis la vérité ca c\'est suer  mon ami',	'Football',	'2004-02-22 00:00:00',	10,	12),
+(16,	'',	'Et encore un autre pour la route',	'Football',	'2004-02-22 00:00:00',	13,	12);
 
 DROP TABLE IF EXISTS `Personne`;
 CREATE TABLE `Personne` (
@@ -151,7 +170,8 @@ INSERT INTO `Publication` (`id_publication`, `texte`, `image`, `titre`, `type`, 
 (40,	'J\'annonce aujourd\'hui la création de ce nouveau site de gateau. Ca fera plaisir certainement aux fans de l\'ar culinaire. mais le plus important est de garder ce moment familiale car nous somme ddes etres humain et nous avons besoin des uns et des autres pour survivre.\n\n2. dauxièmement ce sera donc une grande faite. \"La fete du football africain\". Dite la CAN.\n\n                     \n                    Merci pour votre attention',	'pulication_img/1641897006cake.png',	'Un super site de gateau !!!',	'Football',	12,	'2011-01-22 11:30:08'),
 (41,	'le match algerie guineen',	'pulication_img/1642411186acknoledgment.png',	'super match hier',	'Physics',	12,	'2017-01-22 10:19:49'),
 (42,	'Nous réuissirons à batir un cameroun nouveau par la force de nos esprits et par notre caractère qui est en meme temps une identité comune et ce qui fait en sorte que l\'on, se démarque des autres peuples. Nous sommes le camerounet nous vaincrons. Et s\'il faut verser du sang, nous le verserons j\'usqu\'a la dernière goute',	'pulication_img/16427783352.png',	'Nous Réussirons',	'Philosophy',	12,	'2021-01-22 04:18:57'),
-(43,	'je cherche des étudians pour....',	'pulication_img/16438089912.png',	'Recherche d\'etudiants',	'Football',	12,	'2002-02-22 02:36:33');
+(43,	'je cherche des étudians pour....',	'pulication_img/16438089912.png',	'Recherche d\'etudiants',	'Football',	12,	'2002-02-22 02:36:33'),
+(44,	'On va battre l\'Egypte, doublé de toko  et triplé d\'Aboubakar',	'',	'Victoire ce soir',	'Football',	12,	'2003-02-22 11:42:30');
 
 DROP TABLE IF EXISTS `Reaction`;
 CREATE TABLE `Reaction` (
@@ -159,7 +179,7 @@ CREATE TABLE `Reaction` (
   `type` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `point` int(11) NOT NULL,
-  `dat_reaction` date DEFAULT NULL,
+  `dat_reaction` datetime DEFAULT NULL,
   `personne` int(11) NOT NULL,
   PRIMARY KEY (`id_reaction`),
   KEY `personne` (`personne`),
@@ -184,7 +204,7 @@ CREATE TABLE `ReactionCommentaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `ReactionCommentaire` (`id`, `commentaire`, `personne`, `reactionType`, `point`, `date`) VALUES
-(1,	13,	12,	'heart',	20,	'2001-02-22 04:36:48'),
+(1,	13,	12,	'laughing',	15,	'2001-02-22 04:36:48'),
 (2,	12,	12,	'laughing',	15,	'2001-02-22 04:37:29'),
 (3,	13,	11,	'laughing',	15,	'2002-02-22 07:29:24'),
 (4,	13,	10,	'laughing',	15,	'2002-02-22 07:29:46'),
@@ -200,6 +220,34 @@ INSERT INTO `ReactionCommentaire` (`id`, `commentaire`, `personne`, `reactionTyp
 (14,	14,	12,	'heart',	20,	'2002-02-22 08:35:49'),
 (15,	16,	12,	'heart',	20,	'2002-02-22 01:34:50'),
 (16,	18,	12,	'heart',	20,	'2002-02-22 02:23:57');
+
+DROP TABLE IF EXISTS `ReactionComOfCom`;
+CREATE TABLE `ReactionComOfCom` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comOfCom` int(11) NOT NULL,
+  `personne` int(11) NOT NULL,
+  `reactionType` varchar(30) NOT NULL,
+  `point` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `personne` (`personne`),
+  KEY `comOfCom` (`comOfCom`),
+  CONSTRAINT `ReactionComOfCom_ibfk_1` FOREIGN KEY (`personne`) REFERENCES `Personne` (`id`),
+  CONSTRAINT `ReactionComOfCom_ibfk_2` FOREIGN KEY (`comOfCom`) REFERENCES `CommentOfComment` (`id_commentaire`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `ReactionComOfCom` (`id`, `comOfCom`, `personne`, `reactionType`, `point`, `date`) VALUES
+(1,	1,	12,	'sick',	-10,	'2004-02-22 08:18:40'),
+(4,	2,	12,	'sick',	-10,	'2004-02-22 08:24:33'),
+(5,	3,	12,	'impressed',	10,	'2004-02-22 08:24:39'),
+(6,	5,	12,	'angry',	-20,	'2004-02-22 08:24:48'),
+(7,	1,	11,	'heart',	20,	'2004-02-22 08:25:39'),
+(8,	2,	11,	'heart',	20,	'2004-02-22 08:25:44'),
+(9,	3,	11,	'heart',	20,	'2004-02-22 08:25:49'),
+(10,	5,	11,	'heart',	20,	'2004-02-22 08:25:54'),
+(11,	9,	12,	'heart',	20,	'2004-02-22 08:36:34'),
+(12,	7,	12,	'sick',	-10,	'2004-02-22 08:55:03'),
+(13,	13,	12,	'heart',	20,	'2004-02-22 10:54:52');
 
 DROP TABLE IF EXISTS `ReactionPublication`;
 CREATE TABLE `ReactionPublication` (
@@ -217,7 +265,7 @@ CREATE TABLE `ReactionPublication` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `ReactionPublication` (`id`, `publication`, `personne`, `reactionType`, `point`, `date`) VALUES
-(1,	42,	12,	'sad',	-5,	'2030-01-22 08:46:41'),
+(1,	42,	12,	'heart',	20,	'2030-01-22 08:46:41'),
 (19,	41,	12,	'angry',	-20,	'2030-01-22 09:48:46'),
 (20,	40,	12,	'heart',	20,	'2030-01-22 12:05:21'),
 (21,	39,	12,	'sick',	-10,	'2030-01-22 02:43:24'),
@@ -234,6 +282,7 @@ INSERT INTO `ReactionPublication` (`id`, `publication`, `personne`, `reactionTyp
 (32,	40,	2,	'heart',	20,	'2030-01-22 06:29:10'),
 (33,	42,	3,	'like',	5,	'2030-01-22 06:29:57'),
 (34,	42,	13,	'like',	5,	'2030-01-22 06:30:16'),
-(35,	29,	12,	'sick',	-10,	'2030-01-22 08:05:47');
+(35,	29,	12,	'sick',	-10,	'2030-01-22 08:05:47'),
+(36,	43,	12,	'angry',	-20,	'2003-02-22 11:38:11');
 
--- 2022-02-03 05:41:09
+-- 2022-02-05 07:01:23

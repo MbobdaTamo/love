@@ -1,20 +1,26 @@
 import LovComOfCom from '@/components/global/lovComment/LovComOfCom.vue'
+import ComPagination from '@/components/global/lPagination/ComPagination.vue'
+import ComLReaction from '@/components/global/lReaction/ComLReaction.vue'
+import ListReactorComOfCom from '@/components/global/listReactor/ListReactorComOfCom.vue'
 export default {
   name: 'publicationComment',
-  components: {
-    LovComOfCom
-  },
   props: {
-    reference: String,
-    id: Number
+    reference: String
+  },
+  components: {
+    LovComOfCom,
+    ComPagination,
+    ComLReaction,
+    ListReactorComOfCom
   },
   data () {
     return {
+      id: 12,
+      publicationIndexes: [],
       publication_type: 'football',
       publication_img: './images/dembouz.jpg',
       publication_date: 'MER. 20.02.2000 ',
       publication_author: 'TAMO MBOBDA ERIC',
-      publication_title: 'The LaLiga Experience serves up one of the matches of the season',
       publication_text: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22, who got to enjoy one of the most spectacular games of the year',
       publi_numb_com: 100,
       publication_point: 1000,
@@ -23,8 +29,8 @@ export default {
       vdisplay_more: 'flex',
       full_text_visible: false,
       react: 'handshake',
-      Display: 'block',
-      isDisplayed: 'flase'
+      Display: 'none',
+      isDisplayed: false
     }
   },
   methods: {
@@ -44,7 +50,10 @@ export default {
       this.$root.$emit('reactClick', this.reference)
     },
     lsReactEmit () { /* this signal is emitted for the component listReactor */
-      this.$root.$emit('lsReactClick', this.id)
+      this.$root.$emit('lsReactComClick', this.id)
+    },
+    comOfComEmit () { /* this signal is emitted for the component listReactor */
+      this.$root.$emit('commenter', {id: this.id, type: 'comOfcom'})
     },
     moreVisible (text) {
       if (text > 300) {
@@ -57,18 +66,17 @@ export default {
     },
     updateDatas () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'publicationDatas.php', {
+      axios.post(this.$store.state.baseUrl + 'commentDatas.php', {
         id: this.id
       })
         .then((response) => {
           this.getReaction()
           this.getPublicationPoint()
-          this.getNumberPubCom()
+          this.getNumberComCom()
           this.publication_text = response.data.texte
           this.moreVisible(response.data.texte.length)
-          this.publication_title = response.data.titre
           this.publication_type = response.data.type
-          this.publication_date = response.data.dat_p
+          this.publication_date = response.data.dat_commentaire
           this.publication_author = (response.data.nom + ' ' + response.data.prenom).toUpperCase()
         })
         .catch((error) => {
@@ -77,10 +85,11 @@ export default {
     },
     reactRequest (reaction) {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
-        publication: this.id,
+      axios.post(this.$store.state.baseUrl + 'reactToComment.php', {
+        commentaire: this.id,
         personne: this.$store.state.login.id,
-        reactionType: reaction
+        reactionType: reaction,
+        type: this.$store.state.publication.type
       })
         .then((response) => {
           this.getPublicationPoint()
@@ -92,8 +101,8 @@ export default {
     },
     getReaction () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'getPubReaction.php', {
-        publication: this.id,
+      axios.post(this.$store.state.baseUrl + 'getComReaction.php', {
+        commentaire: this.id,
         personne: this.$store.state.login.id
       })
         .then((response) => {
@@ -105,8 +114,8 @@ export default {
     },
     getPublicationPoint () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'publicationPoint.php', {
-        publication: this.id
+      axios.post(this.$store.state.baseUrl + 'commentPoint.php', {
+        commentaire: this.id
       })
         .then((response) => {
           this.publication_point = response.data
@@ -115,10 +124,10 @@ export default {
           alert(error)
         })
     },
-    getNumberPubCom () {
+    getNumberComCom () {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'numberPubCom.php', {
-        publication: this.id
+      axios.post(this.$store.state.baseUrl + 'numberComCom.php', {
+        parent_comment: this.id
       })
         .then((response) => {
           this.publi_numb_com = response.data
@@ -127,19 +136,27 @@ export default {
           alert(error)
         })
     },
-    toPublication () {
-      this.$store.commit('updatePublication', {id: this.id, type: this.publication_type})
-      this.$router.push('publication')
+    exist (a) {
+      if (typeof a === 'undefined') {
+        return []
+      } else { return a }
     }
   },
   mounted () {
     this.$on('reactSelected', data => {
       this.reactRequest(data)
     })
-  },
-  watch: {
-    id: function (newVal, oldVal) { // watch it
+    this.$root.$on('commentEmit', data => {
+      this.id = data
+      this.$refs.pagination.$emit('loadPagination') // emitted for ComPagination
       this.updateDatas()
-    }
+      this.displaying()
+    })
+    this.$root.$on('comPageChanged', data => {
+      this.publicationIndexes = this.exist(data)
+      // this.scrollTo(0, 700)
+      let c = document.querySelector('.pubComComZone')
+      c.scrollTo(0, 0)
+    })
   }
 }

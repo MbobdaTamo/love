@@ -37,7 +37,7 @@ export default {
   },
   data () {
     return {
-      vtext_height: '94px',
+      vtext_height: '113px',
       vplus_transform: 'rotate(0deg)',
       full_text_visible: false,
       star_colors: [{ color: 'white' }, { color: 'white' }, { color: 'white' }],
@@ -49,7 +49,7 @@ export default {
         this.vtext_height = '500px'
         this.vplus_transform = 'rotate(45deg)'
       } else {
-        this.vtext_height = '94px'
+        this.vtext_height = '113px'
         this.vplus_transform = 'rotate(90deg)'
       }
       this.full_text_visible = !this.full_text_visible

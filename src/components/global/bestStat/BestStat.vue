@@ -15,10 +15,10 @@
                 </div>
             </div>
             <div class="bsStats">
-                   <div><LProfileCard/></div>
-                   <div><LProfileCard/></div>
-                   <div><LProfileCard/></div>
-                   <div><LProfileCard/></div>
+                   <div v-for="(type, index) in types1"><LProfileCard :type = type /></div>
+            </div>
+            <div class="bsStats">
+                   <div v-for="(type, index) in types2"><LProfileCard :type = type /></div>
             </div>
             <div class="bsBottom">
                 <Slider tsRotate="rotate(180deg)" vopacity="0.5" style="margin-right:1px" /><Slider/>

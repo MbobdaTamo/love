@@ -1,4 +1,3 @@
-
 export default {
   name: 'lovComment',
   props: {
@@ -37,7 +36,7 @@ export default {
     lsReactEmit () { /* this signal is emitted for the component listReactor */
       this.$root.$emit('lsReactComClick', this.id)
     },
-    commentEmit () { /* this signal is emitted for the component listReactor */
+    commentEmit () { /* this signal is emitted for the publicationComment */
       this.$root.$emit('commentEmit', this.id)
     },
     updateDatas () {
@@ -48,6 +47,7 @@ export default {
         .then((response) => {
           this.getReaction()
           this.getPublicationPoint()
+          this.getNumberComCom()
           this.publication_text = response.data.texte
           this.moreVisible(response.data.texte.length)
           this.publication_type = response.data.type
@@ -60,10 +60,11 @@ export default {
     },
     reactRequest (reaction) {
       const axios = require('axios')
-      axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
+      axios.post(this.$store.state.baseUrl + 'reactToComment.php', {
         commentaire: this.id,
         personne: this.$store.state.login.id,
-        reactionType: reaction
+        reactionType: reaction,
+        type: this.$store.state.publication.type
       })
         .then((response) => {
           this.getPublicationPoint()
@@ -93,6 +94,18 @@ export default {
       })
         .then((response) => {
           this.publication_point = response.data
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getNumberComCom () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'numberComCom.php', {
+        parent_comment: this.id
+      })
+        .then((response) => {
+          this.publi_numb_com = response.data
         })
         .catch((error) => {
           alert(error)
