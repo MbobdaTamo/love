@@ -1,10 +1,10 @@
 <template>
     <div class ="lPublication" :style="{display: Display}">
         <div class="lPType">{{ publication_type }} and id: {{ id }}</div>
-        <div class="lPImg"><img v-bind:src= "require(publication_img + '')" /></div>
+        <div class="lPImg"><img :src='publication_img' :style="{display:DisplayImg}"/></div>
         <div class="lPDate">
             <div class="lPProfile">
-                <img src="./images/pp.jpeg">
+                <img :src='auth_img'>
             </div>
             <div class="lPAuthor">
                 <div><span>{{ publication_author }} |</span> {{ publication_date }}</div>

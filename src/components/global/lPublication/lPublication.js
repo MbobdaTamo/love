@@ -11,7 +11,9 @@ export default {
   data () {
     return {
       publication_type: 'football',
-      publication_img: './images/dembouz.jpg',
+      auth_img: '',
+      // publication_img: './images/dembouz.jpg',
+      publication_img: 'http://localhost/projet/datas/pulication_img/image.jpg',
       publication_date: 'MER. 20.02.2000 ',
       publication_author: 'TAMO MBOBDA ERIC',
       publication_title: 'The LaLiga Experience serves up one of the matches of the season',
@@ -19,7 +21,8 @@ export default {
       publi_numb_com: 100,
       publication_point: 1000,
       // ------ other --------
-      Display: 'none',
+      Display: 'block',
+      DisplayImg: 'block',
       vtext_height: '53px',
       vdisplay_more: 'flex',
       full_text_visible: false,
@@ -66,6 +69,9 @@ export default {
           this.publication_type = response.data.type
           this.publication_date = response.data.dat_p
           this.publication_author = (response.data.nom + ' ' + response.data.prenom).toUpperCase()
+          this.auth_img = this.$store.state.baseUrl + response.data.auth_img
+          if (response.data.image === '') this.DisplayImg = 'none'
+          else this.DisplayImg = 'block'; this.publication_img = this.$store.state.baseUrl + response.data.image
         })
         .catch((error) => {
           alert(error)

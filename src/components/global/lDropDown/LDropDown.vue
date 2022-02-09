@@ -12,7 +12,7 @@
         borderTop:'white',
         width: maxWidth
         }">
-            <div v-for="(data,index) in datas" class="lDElement" :class='index' @click="selecting(index)">
+            <div v-for="(data,index) in datas" :key="index" class="lDElement" :class='index' @click="selecting(index)">
                <div><img v-bind:src="require('@/assets/'+ data.image)"/></div>
                <div> {{ data.name }}</div>
             </div>

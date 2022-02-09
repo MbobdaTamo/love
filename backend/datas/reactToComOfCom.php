@@ -11,21 +11,22 @@ $bdd = connexion_bd() ;
 require("biblio.php") ;
 $point = pointForReaction($rp['reactionType']);
 $point_to_add = 0;
+
 //--------------------- vérifions si le compte existe déja -----------------------
-$req = $bdd->prepare('SELECT id, point, personne FROM ReactionPublication WHERE publication = ? AND personne = ?');
-$req->execute(array($rp['publication'],$rp['personne']));
+$req = $bdd->prepare('SELECT id, point, personne FROM ReactionComOfCom WHERE comOfCom = ? AND personne = ?');
+$req->execute(array($rp['comOfCom'],$rp['personne']));
 $result = $req->fetch();
 if(!$result) {
 	//------------------ ajout de la réaction -------------------------------------------------
 	$point_to_add = $point;
-	$req = $bdd->prepare('INSERT INTO ReactionPublication(publication, personne, reactionType, point, date)
+	$req = $bdd->prepare('INSERT INTO ReactionComOfCom(comOfCom, personne, reactionType, point, date)
 	VALUES (?,?,?,?,NOW())');
-	$req->execute(array($rp['publication'],$rp['personne'],$rp['reactionType'],$point));
+	$req->execute(array($rp['comOfCom'],$rp['personne'],$rp['reactionType'],$point));
 }
 else {
 	//------------------ mis à jour de la réaction ------------------------------
 	$point_to_add = $point - $result['point'];
-	$req = $bdd->prepare('UPDATE ReactionPublication SET reactionType = :rtype, point = :pt, date = NOW() WHERE id = :identif');
+	$req = $bdd->prepare('UPDATE ReactionComOfCom SET reactionType = :rtype, point = :pt, date = NOW() WHERE id = :identif');
 	$req->execute(array(
 		'rtype' => $rp['reactionType'], 
 		'pt' => $point, 
@@ -34,8 +35,8 @@ else {
 }
 
 // recuperons l'identifian du publisher pour augmenter ses points
-$req = $bdd->prepare('SELECT personne_publication as personne FROM Publication WHERE Publication.id_publication = ?');
-$req->execute(array($rp['publication']));
+$req = $bdd->prepare('SELECT personne FROM CommentOfComment WHERE CommentOfComment.id_commentaire = ?');
+$req->execute(array($rp['comOfCom']));
 $personne = $req->fetch(PDO::FETCH_ASSOC);
 //------------------------- now will update the number of point for both the publication and the publisher ---------------
 $req = $bdd->prepare('SELECT id FROM userStat WHERE type = ? AND personne = ?');
@@ -53,8 +54,10 @@ else {
 	$req->execute(array($point_to_add, $result['id']));
 }
 	// update the publication point
-	$req = $bdd->prepare('UPDATE Publication SET point = point + ? WHERE id_publication = ? ');
-	$req->execute(array($point_to_add,$rp['publication']));
+	$req = $bdd->prepare('UPDATE CommentOfComment SET point = point + ? WHERE id_commentaire = ? ');
+	$req->execute(array($point_to_add,$rp['comOfCom']));
+
+
 
 $req->closeCursor();
 ?>

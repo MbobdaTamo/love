@@ -8,7 +8,6 @@
                     <select class="lraSelect">
                         <option v-for="types in types" @click="updateDatas(types)"> {{ types.toUpperCase() }}</option>
                     </select>
-                    <img src='./loupe.svg'/>
                 </div>
                 <div>MORE</div>
             </div>
@@ -21,7 +20,7 @@
                 <div>P</div>
                 <div>N</div>
             </div>
-            <div v-for="(data, index) in datas" class="lraElement" :style="{backgroundColor:bgColor(index), borderColor:bdColor(index)}">
+            <div v-for="(data, index) in datas" :key="index" class="lraElement" :style="{backgroundColor:bgColor(index), borderColor:bdColor(index)}">
                 <div class="lraRanking">{{ index+1 }}</div>
                 <div><img src='./profile.svg'/></div>
                 <div> {{ data.nom + ' ' + data.prenom  }}</div>

@@ -65,11 +65,24 @@ export default {
       this.colors[current].bg = '#2057AA'
       this.colors[current].color = 'white'
     },
-    updateDatas () {
+    updateDatas (reaction, typeRequest) {
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'selectPublication.php', {
+        reactionType: reaction,
+        typeRequest: typeRequest
       })
         .then((response) => {
+          // reinitializing variables
+          this.index = 0
+          this.dataIndex = 0
+          this.currentElement = []
+          this.currentElement = []
+          this.colors = [
+            { bg: '#2057AA', color: 'white' },
+            { bg: 'transparent', color: 'inherit' },
+            { bg: 'transparent', color: 'inherit' }
+          ]
+          // updating
           this.datas1 = this.splitTable(response.data, 4)
           this.$root.$emit('pageChanged', this.datas1[0])
         })
@@ -111,8 +124,15 @@ export default {
       return 'block'
     }
   },
+  mounted () {
+    this.$root.$on('typeSelected', data => {
+      if (data === 'latest') this.updateDatas(data, 'latest')
+      else if (data === 'most_point') this.updateDatas(data, 'most_point')
+      else this.updateDatas(data, 'by_reaction')
+    })
+  },
   created () {
-    this.updateDatas()
+    this.updateDatas('', 'latest')
     // this.datas1 = this.splitTable(this.datas, 4)
   }
 }

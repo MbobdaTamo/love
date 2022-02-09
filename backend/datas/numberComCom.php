@@ -11,8 +11,8 @@ $bdd = connexion_bd() ;
 
 //--------------------- nombre de commentaire pour la publication -----------------------
 
-$req = $bdd->prepare('SELECT count(id_commentaire), id_commentaire FROM Commentaire WHERE publication = ?');
-$req->execute(array($rp['publication']));
+$req = $bdd->prepare('SELECT count(id_commentaire) FROM CommentOfComment WHERE parent_comment = ?');
+$req->execute(array($rp['parent_comment']));
 $result = $req->fetch(PDO::FETCH_ASSOC);
 
 $data = json_encode($result['count(id_commentaire)']);

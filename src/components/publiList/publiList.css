@@ -1,3 +1,6 @@
+.publiList div {
+    box-sizing: border-box;
+}
 .publiList {
     position:absolute;
     top:0px;
@@ -35,6 +38,7 @@
     width: 100%;
     box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
     padding: 30px;
     padding-left: 40px;
     background-color: #92DAEC;
@@ -42,10 +46,12 @@
 .pBLSelection2 > div {
     background-color: white;
     border: 2px black;
+    margin-top: 1px;
     width: 150px;
     padding-top:10px ;
     padding-bottom:10px ;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .pBLPublication {

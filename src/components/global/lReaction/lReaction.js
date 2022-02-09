@@ -9,6 +9,7 @@ export default {
   },
   methods: {
     select (reaction) {
+      console.log(this.parentRef)
       this.$parent.$refs[this.parentRef].$emit('reactSelected', reaction)
       this.displaying()
     },

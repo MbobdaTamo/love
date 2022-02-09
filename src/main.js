@@ -53,6 +53,7 @@ const store = new Vuex.Store({
       id: 42
     },
     baseUrl: 'http://localhost/projet/datas/',
+    image: 'pulication_img/image.jpg',
     // --- pop ups this variable is boolean which decides if when publication component is created should or not display message
     publicationMessage: false
   },

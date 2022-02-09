@@ -9,7 +9,7 @@
     flex-direction: column;
     background-color: #F0F2F5;
     color: rgb(40, 40, 40);
-    padding-top: 108px;
+    padding-top: 105px;
 }
 .publication div {
     box-sizing: border-box;
@@ -227,6 +227,6 @@
 
 @media screen and (max-width: 900px) {
     .publication {
-        padding-top: 45px;
+        padding-top: 40px;
     }
 }

@@ -1,3 +1,6 @@
+.profilePage div{
+  box-sizing: border-box;
+}
 .profilePage {
   position:absolute;
   width: 100%;
@@ -6,15 +9,17 @@
   text-align: justify;
   background-color: rgb(36, 39, 41);
   color:white;
-  padding-top: 120px
+  padding-top: 105px
 } 
 .pPageHeader {
   display: flex;
-  padding: 3%;
+  padding-top: 40px;
+  padding-bottom: 40px;
   padding-left: 4%;
   background-color: cadetblue;
   background-image: url('./images/Arsenal-1280x640.jpg');
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .pPagePhoto {
@@ -29,17 +34,19 @@
 .pPagePhoto img {
   height: 100%;
 }
-
-.pPagePhoto + div {
+.pPageInfo {
+  display: none;
   background-color: rgba(36, 39, 41, 0.808);
   padding: 10px;
-  width: 100%;
+}
+#pPageInfo1 {
+  display: block;
 }
 
-.pPagePhoto + div > div {
+.pPageInfo > div {
   display: flex;
 }
-.pPagePhoto + div > div > div {
+.pPageInfo > div > div {
   margin: 1px;
   margin-right: 20px;
   width:100px;
@@ -49,13 +56,12 @@
 }
 
 /*--- the second row of the fuckinggg page -----  */
-.pPageHeader + div {
-  width: 100%;
+.pPageHeader + div + div {
   margin-top: 40px;
   display: flex;
 }
-.pPageHeader + div > div {
-  padding: 20px;
+.pPageHeader + div + div > div {
+  padding: 2%;
 }
 .pPageProfile{
   width: 60%;
@@ -150,4 +156,41 @@
 .pPagePbTitle + div + div > div {
   margin: 10px;
   max-width: 600px;
+}
+
+/*----- responsive managment zone... ------------------ */
+@media screen and (max-width: 900px) {
+  .profilePage {
+    padding-top: 42px
+  }
+}
+@media screen and (max-width: 700px) {
+  .pPageHeader {
+    justify-content: center; align-items: center;
+  }
+  .pPageInfo {
+    display: block;
+  }
+  #pPageInfo1 {
+    display: none;
+  }
+  .pPageHeader + div + div {
+    margin-top: 40px;
+    display: block;
+  }
+  .pPageProfile{
+    width: 100%;
+  }
+  .pPageProfile + div{
+    width: 100%;
+  }
+  .pPageDropDown + div span {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .pPagePhoto {
+    height: 100px;
+    width: 100px;
+  }
 }

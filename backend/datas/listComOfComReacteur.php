@@ -10,8 +10,8 @@ require("connexion_bd.php") ;
 $bdd = connexion_bd() ;
 
 //--------------------- vérifions si le compte existe déja -----------------------
-$req = $bdd->prepare('SELECT reactionType, personne, nom, prenom, image FROM ReactionCommentaire, Personne WHERE commentaire = ? AND reactionType REGEXP  ? AND ReactionCommentaire.personne = Personne.id');
-$req->execute(array($rp['commentaire'],$rp['reactionType']));
+$req = $bdd->prepare('SELECT reactionType, personne, nom, prenom, image FROM ReactionComOfCom, Personne WHERE comOfCom = ? AND reactionType REGEXP  ? AND ReactionComOfCom.personne = Personne.id');
+$req->execute(array($rp['comOfCom'],$rp['reactionType']));
 $data = Array() ;
 while ($donnees = $req->fetch())
 {

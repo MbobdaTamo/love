@@ -10,13 +10,16 @@ require("connexion_bd.php") ;
 $bdd = connexion_bd() ;
 
 //--------------------- vérifions si le compte existe déja -----------------------
-$req = $bdd->prepare('SELECT reactionType, personne, nom, prenom, image FROM ReactionCommentaire, Personne WHERE commentaire = ? AND reactionType REGEXP  ? AND ReactionCommentaire.personne = Personne.id');
-$req->execute(array($rp['commentaire'],$rp['reactionType']));
+$req = $bdd->prepare('SELECT reactionType, COUNT(id) FROM ReactionComOfCom WHERE comOfCom = ? GROUP BY reactionType');
+$req->execute(array($rp['comOfCom']));
 $data = Array() ;
+$total = 0;
 while ($donnees = $req->fetch())
 {
-	$data[]= [ 'profile' => './profile.svg', 'name' => $donnees['nom'].' '.$donnees['prenom'], 'emoji' => $donnees['reactionType']];
+	$data += [$donnees['reactionType'] => $donnees['COUNT(id)']];
+	$total += $donnees['COUNT(id)'];
 }
+$data += ['total' => $total];
 echo(json_encode($data));
 $req->closeCursor();
 ?>

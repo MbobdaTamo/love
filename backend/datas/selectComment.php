@@ -18,7 +18,7 @@ if($rp['typeRequest'] == 'by_reaction') {
 //--------------------- ordonné par ordre décroisssant du nombre de point -----------------------
 
 if($rp['typeRequest'] == 'most_point') {
-	$req = $bdd->prepare(' SELECT id_commentaire FROM Commentaire LEFT JOIN ReactionCommentaire ON Commentaire.id_commentaire = ReactionCommentaire.commentaire WHERE publication = ? Group By id_commentaire order by SUM(point) desc');
+	$req = $bdd->prepare(' SELECT id_commentaire FROM Commentaire LEFT JOIN ReactionCommentaire ON Commentaire.id_commentaire = ReactionCommentaire.commentaire WHERE publication = ? Group By id_commentaire order by SUM(ReactionCommentaire.point) desc');
 	$req->execute(array($rp['publication']));
 }
 

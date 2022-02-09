@@ -10,8 +10,8 @@ require("connexion_bd.php") ;
 $bdd = connexion_bd() ;
 
 //--------------------- vérifions si le compte existe déja -----------------------
-$req = $bdd->prepare('SELECT point FROM Publication WHERE Publication.id_publication = ?');
-$req->execute(array($rp['publication']));
+$req = $bdd->prepare('SELECT point FROM CommentOfComment WHERE CommentOfComment.id_commentaire = ?');
+$req->execute(array($rp['comOfCom']));
 $result = $req->fetch();
 
 echo json_encode($result['point']);

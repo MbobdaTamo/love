@@ -5,13 +5,20 @@
             <div class ="pPagePhoto">
                 <img src ="./images/dembouz.jpg">
             </div>
-            <div>
+            <div class = "pPageInfo" id = "pPageInfo1">
                 <div class="pPageName">EL TAMO MBOBDA</div>
                 <div><div>Surname</div><span>Eric Arnaud</span></div>
                 <div><div>Age</div><span>60 ans</span></div>
                 <div><div>pays</div><span>Cameroun</span></div>
                 <div><div>Surname</div><span>Eric Arnaud</span></div>
             </div>
+        </div>
+        <div class = "pPageInfo">
+            <div class="pPageName">EL TAMO MBOBDA</div>
+            <div><div>Surname</div><span>Eric Arnaud</span></div>
+            <div><div>Age</div><span>60 ans</span></div>
+            <div><div>pays</div><span>Cameroun</span></div>
+            <div><div>Surname</div><span>Eric Arnaud</span></div>
         </div>
         <div>
             <div class="pPageProfile">
@@ -22,14 +29,14 @@
             </div>
         </div>
         <div class="pPageStats">
-            <div class="pPageDropDown"><LDropDown style="background-color:white" /></div>
+            <div class="pPageDropDown"></div>
             <div>
                 <span class="pPageFieldName">FIELD NAME</span>
-                <span>TOTAL POINT</span>
-                <span>PUBLISHED</span>
-                <span>POINT PER PUBLICATION </span>
+                <span class ="aa" >TOTAL</span>
+                <span class ="aa">NbrePUB</span>
+                <span class ="aa">PTS/PUB </span>
             </div>
-            <div v-for="(field, index) in datas" class="pPageElementField" :style="{backgroundColor:fieldBgColor(index)}">
+            <div v-for="(field, index) in datas" :key="index" class="pPageElementField" :style="{backgroundColor:fieldBgColor(index)}">
                 <div class="pPageElementChild1">
                     <div> {{ index +1 }} </div>
                     <div class="lrProfile"><img v-bind:src= "require(field.logo + '')" /></div>

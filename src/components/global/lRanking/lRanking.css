@@ -38,10 +38,16 @@ padding: 15px;
   align-items: center;
 }
 .lraSelect {
-  width: 70%;
-  background-color: #E32D38;
+  width: 80%;
+  font-weight: bold;
+  background-color: transparent;
   border: none;
-  color:white
+  color:white;
+  appearance: none;
+  background-image: url('./loupe.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 20%;
 }
 .lraSelect::-ms-expand {
   display: none;
