@@ -7,17 +7,16 @@
   top:0px;
   left:0px;
   text-align: justify;
-  background-color: rgb(36, 39, 41);
-  color:white;
-  padding-top: 105px
+  background-color: rgb(15, 15, 15);
+  color:rgb(40, 40, 40);
+  padding-top: 51px
 } 
 .pPageHeader {
   display: flex;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   padding-left: 4%;
-  background-color: cadetblue;
-  background-image: url('./images/Arsenal-1280x640.jpg');
+  background-color: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,6 +24,7 @@
 .pPagePhoto {
   height: 200px;
   width: 200px;
+  border-radius: 10em;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -36,8 +36,9 @@
 }
 .pPageInfo {
   display: none;
-  background-color: rgba(36, 39, 41, 0.808);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;
+  color:white;
 }
 #pPageInfo1 {
   display: block;
@@ -58,36 +59,60 @@
 /*--- the second row of the fuckinggg page -----  */
 .pPageHeader + div + div {
   margin-top: 40px;
-  display: flex;
-}
-.pPageHeader + div + div > div {
   padding: 2%;
+  display: flex;
+  color:white;
+  background-color: rgb(36, 39, 41);
+  background-color: black;
 }
 .pPageProfile{
   width: 60%;
+  padding: 1%;
+  border: solid 1px black;
 }
 .pPageProfile img{
-  max-width: 100%;
+  width: 100%;
 }
 .pPageProfile + div {
   width: 40%;
-  display: flex;
+  padding: 2%;
+  text-align: left;
+  display: flex; 
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  line-height: 24px;
+  border: solid 1px white;
+}
+.pPageModifProfil {
+  margin-top: 40px;
+  color: white;
+  display: flex; justify-content: center; align-items: center;
+}
+.pPageModifProfil > span {
+  background-color:#1476C4;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
 }
 
 /*---- now the fucking third row --------------- */
-.pPageHeader + div + div {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
+.pPageStats {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .pPageDropDown {
+  
 }
 .pPageDropDown + div {
-  background-color: #1476C4;
+  color: white;
+  background-color: black;
+  border: solid 1px white;
   padding:5px;
   font-size: 13px;
   display: flex;
@@ -103,15 +128,16 @@
 }
 .pPageFieldName + span +span +span {
 }
-
+.pPageStatTable {
+}
 .pPageElementField { /* this is the css for the capacity ranking */
   background-color: white;
-  padding:5px;
+  padding:10px;
   font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(40,40,40);
+  color: white
 }
 .pPageElementChild1 {
   display: flex;
@@ -123,7 +149,7 @@
   margin-right: 10px;
 }
 .pPageElementChild1 img {
-  width: 30px;
+  width: 17px;
 }
 .pPageElementField > span{
   width: 16.66%;
@@ -142,20 +168,25 @@
   padding: 30px;
   font-size: 25px;
 }
-.pPagePbTitle + div {
-  padding: 20px;
-}
-.pPagePbTitle + div + div {
-  padding-top: 40px;
+.pPagePbTitle + div{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  background-color: #F5F5F6;
+  padding-bottom: 20px;
 }
-.pPagePbTitle + div + div > div {
-  margin: 10px;
+.pPagePbTitle + div > div {
+  margin-top: 10px;
+  margin-bottom: 10px;
   max-width: 600px;
+  width: 100%;
+}
+.pPagePagination {
+  display: flex; justify-content: center; align-items: center ;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /*----- responsive managment zone... ------------------ */
@@ -180,8 +211,10 @@
   }
   .pPageProfile{
     width: 100%;
+    padding: 0%;
   }
   .pPageProfile + div{
+    padding: 10px;
     width: 100%;
   }
   .pPageDropDown + div span {

@@ -12,6 +12,7 @@ export default {
     return {
       publication_type: 'football',
       auth_img: '',
+      auth_id: 20,
       // publication_img: './images/dembouz.jpg',
       publication_img: 'http://localhost/projet/datas/pulication_img/image.jpg',
       publication_date: 'MER. 20.02.2000 ',
@@ -21,7 +22,7 @@ export default {
       publi_numb_com: 100,
       publication_point: 1000,
       // ------ other --------
-      Display: 'block',
+      Display: 'none',
       DisplayImg: 'block',
       vtext_height: '53px',
       vdisplay_more: 'flex',
@@ -55,6 +56,7 @@ export default {
       }
     },
     updateDatas () {
+      this.reset()
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'publicationDatas.php', {
         id: this.id
@@ -68,6 +70,7 @@ export default {
           this.publication_title = response.data.titre
           this.publication_type = response.data.type
           this.publication_date = response.data.dat_p
+          this.auth_id = response.data.auth_id
           this.publication_author = (response.data.nom + ' ' + response.data.prenom).toUpperCase()
           this.auth_img = this.$store.state.baseUrl + response.data.auth_img
           if (response.data.image === '') this.DisplayImg = 'none'
@@ -135,16 +138,30 @@ export default {
       this.$store.commit('updatePublication', {id: this.id, type: this.publication_type})
       this.$router.push('publication')
     },
+    toProfile () {
+      this.$store.commit('updateProfilePage', this.auth_id)
+      this.$router.push('profilePage')
+    },
     exist (a) {
       if (typeof a === 'undefined') {
         return false
       } else { return true }
+    },
+    reset () {
+      this.publication_img = ''
+      this.publication_date = ''
+      this.publication_author = ''
+      this.publication_title = ''
+      this.publication_text = ''
+      this.publi_numb_com = 0
+      this.publication_point = 0
     }
   },
   mounted () {
     this.$on('reactSelected', data => {
       this.reactRequest(data)
     })
+    this.reset()
   },
   watch: {
     id: function (newVal, oldVal) { // watch it

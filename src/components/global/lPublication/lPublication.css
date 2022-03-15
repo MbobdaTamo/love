@@ -84,6 +84,7 @@
   transition: max-height 0.5s;
   overflow-y: hidden;
   color: rgb(90,90, 90);
+  white-space: pre-wrap;
 }
 .lPMore {
   padding-left: 3%;
@@ -96,9 +97,7 @@
 .lPOption  {
   display: flex;
   font-size: 13px;
-  padding: 10px;
-  padding-bottom: 20px;
-  margin-top: 10px
+  padding: 5px;
 }
 .lPOption > div {
   display: flex;
@@ -119,7 +118,6 @@
 .lPPointt {
   border: solid 1px silver;
   border-radius: 1em;
-  min-width: 25px;
   padding: 4px;
 }
 .lPPoint div {

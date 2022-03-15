@@ -66,6 +66,7 @@ export default {
       this.colors[current].color = 'white'
     },
     updateDatas (reaction, typeRequest) {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'selectComment.php', {
         publication: this.$store.state.publication.id,
@@ -86,6 +87,7 @@ export default {
           // updating
           this.datas1 = this.splitTable(response.data, 4)
           this.$root.$emit('pageChanged', this.datas1[0])
+          this.$root.$emit('loading', 'off')
         })
         .catch((error) => {
           alert(error)
@@ -133,5 +135,8 @@ export default {
   },
   created () {
     this.updateDatas(0, 'most_point')
+  },
+  beforeDestroy () {
+    this.$root.$off('typeSelected')
   }
 }

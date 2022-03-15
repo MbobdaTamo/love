@@ -5,8 +5,8 @@
             <div class="lraOption">
                 <div class="lraTotal">TOTAL</div>
                 <div>
-                    <select class="lraSelect">
-                        <option v-for="types in types" @click="updateDatas(types)"> {{ types.toUpperCase() }}</option>
+                    <select v-model = "selected" class="lraSelect">
+                        <option v-for="(types, index) in types" :key ="index"> {{ types }}</option>
                     </select>
                 </div>
                 <div>MORE</div>
@@ -22,8 +22,8 @@
             </div>
             <div v-for="(data, index) in datas" :key="index" class="lraElement" :style="{backgroundColor:bgColor(index), borderColor:bdColor(index)}">
                 <div class="lraRanking">{{ index+1 }}</div>
-                <div><img src='./profile.svg'/></div>
-                <div> {{ data.nom + ' ' + data.prenom  }}</div>
+                <div><img :src='baseUrl + data.image'/></div>
+                <div @click="toProfile(data.id)"> {{ data.nom + ' ' + data.prenom  }}</div>
                 <div>{{ data.point }}</div>
                 <div>{{ data.numberPublished }}</div>
             </div>

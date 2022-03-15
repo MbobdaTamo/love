@@ -6,8 +6,8 @@
             <div class="pubComCross" @click="displaying()"><img src="./images/more.svg"/></div>
         </div>
         <div>
-            <div style="display:none" class="pubComImg"><img v-bind:src= "require(publication_img + '')" /></div>
-            <div class="pubComDate"><span>{{ publication_author }} |</span> {{ publication_date }}</div>
+            <div :style="{display:DisplayImg}" class="pubComImg"><img :src="publication_img" /></div>
+            <div @click="toProfile" class="pubComDate"><span>{{ publication_author }} |</span> {{ publication_date }}</div>
             <div class="pubComText" :style="{maxHeight:vtext_height}">{{ publication_text }} </div>
             <div class="pubComMore"><div @click="slideText" :style="{ display: vdisplay_more }">read more...</div></div>
             <div class="pubComOption">
@@ -21,7 +21,7 @@
                     <div @click="comOfComEmit" ><img src="./images/com.svg" />{{ publi_numb_com }}</div>
                 </div>
                 <div class="pubComProfile">
-                    <img src="./images/pp.jpeg">
+                    <div><img :src="auth_img"></div>
                 </div>
             </div>
         </div>

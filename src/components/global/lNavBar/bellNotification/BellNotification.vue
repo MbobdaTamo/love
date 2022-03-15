@@ -45,7 +45,6 @@
             </div>
         </div>
     </div>
-        </a>
     </div>
 
 </section>

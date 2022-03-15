@@ -1,23 +1,24 @@
 <template>
     <div class ="publication">
-        <LNavBar style="z-index:1" />
         <ListReactor style="z-index:3" />
-        <PublicationComment ref="pubCom" reference='pubCom' style="z-index:3" />
-        <ListReactorCom style="z-index:3" />
         <LReaction style="z-index:3" />
         <div class ="pBody" style="z-index:0" >
+            <ListReactorCom style="z-index:3" />
+            <LLoading style="z-index:4; background-color: transparent" />
             <div class="pInfo">
-                <div class="pImage"><img src="./images/Ez Abde dribbling.jpg"></div>
+                <div class = "pPubTypeOfPub">
+                    {{ publication_type }}
+                </div>
+                <div :style="{display: DisplayImg}" class="pImage"><img :src="publication_img"></div>
                 <div class="pTitle">{{ publication_title }}</div>
                 <div class="pText">{{ publication_text }}</div>
                 <div class="pAuthor">
-                    <div class="pBy">Fait par</div>
-                    <div>
-                        <div class="pNameZone">
-                            <div class="pAthName">{{ publication_author }}</div>
+                    <div class="pBy">
+                        <div style="cursor:pointer;" @click="toProfile" class="pNameZone">
+                            <div class="pAthName">Par {{ publication_author }}</div>
                             <div class="pDate">{{ publication_date }}</div>
                         </div>
-                        <div class="pProfile"><img src="./images/Ez Abde.jpeg"/></div>
+                        <div class="pProfile"><img :src="auth_img"/></div>
                     </div>
                 </div>
             </div>
@@ -30,26 +31,24 @@
                         </div>
                         <span @click="lsReactEmit">{{publication_point}}</span>
                     </div>
-                    <div> {{publi_numb_com}} commentaires</div>
+                    <div @click="commenterPubEmit"><div><img src="./images/com.svg"/></div> {{publi_numb_com}} </div>
                 </div>
-                <div>
-                    <div @click="reactEmit"><div><img src="./images/emoji.svg"/></div>Reagir</div>
-                    <div @click="commenterPubEmit"><div><img src="./images/com.svg"/></div>commenter</div>
-                </div>
-                <div>
+                <div style="display:none;" >
                     <div class="debateWinner">
-                        <div class="debateWinnerImage"><img src="./images/Ez Abde.jpeg"/></div>
+                        <div class="debateWinnerImage"><img src=""/></div>
                         <div>100</div>
                         <div><img src="./images/gold_medal.svg"/></div>
                     </div>
                 </div>
             </div>
             <div class ="pCom">
+                <div class="pComHighlight">Comments </div>
                 <div class="pSort">Sort by <div>
                         <LDropDown
                             style="z-index:2" :datas='this.$store.state.sortCommentDatas'
                             maxHeight = '950%'
                             maxWidth  = '200px'
+                            bdColor = 'solid 1px rgb(210, 210, 210)'
                         />
                         </div>
                 </div>
@@ -62,7 +61,9 @@
                 </div>
             </div>
             <div>
-                <PComment/>
+                <LNavBar style="z-index:1" />
+                <PComment style="z-index:3"/>
+                <PublicationComment ref="pubCom" reference='pubCom' style="z-index:2" />
             </div>
         </div>
         <LFooter/>

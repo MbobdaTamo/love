@@ -14,7 +14,7 @@
             <div @click="getReactor('sick')" ><img src="./images/sick.svg"/><span>{{ sick }}</span></div>
             <div @click="getReactor('angry')" ><img src="./images/angry.svg"/><span>{{ angry }}</span></div>
         </div>
-        <div  v-for="data in datas" class="lrElement">
+        <div  v-for="(data,index) in datas" :key ="index" class="lrElement">
             <div class="lrProfile"><img v-bind:src= "require(data.profile + '')" /></div>
             <div class="lrName"> {{ data.name }}</div>
             <div class="lrReaction"><img v-bind:src= "require('./images/'+data.emoji + '.svg')" /></div>

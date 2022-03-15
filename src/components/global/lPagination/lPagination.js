@@ -12,7 +12,9 @@ export default {
         { bg: '#2057AA', color: 'white' },
         { bg: 'transparent', color: 'inherit' },
         { bg: 'transparent', color: 'inherit' }
-      ]
+      ],
+      reaction: '',
+      typeRequest: 'latest'
     }
   },
   components: {
@@ -49,12 +51,17 @@ export default {
       this.datasIndex = this.index + newIndex
       this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
       this.initializeColor(newIndex)
+      this.saveLPagination(newIndex, this.index)
     },
     changeRange (i) {
+      let newIndex
       this.index += i * 3
-      this.changeIndex(0)
-      this.$root.$emit('pageChanged', this.datas1[this.index])
-      this.datasIndex = this.index
+      if (i === 1) newIndex = 0
+      else newIndex = 2
+      this.initializeColor(newIndex)
+      this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+      this.datasIndex = this.index + newIndex
+      this.saveLPagination(newIndex, this.index)
     },
     initializeColor (current) {
       let i
@@ -65,15 +72,16 @@ export default {
       this.colors[current].bg = '#2057AA'
       this.colors[current].color = 'white'
     },
-    updateDatas (reaction, typeRequest) {
+    updateDatas (newIndex, index) {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'selectPublication.php', {
-        reactionType: reaction,
-        typeRequest: typeRequest
+        reactionType: this.reaction,
+        typeRequest: this.typeRequest
       })
         .then((response) => {
           // reinitializing variables
-          this.index = 0
+          this.index = index
           this.dataIndex = 0
           this.currentElement = []
           this.currentElement = []
@@ -83,8 +91,43 @@ export default {
             { bg: 'transparent', color: 'inherit' }
           ]
           // updating
-          this.datas1 = this.splitTable(response.data, 4)
-          this.$root.$emit('pageChanged', this.datas1[0])
+          this.datas1 = this.splitTable(response.data, 8)
+          this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+          this.initializeColor(newIndex)
+          this.$root.$emit('loading', 'off')
+        })
+        .catch((error) => {
+          console.log(error)
+          alert(error)
+        })
+    },
+    saveLPagination (newIndex, index) {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'saveLPagination.php', {
+        request: 'save',
+        reaction: this.reaction,
+        typeRequest: this.typeRequest,
+        newIndex: newIndex,
+        index: index
+      })
+        .then((response) => {
+        })
+        .catch((error) => {
+          console.log(error)
+          alert(error)
+        })
+    },
+    getLPagination () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'saveLPagination.php', {
+        request: 'get'
+      })
+        .then((response) => {
+          console.log(response.data)
+          this.index = response.data.index
+          this.reaction = response.data.reaction
+          this.typeRequest = response.data.typeRequest
+          this.updateDatas(response.data.newIndex, response.data.index)
         })
         .catch((error) => {
           console.log(error)
@@ -126,13 +169,33 @@ export default {
   },
   mounted () {
     this.$root.$on('typeSelected', data => {
-      if (data === 'latest') this.updateDatas(data, 'latest')
-      else if (data === 'most_point') this.updateDatas(data, 'most_point')
-      else this.updateDatas(data, 'by_reaction')
+      if (typeof data === 'undefined') {
+        /* nothing */
+      } else if (data === 'latest') {
+        this.reaction = data
+        this.typeRequest = 'latest'
+        this.saveLPagination(0, 0)
+        this.updateDatas(0, 0)
+      } else if (data === 'most_point') {
+        this.reaction = data
+        this.typeRequest = 'most_point'
+        this.saveLPagination(0, 0)
+        this.updateDatas(0, 0)
+      } else {
+        this.reaction = data
+        this.typeRequest = 'by_reaction'
+        this.saveLPagination(0, 0)
+        this.updateDatas(0, 0)
+      }
     })
   },
   created () {
-    this.updateDatas('', 'latest')
+    this.reaction = ''
+    this.typeRequest = 'latest'
+    this.getLPagination()
     // this.datas1 = this.splitTable(this.datas, 4)
+  },
+  beforeDestroy () {
+    this.$root.$off('typeSelected')
   }
 }

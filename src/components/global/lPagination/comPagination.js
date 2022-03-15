@@ -126,6 +126,9 @@ export default {
     }
   },
   mounted () {
+    this.$root.$on('loadPagination', data => { // emitted from pcomment
+      this.updateDatas()
+    })
     this.$on('loadPagination', data => {
       this.updateDatas()
     })

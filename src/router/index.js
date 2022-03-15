@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import todolist from '@/components/todo'
+// import todolist from '@/components/todo'
 import Inscription from '@/components/inscription/Inscription'
 import Inscription1 from '@/components/inscription/Inscription1'
 import Login from '@/components/inscription/Login'
@@ -17,8 +17,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'todolist',
-      component: todolist
+      name: 'main',
+      component: LoveProject
     },
     {
       path: '/inscription',

@@ -1,19 +1,21 @@
   .lPublication1 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   color:white;
-  background-color: rgb(60,60,60);
+  background-color: black;
   overflow: hidden;
   box-sizing: border-box;
-  padding-top:150px;
+  padding-top:105px;
   border-bottom: solid 1px silver;
   padding-right: 0px;
 }
 .lP1First {
   max-width: 1000px;
+  min-height: 300px;
   overflow: hidden;
 }
 .lP1Img{
@@ -22,11 +24,13 @@
   transition: transform 1s;
 }
 .lP1Second {
+  position: absolute;
   width: 100%;
+  height: 100%;
   padding-left: 2%;
-  display: flex;
-  background-color: white;
-  color: rgb(40,40,40);
+  background-image: linear-gradient(to right, rgb(227, 45, 56,0.6) ,rgb(227, 45, 56,0.1) );
+  display: flex; justify-content: center; align-items: center;
+  color: white;
   padding-top: 25px;
   padding-bottom: 50px;
 }
@@ -43,12 +47,10 @@
 .lP1Date div {
   font-weight: bold;
 }
-.lP1Stars {
-  margin-top: 10px;
-  display:none  /*display: flex;*/
-}
 .lP1Title {
-  padding: 10px;
+  padding: 2%;
+  padding-right: 1%;
+  padding-left: 10px;
   font-size: 30px;
   line-height: 30px;
   font-weight: bold;
@@ -57,11 +59,13 @@
   margin-bottom: 15px;
 }
 .lP1Text {
-  padding: 10px;
+  padding: 2%;
+  padding-right: 1%;
+  padding-left: 10px;
   text-align: left;
   font-size: 16px;
+  line-height: 25px;
   transition: max-height 0.5s;
-  white-space: pre-wrap;
   overflow: hidden;
 }
 .lP1More {
@@ -186,4 +190,8 @@
   }
 }
 @media screen and (max-width: 700px){
+
+  .lP1Text {
+    margin-bottom: 40px;
+  }
 }

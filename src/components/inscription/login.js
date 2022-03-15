@@ -26,11 +26,12 @@ export default {
           password: this.$refs.password.message
         })
           .then((response) => {
-            if (response.data !== 'account does not exist') {
+            if (response.data) {
               this.$store.commit('updateLogin', {connected: true, id: response.data})
+              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/'
               this.$router.push('loveProject')
               alert('connexion éffectué avec success')
-            } else { alert(response.data) }
+            } else { alert('account does not exist') }
           })
           .catch((error) => {
             // error.response.status Check status code
@@ -41,8 +42,8 @@ export default {
       }
     },
     validation () {
-      let regex1 = /^[a-zA-Z ]{4,22}$/
-      let regex2 = /^.{4,22}$/
+      let regex1 = /^.{2,22}$/
+      let regex2 = /^.{2,22}$/
       if (!regex1.test(this.$refs.name.message) ||
           !regex2.test(this.$refs.password.message)) return false
       return true

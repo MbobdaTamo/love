@@ -36,6 +36,16 @@ export default {
         this.vheight = '330px'
         this.ptop = '5px'
       }
+    },
+    toProfile () {
+      this.$store.commit('updateProfilePage', this.$store.state.login.id)
+      this.$router.push('profilePage')
+    },
+    toPubliList () {
+      this.$router.push('publiList')
+    },
+    toAccueil () {
+      this.$router.push('/')
     }
   }
 }

@@ -6,13 +6,11 @@ color:rgb(254, 249, 206);
 display: flex;
 flex-direction: column;
 border-radius: 0.2em;
+background-color: rgb(227, 45, 56,0.5);
 }
 .lpcHeader {
   position:relative;
-  /* background-color:#10202A;
-  border: solid 1px #10202A; */
-  background-color: rgb(36, 39, 41);
-  border: solid 1px silver;
+  background-color: #E32D38;
 }
 .lpcProfile {
   position:absolute;
@@ -23,15 +21,15 @@ border-radius: 0.2em;
   border-radius: 5em;
   width: 85px;
   height:85px;
-  border:solid 7px white;
-  background-color:wheat;
+  border:solid 4px white;
+  background-color:gray;
   justify-content: center;
   align-items: center;
   display: flex;
-
+  overflow: hidden;
 }
 .lpcProfile img {
-  width: 55px;
+  height: 100%;
 }
 .lpcProfileShadow {
   position:absolute;
@@ -63,8 +61,11 @@ border-radius: 0.2em;
 }
 .lpcFlag + div {
   height: 60px;
-  background-color: white;
-  /* background-image: url('rayureLaliga.png'); */
+  background-color:rgb(226, 85, 95);
+  background-image: url('spiral.svg');
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .lpcTitle {
@@ -119,8 +120,7 @@ border-radius: 0.2em;
 }
 
 .lpcMore {
-  /* color: #92D1D3; */
-  color: #E32D38; 
+  color: white;
   border:solid 1px;
   font-size: 10px;
   font-weight: bold;

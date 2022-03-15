@@ -37,7 +37,7 @@
     width:  17px;
     font-size: 11px;
     padding: 4px;
-    background-color: #d63031;
+    background-color: #E32D38;
     border-radius: 4em;
     color: white;
     text-align: center;
@@ -170,14 +170,14 @@
   
   @media screen and (max-width: 501px){ 
     .BNbell img {
-      width: 21px;
+      width: 19px;
     }
     .bellNotification .number{
-      height: 15px;
-      width:  15px; 
+      height: 14px;
+      width:  14px; 
     }
     .bellNotification .box {
-      width: 240px;
+      width: 270px;
     }
     .bellNotification .txt{
       font-size: 1.0rem;

@@ -10,6 +10,7 @@ import LPblicationForm from '@/components/global/lPblicationForm/LPblicationForm
 import ListReactor from '@/components/global/listReactor/ListReactor.vue'
 import LReaction from '@/components/global/lReaction/LReaction.vue'
 import LPagination from '@/components/global/lPagination/LPagination.vue'
+import LLoading from '@/components/global/lLoading/LLoading.vue'
 export default {
   name: 'loveProject',
   props: {
@@ -27,7 +28,8 @@ export default {
     LPblicationForm,
     ListReactor,
     LReaction,
-    LPagination
+    LPagination,
+    LLoading
   },
   data () {
     return {
@@ -39,6 +41,28 @@ export default {
   methods: {
     publiFormDisplaying () {
       this.$refs.publiForm.displaying()
+    },
+    toPubliList () {
+      this.$router.push('publiList')
+    },
+    cookiePresence () {
+      const axios = require('axios')
+      axios.post(this.$store.state.baseUrl + 'cookies.php', {
+        request: 'presence'
+      })
+        .then((response) => {
+          console.log(response.data)
+          if (!response.data) {
+            this.$router.push('login')
+          }
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
+    getCookieValueByName (name) {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
+      return match ? match[2] : ''
     }
   },
   mounted () {
@@ -46,5 +70,13 @@ export default {
       this.publicationIndexes = data
       window.scrollTo(0, 0)
     })
+  },
+  created () {
+    console.log(this.getCookieValueByName('userId'))
+    if (this.getCookieValueByName('userId') === '') {
+      this.$router.push('login')
+    } else {
+      this.$store.commit('updateLogin', {connected: true, id: this.getCookieValueByName('userId')})
+    }
   }
 }

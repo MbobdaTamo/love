@@ -39,7 +39,7 @@ export default {
       }
     },
     validation () {
-      let regex1 = /^[a-zA-Z ]{4,22}$/
+      let regex1 = /^.{2,22}$/
       let regex2 = /^.{4,22}$/
       if (!regex1.test(this.$refs.surname.message) ||
           !regex1.test(this.$refs.name.message) ||

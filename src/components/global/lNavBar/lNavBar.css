@@ -38,9 +38,9 @@
   position: absolute;
   left:50%;
   top:50%;
-  margin-top: -5px;
-  margin-left: -27px;
-  width: 55px;
+  margin-top: 3px;
+  margin-left: -25px;
+  width: 50px;
 }
 .navR {
   padding-top: 7px;
@@ -121,7 +121,6 @@
     display: none;
   }
   .navRemains {
-    font-family: "core_sans_regular";
     display: flex;
     box-sizing: border-box;
     justify-content: center;
@@ -132,6 +131,8 @@
     width: 100%;
     color:white;
     background-color: #25282A;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   .navDropDown {
     overflow: hidden;
@@ -179,22 +180,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .navBar2right .navLang {
-    margin-right: 60px;
-  }
-  .navBar2right .navProfile {
-    width: 30px;
-    height: 30px;
-    background-color:rgb(35, 38, 40);
-    border-radius: 4em;
-    position: absolute;
-    margin-right: 10px;
-    right: 0px;
-    background-image: url('./profile.svg');
-    background-size: 75%;
-    background-position: center;
-    background-repeat: no-repeat;
   }
   @media screen and (max-width: 501px){ 
     .navLogo2 img{

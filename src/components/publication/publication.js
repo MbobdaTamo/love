@@ -9,6 +9,7 @@ import LReaction from '@/components/global/lReaction/LReaction.vue'
 import PubPagination from '@/components/global/lPagination/PubPagination.vue'
 import PublicationComment from '@/components/global/publicationComment/PublicationComment.vue'
 import PReaction from './PReaction'
+import LLoading from '@/components/global/lLoading/LLoading.vue'
 export default {
   name: 'publication',
   components: {
@@ -22,19 +23,23 @@ export default {
     LReaction,
     PubPagination,
     PublicationComment,
-    PReaction
+    PReaction,
+    LLoading
   },
   data () {
     return {
       publicationIndexes: [],
-      publication_type: 'football',
-      publication_img: './images/Ez Abde dribbling.jpg',
-      publication_date: 'MER. 20.02.2000 ',
-      publication_author: 'Tamo Mbobda Eric',
-      publication_title: 'The LaLiga Experience serves up one of the matches of the season',
-      publication_text: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22, who got to enjoy one of the most spectacular games of the year',
-      publi_numb_com: 100,
-      publication_point: 1000,
+      auth_img: '',
+      auth_id: 20,
+      DisplayImg: 'none',
+      publication_type: '',
+      publication_img: '',
+      publication_date: ' ',
+      publication_author: '',
+      publication_title: '',
+      publication_text: '',
+      publi_numb_com: 0,
+      publication_point: 0,
       react: 'handshake'
     }
   },
@@ -52,7 +57,11 @@ export default {
           this.publication_title = response.data.titre
           this.publication_type = response.data.type
           this.publication_date = response.data.dat_p
+          this.auth_id = response.data.auth_id
           this.publication_author = response.data.nom + ' ' + response.data.prenom
+          this.auth_img = this.$store.state.baseUrl + response.data.auth_img
+          if (response.data.image === '') this.DisplayImg = 'none'
+          else this.DisplayImg = 'block'; this.publication_img = this.$store.state.baseUrl + response.data.image
         })
         .catch((error) => {
           alert(error)
@@ -69,6 +78,7 @@ export default {
         .then((response) => {
           this.getPublicationPoint()
           this.react = reaction
+          console.log(response.data)
         })
         .catch((error) => {
           alert(error)
@@ -120,10 +130,18 @@ export default {
     commenterPubEmit () { /* this signal is emitted for the component pComment */
       this.$root.$emit('commenter', { id: this.$store.state.publication.id, type: 'comment' })
     },
+    toProfile () {
+      this.$store.commit('updateProfilePage', this.auth_id)
+      this.$router.push('profilePage')
+    },
     exist (a) {
       if (typeof a === 'undefined') {
         return []
       } else { return a }
+    },
+    getCookieValueByName (name) {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
+      return match ? match[2] : ''
     }
   },
   mounted () {
@@ -136,5 +154,13 @@ export default {
       this.publicationIndexes = this.exist(data)
       window.scrollTo(0, 0)
     })
+  },
+  created () {
+    console.log(this.getCookieValueByName('userId'))
+    if (this.getCookieValueByName('userId') === '') {
+      this.$router.push('login')
+    } else {
+      this.$store.commit('updateLogin', {connected: true, id: this.getCookieValueByName('userId')})
+    }
   }
 }

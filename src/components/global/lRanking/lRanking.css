@@ -91,9 +91,14 @@ padding: 15px;
 }
 .lraRanking + div{
   margin-right: 25px;
+  height: 24px;
+  min-width: 24px;
+  display: flex; justify-content: center; align-items: center;
+  border-radius: 10em;
+  overflow: hidden;
 }
 .lraRanking + div img {
-  width: 23px;
+  height: 100%;
 }
 .lraRanking + div +div   {
   width: 100%;

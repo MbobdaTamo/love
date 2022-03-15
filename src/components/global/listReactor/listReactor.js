@@ -3,9 +3,7 @@ export default {
   data () {
     return {
       datas: [
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'like'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'angry'},
-        {profile: './profile.svg', name: 'TAMO MBOBDA', emoji: 'handshake'}
+        {profile: './profile.svg', name: '...', emoji: 'angry'}
       ],
       id: 0,
       Display: 'none',
@@ -52,6 +50,7 @@ export default {
         })
     },
     getReactor (reaction) {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'listPubReacteur.php', {
         publication: this.id,
@@ -59,6 +58,7 @@ export default {
       })
         .then((response) => {
           this.datas = response.data
+          this.$root.$emit('loading', 'off')
         })
         .catch((error) => {
           alert(error)

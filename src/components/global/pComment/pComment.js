@@ -22,6 +22,7 @@ export default {
       }
     },
     sendImage () {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       var formData = new FormData()
       const [file] = this.$refs.image.files
@@ -52,10 +53,15 @@ export default {
           texte: this.texte,
           type: this.$store.state.publication.type,
           publication: this.callerId,
-          personne: this.$store.state.login.id
+          personne: this.$store.state.login.id,
+          parent: this.$store.state.publication.id
         })
           .then((response) => {
-            alert('success' + response.data)
+            console.log('success' + response.data)
+            if (this.serverPage === 'saveComOfCom.php') this.$root.$emit('loadPagination') // emitted for comPagination
+            else this.$root.$emit('typeSelected', 'latest')
+            this.displaying()
+            this.$root.$emit('loading', 'off')
           })
           .catch((error) => {
             alert(error)

@@ -30,8 +30,7 @@ export default {
       this.$router.push('inscription')
     },
     toNext () {
-      if (!this.validation()) alert('echec de validation')
-      else {
+      if (this.validation()) {
         const axios = require('axios')
         axios.post(this.$store.state.baseUrl + 'inscription1.php', {
           age: this.$refs.age.message,
@@ -46,8 +45,8 @@ export default {
               this.$router.push('inscription')
             } else {
               this.$store.commit('updateLogin', {connected: true, id: response.data})
+              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/'
               this.$router.push('loveProject')
-              alert(response.data)
             }
           })
           .catch((error) => {
@@ -60,10 +59,18 @@ export default {
     },
     validation () {
       let regex1 = /^[1-9]{1,3}$/
-      let regex2 = /^[a-zA-Z ]{0,22}$/
-      if (!regex1.test(this.$refs.age.message)) return false
-      if (this.$refs.age.message < 12 || this.$refs.age.message > 130) return false
-      if (!regex2.test(this.$refs.pseudo.message)) return false
+      let regex2 = /^.{2,22}$/
+      if (!regex1.test(this.$refs.age.message) ||
+                this.$refs.age.message < 12 ||
+                this.$refs.age.message > 130
+      ) {
+        alert('age invalide')
+        return false
+      }
+      if (!regex2.test(this.$refs.pseudo.message)) {
+        alert('pseudo invalid or not filled')
+        return false
+      }
       return true
     }
   }

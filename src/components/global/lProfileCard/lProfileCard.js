@@ -12,15 +12,16 @@ export default {
       ],
       name: 'Tamo',
       totalPoint: 100,
-      personneId: 0
+      personneId: 0,
+      image: ''
     }
   },
   methods: {
     bgColor (i) {
-      return i % 2 === 0 ? 'transparent' : 'transparent' /* '#10202A' */
+      return i % 2 === 0 ? 'transparent' : '#E32D38' /* '#10202A' */
     },
     textColor (i) {
-      return i % 2 === 0 ? 'rgb(36, 39, 41)' : 'rgb(36, 39, 41)' /* '#10202A' */
+      return i % 2 === 0 ? 'white' : 'white' /* '#10202A' */
     },
     getCapacities () {
       const axios = require('axios')
@@ -45,12 +46,17 @@ export default {
           this.name = response.data.nom
           this.totalPoint = response.data.somme
           this.personneId = response.data.id
+          this.image = this.$store.state.baseUrl + response.data.image
           // after having fetched the personneId
           this.getCapacities()
         })
         .catch((error) => {
           alert(error)
         })
+    },
+    toProfile () {
+      this.$store.commit('updateProfilePage', this.personneId)
+      this.$router.push('profilePage')
     }
   },
   mounted () {

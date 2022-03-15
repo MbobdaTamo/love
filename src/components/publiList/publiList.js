@@ -5,6 +5,7 @@ import LFooter from '@/components/global/lFooter/LFooter.vue'
 import ListReactor from '@/components/global/listReactor/ListReactor.vue'
 import LReaction from '@/components/global/lReaction/LReaction.vue'
 import LPagination from '@/components/global/lPagination/LPagination.vue'
+import LLoading from '@/components/global/lLoading/LLoading.vue'
 export default {
   name: 'publiList',
   components: {
@@ -14,7 +15,8 @@ export default {
     LFooter,
     ListReactor,
     LReaction,
-    LPagination
+    LPagination,
+    LLoading
   },
   data () {
     return {

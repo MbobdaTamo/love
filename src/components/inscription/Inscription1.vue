@@ -25,7 +25,7 @@
                 <div>Female<input v-model="sex" type = "radio" name="sex" value="female"/></div>
             </div>
             <div class ="insInput">
-                <InputI0 ref="pseudo" placeholder="Enter your pseudo (facultative)" type = "text"  pattern="^[a-zA-Z ]{4,22}$"/>
+                <InputI0 ref="pseudo" placeholder="Enter your pseudo (description)" type = "text"  pattern="^[a-zA-Z ]{4,22}$"/>
             </div>
             <div class="insLaw">
                 <span class ="insPolicy">By signing up, you confirm that you've read and accepted our <span>Terms of Service</span> and <span>Privacy Policy</span>. </span>

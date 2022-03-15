@@ -19,9 +19,9 @@ const store = new Vuex.Store({
     count: 0,
     // datas are saved in src/asset
     langDatas: [
-      {image: 'flags/Flag_of_UK.svg', name: 'English', emit: 'english'},
-      {image: 'flags/Flag_of_Cameroon.svg', name: 'Cameroonian', emit: 'camerounian'},
-      {image: 'flags/Flag_of_France.svg', name: 'French', emit: 'french'}
+      {image: 'flags/Flag_of_UK.svg', name: 'English'},
+      {image: 'flags/Flag_of_Cameroon.svg', name: 'Cameroonian'},
+      {image: 'flags/Flag_of_France.svg', name: 'French'}
     ],
     sortCommentDatas: [
       {image: 'emoticones/medal.svg', name: 'Latest', emit: 'latest'},
@@ -44,16 +44,22 @@ const store = new Vuex.Store({
       {image: 'publiType/Physics.svg', name: 'Physics'},
       {image: 'publiType/Other.svg', name: 'Other'}
     ],
+    // data for the dropdown of profilePage
+    PPDatas: [
+      {image: 'emoticones/heart.svg', name: 'Owner publications', emit: 'mypub'},
+      {image: 'emoticones/laughing.svg', name: 'Owner reacted at', emit: 'reacted'}
+    ],
+    profilePageId: 18,
     login: {
       connected: false,
-      id: 20
+      id: 21
     },
     publication: {
       type: 'Football',
       id: 42
     },
     baseUrl: 'http://localhost/projet/datas/',
-    image: 'pulication_img/image.jpg',
+    // baseUrl: 'https://arnaque9330.000webhostapp.com/projet/datas/',
     // --- pop ups this variable is boolean which decides if when publication component is created should or not display message
     publicationMessage: false
   },
@@ -71,6 +77,9 @@ const store = new Vuex.Store({
     updatePublication (state, playload) {
       state.publication.type = playload.type
       state.publication.id = playload.id
+    },
+    updateProfilePage (state, playload) {
+      state.profilePageId = playload
     }
   }
 })

@@ -7,14 +7,17 @@ export default {
   data () {
     return {
       Display: 'none',
-      publication_img: './images/dembouz.jpg',
-      publication_date: 'MER. 20.02.2000 ',
-      publication_author: 'TAMO MBOBDA ERIC',
-      publication_text: '\'Saturday\'s Real Sociedad v Real Madrid match was quite the occasion, particularly for the special guests of the second LaLiga Experience 2021/22, who got to enjoy one of the most spectacular games of the year',
-      publi_numb_com: 100,
-      publication_point: 1000,
+      DisplayImg: 'none',
+      publication_img: '',
+      publication_date: '',
+      publication_author: '',
+      publication_text: '',
+      publi_numb_com: 0,
+      publication_point: 0,
+      auth_img: '',
+      auth_id: 20,
       // ------ other --------
-      vtext_height: '53px',
+      vtext_height: '106px',
       vdisplay_more: 'flex',
       full_text_visible: false,
       star_colors: [{ color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }, { color: '#E32D38' }],
@@ -26,7 +29,7 @@ export default {
       if (!this.full_text_visible) {
         this.vtext_height = '500px'
       } else {
-        this.vtext_height = '53px'
+        this.vtext_height = '106px'
       }
       this.full_text_visible = !this.full_text_visible
     },
@@ -53,6 +56,10 @@ export default {
           this.publication_type = response.data.type
           this.publication_date = response.data.dat_commentaire
           this.publication_author = (response.data.nom + ' ' + response.data.prenom).toUpperCase()
+          this.auth_img = this.$store.state.baseUrl + response.data.auth_img
+          this.auth_id = response.data.auth_id
+          if (response.data.image === '') this.DisplayImg = 'none'
+          else this.DisplayImg = 'block'; this.publication_img = this.$store.state.baseUrl + response.data.image
         })
         .catch((error) => {
           alert(error)
@@ -64,7 +71,8 @@ export default {
         commentaire: this.id,
         personne: this.$store.state.login.id,
         reactionType: reaction,
-        type: this.$store.state.publication.type
+        type: this.$store.state.publication.type,
+        publication: this.$store.state.publication.id
       })
         .then((response) => {
           this.getPublicationPoint()
@@ -111,10 +119,14 @@ export default {
           alert(error)
         })
     },
+    toProfile () {
+      this.$store.commit('updateProfilePage', this.auth_id)
+      this.$router.push('profilePage')
+    },
     moreVisible (text) {
-      if (text > 300) {
+      if (text > 600) {
         this.vdisplay_more = 'flex'
-        this.vtext_height = '53px'
+        this.vtext_height = '106px'
       } else {
         this.vdisplay_more = 'none'
         this.vtext_height = '500px'

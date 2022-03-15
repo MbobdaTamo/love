@@ -2,21 +2,14 @@ export default {
   name: 'lRanking',
   data () {
     return {
-      datas: [
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
-        { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 },
+      datas: [], /* [
         { id: 2, nom: 'Arnaud', prenom: 'Eric', point: 200, image: './pr.svg', numberPublished: 300 }
-      ],
+      ], */
       types: ['allField', 'Football', 'Philosophy', 'Social problems',
         'Politic', 'Beauty', 'Physics', 'Other'],
-      type: 'allField'
+      type: 'allField',
+      baseUrl: this.$store.state.baseUrl,
+      selected: 'allField'
     }
   },
   methods: {
@@ -30,6 +23,7 @@ export default {
             : 'transparent'
     },
     updateDatas (regex) {
+      this.datas = this.defaultDatas
       if (regex === 'allField') regex = '.+'
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'ranking.php', {
@@ -41,9 +35,18 @@ export default {
         .catch((error) => {
           alert(error)
         })
+    },
+    toProfile (id) {
+      this.$store.commit('updateProfilePage', id)
+      this.$router.push('profilePage')
     }
   },
   mounted () {
     this.updateDatas('allField')
+  },
+  watch: {
+    selected: function (newVal, oldVal) { // watch it
+      this.updateDatas(newVal)
+    }
   }
 }

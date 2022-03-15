@@ -16,6 +16,7 @@ export default {
     displaying () {
       this.Display = this.isDisplayed ? 'none' : 'block'
       this.isDisplayed = !this.isDisplayed
+      document.getElementById('lPbblah').src = ''
     },
     preview () {
       const [file] = this.$refs.image.files
@@ -24,6 +25,7 @@ export default {
       }
     },
     sendImage () {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       var formData = new FormData()
       const [file] = this.$refs.image.files
@@ -35,7 +37,7 @@ export default {
           }
         })
           .then((response) => {
-            alert(response.data)
+            console.log(response.data)
             this.publishing() // on publi après avoir enregistré l'image
           })
           .catch((error) => {
@@ -58,6 +60,9 @@ export default {
         })
           .then((response) => {
             console.log(response.data)
+            this.$root.$emit('loading', 'off')
+            this.$root.$emit('typeSelected', 'latest') // for Lpagination component
+            this.displaying()
           })
           .catch((error) => {
             alert(error)
