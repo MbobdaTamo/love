@@ -18,8 +18,7 @@ export default {
       return false
     },
     toNext () {
-      if (!this.validation()) alert('echec de validation')
-      else {
+      if (this.validation()) {
         const axios = require('axios')
         axios.post(this.$store.state.baseUrl + 'inscription.php', {
           surname: this.$refs.surname.message,
@@ -42,10 +41,18 @@ export default {
       let regex1 = /^.{2,22}$/
       let regex2 = /^.{4,22}$/
       if (!regex1.test(this.$refs.surname.message) ||
-          !regex1.test(this.$refs.name.message) ||
-          !regex2.test(this.$refs.password.message) ||
-          !regex2.test(this.$refs.confirmpw.message) ||
-        this.$refs.password.message !== this.$refs.confirmpw.message) return false
+        !regex1.test(this.$refs.name.message)) {
+        alert('surname or name incorrect')
+        return false
+      }
+      if (!regex2.test(this.$refs.password.message)) {
+        alert('password incorrect')
+        return false
+      }
+      if (this.$refs.password.message !== this.$refs.confirmpw.message) {
+        alert(' passwords did not match')
+        return false
+      }
       return true
     }
   },

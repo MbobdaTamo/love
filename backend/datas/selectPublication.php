@@ -30,10 +30,10 @@ if($rp['typeRequest'] == 'latest') {
 $data = Array() ;
 while ($donnees = $req->fetch(PDO::FETCH_ASSOC))
 {
-	array_push($data, $donnees['id_publication']);
+	$data[] = $donnees['id_publication'];
 }
 $data = json_encode($data);
-print_r($data);
+echo($data);
 
 $req->closeCursor();
 ?>

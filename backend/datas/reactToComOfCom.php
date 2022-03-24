@@ -58,6 +58,9 @@ else {
 	$req->execute(array($point_to_add,$rp['comOfCom']));
 
 
+// ici on va envoyer la requete de notification
+require("notification.php") ;
+notification($bdd,$personne['personne'],$rp['parentOfParent'],$rp['parent'],$rp['comOfCom'],$rp['personne']);
 
 $req->closeCursor();
 ?>

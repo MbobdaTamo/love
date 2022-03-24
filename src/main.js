@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import VueCountryCode from 'vue-country-code-select'
+import ImageUploader from 'vue-image-upload-resize'
+
+Vue.use(ImageUploader)
 
 Vue.use(VueCountryCode)
 

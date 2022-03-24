@@ -18,9 +18,9 @@ $req->execute(array($_SESSION['form']['surname'],$_SESSION['form']['password']))
 $result = $req->fetch();
 if(!$result) {
 	//------------------ inscription du compte dans la bd -------------------------------------------------
-	$req = $bdd->prepare('INSERT INTO Personne(nom, prenom, password, sexe, age, nation, pseudo,date_inscription, image,photo_couverture,photo_profile)
-	VALUES (?,?,?,?,?,?,?,?,?,?,?)');
-	$req->execute(array($_SESSION['form']['surname'],$_SESSION['form']['name'],$_SESSION['form']['password'],$_SESSION['form1']['sex'],$_SESSION['form1']['age'],$_SESSION['form1']['country'],$_SESSION['form1']['pseudo'],date('d-m-y h:i:s'),'','',''));
+	$req = $bdd->prepare('INSERT INTO Personne(nom, prenom, password, sexe, age, nation, pseudo,date_inscription)
+	VALUES (?,?,?,?,?,?,?,NOW())');
+	$req->execute(array($_SESSION['form']['surname'],$_SESSION['form']['name'],$_SESSION['form']['password'],$_SESSION['form1']['sex'],$_SESSION['form1']['age'],$_SESSION['form1']['country'],$_SESSION['form1']['pseudo']));
 
 	//-------- récupérons l'identifiant du compte inscrit -------------------------------------------
 	$req = $bdd->prepare('SELECT id FROM Personne WHERE nom = ? AND password = ?');

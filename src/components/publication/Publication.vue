@@ -45,7 +45,7 @@
                 <div class="pComHighlight">Comments </div>
                 <div class="pSort">Sort by <div>
                         <LDropDown
-                            style="z-index:2" :datas='this.$store.state.sortCommentDatas'
+                            style="z-index:1" :datas='this.$store.state.sortCommentDatas'
                             maxHeight = '950%'
                             maxWidth  = '200px'
                             bdColor = 'solid 1px rgb(210, 210, 210)'

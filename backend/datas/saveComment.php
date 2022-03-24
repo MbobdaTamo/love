@@ -5,7 +5,7 @@ session_start();
 
 // getting datas from post
 $rp = json_decode(file_get_contents('php://input'), true);
-
+$rp['texte']= htmlspecialchars ($rp['texte']);
 // ------------- connexion à la base de données --------------------------
 
 require("connexion_bd.php") ;
@@ -34,6 +34,15 @@ else {
 	$req = $bdd->prepare('UPDATE userStat SET number_published = number_published + 1 WHERE id = ?');
 	$req->execute(array($result['id']));
 }
+
+// recuperons l'identifiant du publisher pour la fonction de notification
+$req = $bdd->prepare('SELECT personne_publication as personne FROM Publication WHERE Publication.id_publication = ?');
+$req->execute(array($rp['publication']));
+$personne = $req->fetch(PDO::FETCH_ASSOC);
+// ici on va envoyer la requete de notification
+require("notification.php") ;
+notification($bdd,$personne['personne'],$rp['publication'],1,1,$rp['personne']);
+
 // vidage...
 $_SESSION['image_name']='' ;
 

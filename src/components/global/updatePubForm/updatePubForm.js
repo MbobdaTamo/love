@@ -5,7 +5,10 @@ export default {
       Display: 'none',
       isDisplayed: false,
       description: '',
-      noModif: { cover: '( aucunes modifications)', profile: '( aucunes modifications)' }
+      noModif: { cover: '( aucunes modifications)', profile: '( aucunes modifications)' },
+      profileImg: '',
+      profileSmallImg: '',
+      coverImg: ''
     }
   },
   methods: {
@@ -20,40 +23,48 @@ export default {
       this.noModif['cover'] = '( aucunes modifications)'
       this.noModif['profile'] = '( aucunes modifications)'
     },
-    preview (type) {
-      const [file] = this.$refs[type].files
-      if (file) {
-        document.getElementById('upF' + type).src = URL.createObjectURL(file)
-        this.noModif[type] = ''
-      }
-    },
-    sendImage (type) {
-      let serverPage = 'saveImage.php'
-      if (type === 'cover') serverPage = 'saveImage1.php'
-      else this.$root.$emit('loading', 'on')
+    previewProfile (file) {
+      this.profileImg = file
+      document.getElementById('upFprofile').src = URL.createObjectURL(file)
+      this.noModif['profile'] = ''
 
+      // code for the same profile but with size reduced
+      this.$refs.profileSmall.emitLoad()
+      this.$refs.profileSmall.handleFile(file)
+    },
+    previewProfileSmall (file) {
+      // named preview but won't be previewed
+      this.profileSmallImg = file
+    },
+    previewCover (file) {
+      // const [file] = this.$refs[type].files
+      this.coverImg = file
+      document.getElementById('upFcover').src = URL.createObjectURL(file)
+      this.noModif['cover'] = ''
+    },
+    sendImages () {
+      this.$root.$emit('loading', 'on')
       // axios request
       const axios = require('axios')
       var formData = new FormData()
-      const [file] = this.$refs[type].files
-      if (file) {
-        formData.append('image', file)
-        axios.post(this.$store.state.baseUrl + serverPage, formData, {
+      if (this.coverImg || this.profileImg) {
+        if (this.profileImg) formData.append('image_name', this.profileImg)
+        if (this.profileSmallImg) formData.append('image_name2', this.profileSmallImg)
+        if (this.coverImg) formData.append('image_name1', this.coverImg)
+        axios.post(this.$store.state.baseUrl + 'saveProfilImages.php', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         })
           .then((response) => {
             console.log(response.data)
-            if (type === 'profile') this.sendImage('cover')
-            else this.publishing() // on publi après avoir enregistré l'image
+            this.publishing() // on publi après avoir enregistré les images
           })
           .catch((error) => {
             alert(error)
           })
       } else {
-        if (type === 'profile') this.sendImage('cover')
-        else this.publishing()
+        this.publishing()
       } // s'il n(y a pas de fichier on publi quand meme le reste)
     },
     validation () {

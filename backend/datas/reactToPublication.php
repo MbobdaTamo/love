@@ -11,7 +11,7 @@ $bdd = connexion_bd() ;
 require("biblio.php") ;
 $point = pointForReaction($rp['reactionType']);
 $point_to_add = 0;
-//--------------------- vérifions si le compte existe déja -----------------------
+//--------------------- vérifions si la réaction existe déjà -----------------------
 $req = $bdd->prepare('SELECT id, point, personne FROM ReactionPublication WHERE publication = ? AND personne = ?');
 $req->execute(array($rp['publication'],$rp['personne']));
 $result = $req->fetch();
@@ -55,6 +55,10 @@ else {
 	// update the publication point
 	$req = $bdd->prepare('UPDATE Publication SET point = point + ? WHERE id_publication = ? ');
 	$req->execute(array($point_to_add,$rp['publication']));
+
+// ici on va envoyer la requete de notification
+require("notification.php") ;
+notification($bdd,$personne['personne'],$rp['publication'],1,1,$rp['personne']);
 
 $req->closeCursor();
 ?>

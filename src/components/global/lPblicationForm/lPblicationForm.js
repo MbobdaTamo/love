@@ -9,7 +9,8 @@ export default {
       Display: 'none',
       isDisplayed: false,
       publiTitle: '',
-      publiContent: ''
+      publiContent: '',
+      file: ''
     }
   },
   methods: {
@@ -18,9 +19,16 @@ export default {
       this.isDisplayed = !this.isDisplayed
       document.getElementById('lPbblah').src = ''
     },
-    preview () {
-      const [file] = this.$refs.image.files
+    testing () {
+      const [file] = this.$refs['tester'].files
+      // this.$refs.imUploader.uploadFile(file)
+      this.$refs.imUploader.emitLoad()
+      this.$refs.imUploader.handleFile(file)
+    },
+    preview (file) {
+      // const [file] = this.$refs.image.
       if (file) {
+        this.file = file
         document.getElementById('lPbblah').src = URL.createObjectURL(file)
       }
     },
@@ -28,17 +36,21 @@ export default {
       this.$root.$emit('loading', 'on')
       const axios = require('axios')
       var formData = new FormData()
-      const [file] = this.$refs.image.files
-      if (file) {
-        formData.append('image', file)
-        axios.post(this.$store.state.baseUrl + 'saveImage.php', formData, {
+      if (this.file) {
+        formData.append('image_name', this.file)
+        axios.post(this.$store.state.baseUrl + 'savePublicationImg.php', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         })
           .then((response) => {
             console.log(response.data)
-            this.publishing() // on publi après avoir enregistré l'image
+            if (response.data === 'success') {
+              this.publishing()
+            } else {
+              this.$root.$emit('loading', 'off')
+              alert(response.data)
+            }
           })
           .catch((error) => {
             alert(error)

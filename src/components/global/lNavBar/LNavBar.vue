@@ -36,7 +36,7 @@
         </div>
         <div class="navBar2right">
           <div class="navLang">
-            <BellNotification/>
+            <BellNotificationSmall/>
           </div>
         </div>
       </div>

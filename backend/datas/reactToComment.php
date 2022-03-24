@@ -57,6 +57,9 @@ else {
 	$req = $bdd->prepare('UPDATE Commentaire SET point = point + ? WHERE id_commentaire = ? ');
 	$req->execute(array($point_to_add,$rp['commentaire']));
 
+// ici on va envoyer la requete de notification
+require("notification.php") ;
+notification($bdd,$personne['personne'],$rp['publication'],$rp['commentaire'],1,$rp['personne']);
 
 $req->closeCursor();
 ?>

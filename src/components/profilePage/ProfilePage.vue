@@ -7,7 +7,7 @@
          <LLoading style="z-index:3" />
         <div class ="pPageHeader" :style="{backgroundImage: 'url(' + this.$store.state.baseUrl + photo_couverture +')'}" >
             <div class ="pPagePhoto">
-                <img :src ="this.$store.state.baseUrl + image">
+                <img :src ="this.$store.state.baseUrl + photo_profile">
             </div>
             <div class = "pPageInfo" id = "pPageInfo1">
                 <div class="pPageName">{{ nom }}</div>
@@ -26,7 +26,7 @@
         </div>
         <div>
             <div class="pPageProfile">
-                <img :src="this.$store.state.baseUrl + image"/>
+                <img :src="this.$store.state.baseUrl + photo_profile"/>
             </div>
             <div>
                 {{ pseudo }}

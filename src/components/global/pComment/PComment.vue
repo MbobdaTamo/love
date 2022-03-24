@@ -10,7 +10,16 @@
         </div>
         <div class="pCommentCom">
             <div class="pCPin">
-                <label class="pCfileUpload"><input ref='image' @change="preview" type="file"/><img src="./images/pin.svg"></label>
+                <label class="pCfileUpload"><image-uploader
+                    :debug="1"
+                    :maxWidth="512"
+                    :maxHeight="512"
+                    :autoRotate = true
+                    :quality = "1"
+                    outputFormat="blob"
+                    :preview=false
+                    @input="preview"
+                ></image-uploader><img src="./images/pin.svg"></label>
             </div>
             <div><textarea v-model="texte"></textarea></div>
             <div @click='sendImage' ><img src="./images/send.svg"/></div>

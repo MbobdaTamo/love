@@ -47,10 +47,6 @@
     top:0px
   }
   
-  .bellNotification  .number:empty {
-     display: none;
-  }
-  
   .bellNotification .notBtn{
     transition: 0.5s;
     cursor: pointer

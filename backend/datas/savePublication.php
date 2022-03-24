@@ -6,6 +6,8 @@ session_start();
 // getting datas from post
 $rp = json_decode(file_get_contents('php://input'), true);
 $_SESSION['publication'] = $rp;
+$_SESSION['publication']['publiTitle'] = htmlspecialchars ($_SESSION['publication']['publiTitle']);
+$_SESSION['publication']['publiContent'] = htmlspecialchars ($_SESSION['publication']['publiContent']);
 print_r($rp);
 
 // ------------- connexion à la base de données --------------------------

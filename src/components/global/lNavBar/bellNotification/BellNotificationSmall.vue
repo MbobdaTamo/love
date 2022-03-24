@@ -20,7 +20,7 @@
                     <img class = "profile" :src="baseUrl + data.image">
                     </div>
                     <div class = "txt"> {{ data.nom }} reacted your post: "{{ data.texte.substr(0,30) }}..."
-                       <span v-show = "data.number > 2"> with {{ data.number - 1  }} other person</span>
+                        with {{ data.number }} other person
                     </div>
                     <div class = "txt sub">{{ data.date }}</div>
                     </a>
@@ -35,5 +35,5 @@
 </template>
 <style src="./bellNotification.css">
 </style>
-<script src = "./bellNotification.js">
+<script src = "./bellNotificationSmall.js">
 </script>

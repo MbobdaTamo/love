@@ -7,7 +7,8 @@ export default {
       texte: '',
       type: 'Football',
       callerId: 42,
-      serverPage: ''
+      serverPage: '',
+      file: ''
     }
   },
   methods: {
@@ -15,9 +16,9 @@ export default {
       this.Display = this.isDisplayed ? 'none' : 'block'
       this.isDisplayed = !this.isDisplayed
     },
-    preview () {
-      const [file] = this.$refs.image.files
+    preview (file) {
       if (file) {
+        this.file = file
         document.getElementById('pCImage').src = URL.createObjectURL(file)
       }
     },
@@ -25,17 +26,21 @@ export default {
       this.$root.$emit('loading', 'on')
       const axios = require('axios')
       var formData = new FormData()
-      const [file] = this.$refs.image.files
-      if (file) {
-        formData.append('image', file)
-        axios.post(this.$store.state.baseUrl + 'saveImage.php', formData, {
+      if (this.file) {
+        formData.append('image_name', this.file) // don't modify image_name, it will be called server sidely
+        axios.post(this.$store.state.baseUrl + 'savePublicationImg.php', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         })
           .then((response) => {
-            alert(response.data)
-            this.publishing() // on publi après avoir enregistré l'image
+            console.log(response.data)
+            if (response.data === 'success') {
+              this.publishing()
+            } else {
+              this.$root.$emit('loading', 'off')
+              alert(response.data)
+            }
           })
           .catch((error) => {
             alert(error)
