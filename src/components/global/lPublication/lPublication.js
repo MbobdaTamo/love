@@ -135,8 +135,7 @@ export default {
         })
     },
     toPublication () {
-      this.$store.commit('updatePublication', {id: this.id, type: this.publication_type})
-      this.$router.push('publication')
+      this.$router.push({name: 'publication', params: { id: this.id, com: 1, comOfCom: 1 }})
     },
     toProfile () {
       this.$store.commit('updateProfilePage', this.auth_id)

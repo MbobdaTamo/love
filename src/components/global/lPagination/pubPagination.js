@@ -69,7 +69,7 @@ export default {
       this.$root.$emit('loading', 'on')
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'selectComment.php', {
-        publication: this.$store.state.publication.id,
+        publication: this.$route.params.id,
         reactionType: reaction,
         typeRequest: typeRequest
       })
@@ -86,7 +86,7 @@ export default {
           ]
           // updating
           this.datas1 = this.splitTable(response.data, 4)
-          this.$root.$emit('pageChanged', this.datas1[0])
+          this.$root.$emit('pageChangedPublication', this.datas1[0])
           this.$root.$emit('loading', 'off')
         })
         .catch((error) => {
@@ -127,7 +127,7 @@ export default {
     }
   },
   mounted () {
-    this.$root.$on('typeSelected', data => {
+    this.$parent.$on('typeSelected', data => {
       if (data === 'latest') this.updateDatas(data, 'latest')
       else if (data === 'most_point') this.updateDatas(data, 'most_point')
       else this.updateDatas(data, 'by_reaction')

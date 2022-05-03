@@ -10,6 +10,7 @@ import Publication from '@/components/publication/Publication'
 import PubliList from '@/components/publiList/PubliList'
 import ProfilePage from '@/components/profilePage/ProfilePage'
 import LoveComment from '@/components/loveCommenttt/LoveComment'
+import authentication from '@/middleware/authentication'
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +19,10 @@ export default new Router({
     {
       path: '/',
       name: 'main',
-      component: LoveProject
+      component: LoveProject,
+      meta: {
+        middleware: [authentication]
+      }
     },
     {
       path: '/inscription',
@@ -38,12 +42,18 @@ export default new Router({
     {
       path: '/loveProject',
       name: 'loveProject',
-      component: LoveProject
+      component: LoveProject,
+      meta: {
+        middleware: [authentication]
+      }
     },
     {
-      path: '/publication',
+      path: '/publication/:id/commentaire/:com',
       name: 'publication',
-      component: Publication
+      component: Publication,
+      meta: {
+        middleware: [authentication]
+      }
     },
     {
       path: '/publiList',
@@ -53,7 +63,10 @@ export default new Router({
     {
       path: '/profilePage',
       name: 'profilePage',
-      component: ProfilePage
+      component: ProfilePage,
+      meta: {
+        middleware: [authentication]
+      }
     },
     {
       path: '/loveComment',

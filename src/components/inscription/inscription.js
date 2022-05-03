@@ -50,13 +50,14 @@ export default {
         return false
       }
       if (this.$refs.password.message !== this.$refs.confirmpw.message) {
-        alert(' passwords did not match')
+        alert('passwords did not match')
         return false
       }
       return true
     }
   },
   created () {
+    window.scrollTo(0, 0)
     if (this.$store.state.publicationMessage) {
       this.$store.commit('mutPubliMessage', false)
       alert('Compte existant\n veuillez réesayer')

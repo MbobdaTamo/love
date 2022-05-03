@@ -59,24 +59,12 @@ export default {
         .catch((error) => {
           alert(error)
         })
-    },
-    getCookieValueByName (name) {
-      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-      return match ? match[2] : ''
     }
   },
   mounted () {
-    this.$root.$on('pageChanged', data => {
+    this.$on('pageChanged', data => { // from LPagination
       this.publicationIndexes = data
       window.scrollTo(0, 0)
     })
-  },
-  created () {
-    console.log(this.getCookieValueByName('userId'))
-    if (this.getCookieValueByName('userId') === '') {
-      this.$router.push('login')
-    } else {
-      this.$store.commit('updateLogin', {connected: true, id: this.getCookieValueByName('userId')})
-    }
   }
 }

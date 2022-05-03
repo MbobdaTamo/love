@@ -32,8 +32,8 @@ export default {
     }
   },
   mounted () {
-    this.$root.$on('pageChanged', data => {
-      // emitted from pubPagination
+    this.$on('pageChanged', data => {
+      // emitted from LPagination
       this.publicationIndexes = this.exist(data)
       window.scrollTo(0, 0)
     })

@@ -24,6 +24,7 @@ export default {
     return {
       publicationIndexes: [],
       DisplayModifier: 'none',
+      publicationSort: 'publiées par',
       datas: null, /* [
         {type: 'Football', total: '188', published: '100K'}
       ] */
@@ -73,7 +74,10 @@ export default {
         id: this.$store.state.profilePageId
       })
         .then((response) => {
-          console.log(response.data)
+          if (response.data[0].total == null) {
+            response.data[0].total = 0
+            response.data[0].published = 0
+          }
           this.datas = response.data
         })
         .catch((error) => {
@@ -85,29 +89,39 @@ export default {
         return []
       } else { return a }
     },
+    notZero (a) {
+      if (a === 0) return 1
+      else return a
+    },
     displayForm () {
       this.$refs.form.displaying()
-    },
-    getCookieValueByName (name) {
-      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-      return match ? match[2] : ''
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (this.$route.name === 'profilePage') {
+        this.getUserDatas()
+        this.getUserStats()
+        this.$emit('typeSelected', 'mypub')
+        if (this.$store.state.login.id === this.$store.state.profilePageId) this.DisplayModifier = 'flex'
+        else this.DisplayModifier = 'none'
+        window.scrollTo(0, 0)
+      }
     }
   },
   mounted () {
-    this.$root.$on('pageChanged', data => {
+    this.$on('pageChanged', data => {
       // emitted from userPagination
       this.publicationIndexes = this.exist(data)
       window.scrollTo(0, 0)
+    })
+    this.$on('typeSelected', data => {
+      if (data === 'reacted') this.publicationSort = 'notées par'
+      else if (data === 'mypub') this.publicationSort = 'publiées par'
     })
     this.getUserDatas()
     this.getUserStats()
     // lors du lancement de la page le button modifier est affiché si il appartient au compte de l
     if (this.$store.state.login.id === this.$store.state.profilePageId) this.DisplayModifier = 'flex'
-  },
-  created () {
-    console.log(this.getCookieValueByName('userId'))
-    if (this.$store.state.profilePageId === 18) {
-      this.$store.commit('updateProfilePage', this.getCookieValueByName('userId'))
-    }
   }
 }

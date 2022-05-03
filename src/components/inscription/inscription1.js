@@ -45,7 +45,8 @@ export default {
               this.$router.push('inscription')
             } else {
               this.$store.commit('updateLogin', {connected: true, id: response.data})
-              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/'
+              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; SameSite=Lax; path=/'
+              console.log(document.cookie)
               this.$router.push('loveProject')
             }
           })
@@ -73,5 +74,8 @@ export default {
       }
       return true
     }
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 }

@@ -71,8 +71,8 @@ export default {
         commentaire: this.id,
         personne: this.$store.state.login.id,
         reactionType: reaction,
-        type: this.$store.state.publication.type,
-        publication: this.$store.state.publication.id
+        type: this.$parent.publication_type,
+        publication: this.$route.params.id
       })
         .then((response) => {
           this.getPublicationPoint()

@@ -70,9 +70,9 @@ export default {
         comOfCom: this.id,
         personne: this.$store.state.login.id,
         reactionType: reaction,
-        type: this.$store.state.publication.type,
+        type: this.$parent.$parent.publication_type,
         parent: this.$parent.id,
-        parentOfParent: this.$store.state.publication.id
+        parentOfParent: this.$route.params.id
       })
         .then((response) => {
           console.log(response.data)

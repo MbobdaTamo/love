@@ -28,7 +28,7 @@ export default {
           .then((response) => {
             if (response.data) {
               this.$store.commit('updateLogin', {connected: true, id: response.data})
-              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/'
+              document.cookie = 'userId=' + response.data + ';expires=Thu, 18 Dec 2023 12:00:00 UTC; SameSite=lax; Secure; path=/'
               this.$router.push('loveProject')
               alert('connexion éffectué avec success')
             } else { alert('account does not exist') }

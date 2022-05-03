@@ -19,12 +19,6 @@ export default {
       this.isDisplayed = !this.isDisplayed
       document.getElementById('lPbblah').src = ''
     },
-    testing () {
-      const [file] = this.$refs['tester'].files
-      // this.$refs.imUploader.uploadFile(file)
-      this.$refs.imUploader.emitLoad()
-      this.$refs.imUploader.handleFile(file)
-    },
     preview (file) {
       // const [file] = this.$refs.image.
       if (file) {
@@ -73,7 +67,7 @@ export default {
           .then((response) => {
             console.log(response.data)
             this.$root.$emit('loading', 'off')
-            this.$root.$emit('typeSelected', 'latest') // for Lpagination component
+            this.$parent.$emit('typeSelected', 'latest') // for Lpagination component
             this.displaying()
           })
           .catch((error) => {

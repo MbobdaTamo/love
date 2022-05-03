@@ -45,9 +45,10 @@ export default {
   },
   methods: {
     updateDatas () {
+      this.$root.$emit('loading', 'on')
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'publicationDatas.php', {
-        id: this.$store.state.publication.id
+        id: this.$route.params.id
       })
         .then((response) => {
           this.getReaction()
@@ -62,6 +63,7 @@ export default {
           this.auth_img = this.$store.state.baseUrl + response.data.auth_img
           if (response.data.image === '') this.DisplayImg = 'none'
           else this.DisplayImg = 'block'; this.publication_img = this.$store.state.baseUrl + response.data.image
+          this.$root.$emit('loading', 'off')
         })
         .catch((error) => {
           alert(error)
@@ -70,7 +72,7 @@ export default {
     reactRequest (reaction) {
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'reactToPublication.php', {
-        publication: this.$store.state.publication.id,
+        publication: this.$route.params.id,
         personne: this.$store.state.login.id,
         reactionType: reaction,
         type: this.$store.state.publication.type
@@ -87,7 +89,7 @@ export default {
     getReaction () {
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'getPubReaction.php', {
-        publication: this.$store.state.publication.id,
+        publication: this.$route.params.id,
         personne: this.$store.state.login.id
       })
         .then((response) => {
@@ -100,7 +102,7 @@ export default {
     getPublicationPoint () {
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'publicationPoint.php', {
-        publication: this.$store.state.publication.id
+        publication: this.$route.params.id
       })
         .then((response) => {
           this.publication_point = response.data
@@ -112,7 +114,7 @@ export default {
     getNumberPubCom () {
       const axios = require('axios')
       axios.post(this.$store.state.baseUrl + 'numberPubCom.php', {
-        publication: this.$store.state.publication.id
+        publication: this.$route.params.id
       })
         .then((response) => {
           this.publi_numb_com = response.data
@@ -125,10 +127,10 @@ export default {
       this.$root.$emit('reactClick', 'pReaction')
     },
     lsReactEmit () { /* this signal is emitted for the component listReactor */
-      this.$root.$emit('lsReactClick', this.$store.state.publication.id)
+      this.$root.$emit('lsReactClick', this.$route.params.id)
     },
     commenterPubEmit () { /* this signal is emitted for the component pComment */
-      this.$root.$emit('commenter', { id: this.$store.state.publication.id, type: 'comment' })
+      this.$root.$emit('commenter', { id: this.$route.params.id, type: 'comment' })
     },
     toProfile () {
       this.$store.commit('updateProfilePage', this.auth_id)
@@ -138,10 +140,6 @@ export default {
       if (typeof a === 'undefined') {
         return []
       } else { return a }
-    },
-    getCookieValueByName (name) {
-      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-      return match ? match[2] : ''
     }
   },
   mounted () {
@@ -149,18 +147,31 @@ export default {
     this.$on('reactSelected', data => {
       this.reactRequest(data)
     })
-    this.$root.$on('pageChanged', data => {
+    this.$root.$on('pageChangedPublication', data => {
       // emitted from pubPagination
       this.publicationIndexes = this.exist(data)
       window.scrollTo(0, 0)
     })
+    /* this.$root.$on('publication', data => {
+      // emitted from pubPagination
+      alert('smth')
+      this.updateDatas()
+    }) */
   },
-  created () {
-    console.log(this.getCookieValueByName('userId'))
-    if (this.getCookieValueByName('userId') === '') {
-      this.$router.push('login')
-    } else {
-      this.$store.commit('updateLogin', {connected: true, id: this.getCookieValueByName('userId')})
+  watch: {
+    $route (to, from) {
+      if (this.$route.name === 'publication') {
+        this.updateDatas()
+        this.$emit('typeSelected', 'most_point')
+
+        // emitted for publicationComment component
+        if (this.$route.params.com !== 1) {
+          this.$root.$emit('commentEmit', this.$route.params.com)
+        } else {
+          this.$emit('closePubliCom')
+        }
+        window.scrollTo(0, 0)
+      }
     }
   }
 }

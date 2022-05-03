@@ -25,7 +25,7 @@
                 </div>
                 <div class="sliderClass">
                         <div @click="toPubliList" class="seeAll">SEE ALL NEWS</div>
-                        <LPagination/>
+                        <LPagination />
                 </div>
                 <div class="secondZone">
                         <div class="secondFirst">

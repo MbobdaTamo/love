@@ -49,7 +49,7 @@ export default {
     },
     changeIndex (newIndex) {
       this.datasIndex = this.index + newIndex
-      this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+      this.$parent.$emit('pageChanged', this.datas1[this.index + newIndex])
       this.initializeColor(newIndex)
       this.saveLPagination(newIndex, this.index)
     },
@@ -59,7 +59,7 @@ export default {
       if (i === 1) newIndex = 0
       else newIndex = 2
       this.initializeColor(newIndex)
-      this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+      this.$parent.$emit('pageChanged', this.datas1[this.index + newIndex])
       this.datasIndex = this.index + newIndex
       this.saveLPagination(newIndex, this.index)
     },
@@ -92,7 +92,7 @@ export default {
           ]
           // updating
           this.datas1 = this.splitTable(response.data, 8)
-          this.$root.$emit('pageChanged', this.datas1[this.index + newIndex])
+          this.$parent.$emit('pageChanged', this.datas1[this.index + newIndex])
           this.initializeColor(newIndex)
           this.$root.$emit('loading', 'off')
         })
@@ -168,7 +168,7 @@ export default {
     }
   },
   mounted () {
-    this.$root.$on('typeSelected', data => {
+    this.$parent.$on('typeSelected', data => {
       if (typeof data === 'undefined') {
         /* nothing */
       } else if (data === 'latest') {

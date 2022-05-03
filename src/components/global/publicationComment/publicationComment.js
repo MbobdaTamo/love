@@ -96,7 +96,7 @@ export default {
         commentaire: this.id,
         personne: this.$store.state.login.id,
         reactionType: reaction,
-        type: this.$store.state.publication.type
+        type: this.$parent.publication_type
       })
         .then((response) => {
           this.getPublicationPoint()
@@ -162,6 +162,10 @@ export default {
       this.$refs.pagination.$emit('loadPagination') // emitted for ComPagination
       this.updateDatas()
       this.displaying()
+    })
+    this.$parent.$on('closePubliCom', date => {
+      this.Display = 'none'
+      this.isDisplayed = false
     })
     this.$root.$on('comPageChanged', data => {
       this.publicationIndexes = this.exist(data)

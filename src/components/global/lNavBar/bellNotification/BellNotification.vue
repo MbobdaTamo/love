@@ -14,7 +14,11 @@
                 <div class = "cent">Looks Like your all caught up!</div>
             </div>
             <div class = "cont"><!-- Fold this div and try deleting evrything inbetween -->
-                <div v-for="(data, index) in datas" :key="index" :style="{backgroundColor:bgColor(data.status)}" class = "sec new" >
+                <div v-for="(data, index) in datas"
+                :key="index"
+                :style="{backgroundColor:bgColor(data.status)}"
+                @click="toPublication(data.publication,data.com,data.comOfCom,data.id,index)"
+                class = "sec new" >
                     <a href = "#">
                     <div class = "profCont">
                     <img class = "profile" :src="baseUrl + data.image">
@@ -22,7 +26,7 @@
                     <div class = "txt"> {{ data.nom }} reacted your post: "{{ data.texte.substr(0,30) }}..."
                        <span v-show = "data.number > 2"> with {{ data.number - 1  }} other person</span>
                     </div>
-                    <div class = "txt sub">{{ data.date }}</div>
+                    <div class = "txt sub">{{ facebookDate(data.date) }}</div>
                     </a>
                 </div>
             </div>

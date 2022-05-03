@@ -7,7 +7,7 @@
                 <img :src='auth_img'>
             </div>
             <div @click="toProfile" class="lPAuthor">
-                <div><span>{{ publication_author }} |</span> {{ publication_date }}</div>
+                <div><span>{{ publication_author }} |</span> {{ facebookDate(publication_date) }}</div>
                 <div class="lPStars"> <div v-for="(color, index) in star_colors" :key="index"> <LPStar :Color="color.color"/> </div> </div>
             </div>
         </div>

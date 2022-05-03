@@ -7,7 +7,7 @@
         </div>
         <div>
             <div :style="{display:DisplayImg}" class="pubComImg"><img :src="publication_img" /></div>
-            <div @click="toProfile" class="pubComDate"><span>{{ publication_author }} |</span> {{ publication_date }}</div>
+            <div @click="toProfile" class="pubComDate"><span>{{ publication_author }} |</span> {{ facebookDate(publication_date) }}</div>
             <div class="pubComText" :style="{maxHeight:vtext_height}">{{ publication_text }} </div>
             <div class="pubComMore"><div @click="slideText" :style="{ display: vdisplay_more }">read more...</div></div>
             <div class="pubComOption">

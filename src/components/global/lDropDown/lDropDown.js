@@ -35,7 +35,7 @@ export default {
     selecting (index) {
       this.currentImage = this.datas[index].image
       this.currentType = this.datas[index].name
-      this.$root.$emit('typeSelected', this.datas[index].emit) // when changing the sort types
+      this.$parent.$emit('typeSelected', this.datas[index].emit) // when changing the sort types
       this.heightCollapse()
     }
   }

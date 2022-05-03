@@ -124,6 +124,8 @@ input:focus, textarea:focus, select:focus{
 /* ---------------- responsive managment --------------------- */
 @media screen and (max-width: 520px) { 
     .lPblicationForm {
+        margin-top: -280px; /* to delete */
+        height: 400px; /* to delete */
         position: fixed;
         width: 100%;
         margin-left: -50%;

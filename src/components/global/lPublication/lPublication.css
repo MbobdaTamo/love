@@ -68,22 +68,24 @@
   width: 90%; 
   padding-left: 3%;
   padding-right: 4%;
-  font-size: 17px;
+  font-size: 16px;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 7px;
+  margin-bottom: 2px;
   line-height: 25px;
-  color: black;
+  color: rgb(40,40, 40); /*rgb(90,90, 90); */
+  font-weight: bold;
 }
 .lPText {
   padding-left: 3%;
   padding-right: 4%;
   text-align: left;
-  line-height: 25px;
+  line-height: 23px;
   font-size: 16px;
   width: 95%;
   transition: max-height 0.5s;
   overflow-y: hidden;
-  color: rgb(90,90, 90);
+  color: rgb(40,40, 40);
   white-space: pre-wrap;
 }
 .lPMore {

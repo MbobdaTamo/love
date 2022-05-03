@@ -2,7 +2,7 @@
     <div class ="lovComment" :style="{display: Display}">
         <div :style="{display:DisplayImg}" class="lovCommentImg"><img :src="publication_img" /></div>
         <div class="lovCommentAuthor">
-            <div @click="toProfile" class="lovCommentDate"><span>{{ publication_author }} |</span> {{ publication_date }}</div>
+            <div @click="toProfile" class="lovCommentDate"><span>{{ publication_author }} |</span> {{ facebookDate(publication_date) }}</div>
             <div class="lovCommentProfile">
                 <div><img :src="auth_img"></div>
             </div>

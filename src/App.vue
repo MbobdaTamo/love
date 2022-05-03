@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive include="publiList,loveProject,publication,profilePage">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

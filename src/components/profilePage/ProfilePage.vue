@@ -50,7 +50,7 @@
                     </div>
                     <span>{{ field.total }}</span>
                     <span>{{ field.published }}</span>
-                    <span>{{ (field.total/field.published).toFixed(2) }}</span>
+                    <span>{{ (field.total/notZero(field.published)).toFixed(2) }}</span>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 />
             </div>
             <div class="pPagePbTitle">
-                Publications relatives à {{ nom.toUpperCase() }}
+                Publications {{ publicationSort }} {{ nom.toUpperCase() }}
             </div>
             <div>
                 <div><LPublication ref='lp1' reference='lp1' :id='publicationIndexes[0]' /></div>

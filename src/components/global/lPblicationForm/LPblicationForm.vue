@@ -22,7 +22,6 @@
                 ></image-uploader><img src="./photo.svg"></label>
             <img id="lPbblah" />
             </div>
-            <div>zdzd<input ref='tester' type="file" @change="testing"/></div>
             <div @click='sendImage' >Publier</div>
     </div>
 </section>

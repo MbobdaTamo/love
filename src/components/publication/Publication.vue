@@ -16,7 +16,7 @@
                     <div class="pBy">
                         <div style="cursor:pointer;" @click="toProfile" class="pNameZone">
                             <div class="pAthName">Par {{ publication_author }}</div>
-                            <div class="pDate">{{ publication_date }}</div>
+                            <div class="pDate">{{ facebookDate(publication_date) }}</div>
                         </div>
                         <div class="pProfile"><img :src="auth_img"/></div>
                     </div>

@@ -56,10 +56,10 @@ export default {
         const axios = require('axios')
         axios.post(this.$store.state.baseUrl + this.serverPage, {
           texte: this.texte,
-          type: this.$store.state.publication.type,
+          type: this.$parent.publication_type,
           publication: this.callerId,
           personne: this.$store.state.login.id,
-          parent: this.$store.state.publication.id
+          parent: this.$route.params.id
         })
           .then((response) => {
             console.log('success' + response.data)
